@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #FCF6EF;
+  color: #131313;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }

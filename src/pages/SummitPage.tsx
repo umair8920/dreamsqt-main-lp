@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
 
@@ -130,10 +130,9 @@ export const SummitPage: React.FC = () => {
     <div style={{ background: CREAM }}>
       {/* ── Hero ── */}
       <section style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden' }}>
-        <TopBar />
         <img src="/event-hero.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #131313 10.6%, rgba(39,25,0,0.71) 52.9%, #131313 100%)' }} />
-        <Header variant="dark" />
+        <Header variant="dark" hideNav />
         <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: 40 }}>
           <div style={{ marginBottom: 24 }}>
             <SectionPill innerBg="#131313">

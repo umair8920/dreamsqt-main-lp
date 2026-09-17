@@ -50,7 +50,8 @@ const HomePage = () => (
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<SummitPage />} />
+      <Route path="/home" element={<HomePage />} />
       <Route path="/cost-calculator" element={<CostCalculatorPage />} />
       <Route path="/event" element={<EventPage />} />
       <Route path="/summit" element={<SummitPage />} />

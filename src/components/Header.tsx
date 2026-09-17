@@ -16,9 +16,10 @@ const NAV_LINKS: { label: string; to: string }[] = [
 
 interface HeaderProps {
   variant?: 'dark' | 'light';
+  hideNav?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
+export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = false }) => {
   const isDark = variant === 'dark';
   const textColor = isDark ? '#fff' : '#131313';
 
@@ -45,27 +46,29 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
         </Link>
 
         {/* Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          {NAV_LINKS.map((link) =>
-            link.to.startsWith('/') ? (
-              <Link
-                key={link.label}
-                to={link.to}
-                style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <a
-                key={link.label}
-                href={link.to}
-                style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
-              >
-                {link.label}
-              </a>
-            )
-          )}
-        </nav>
+        {!hideNav && (
+          <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            {NAV_LINKS.map((link) =>
+              link.to.startsWith('/') ? (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+          </nav>
+        )}
 
         {/* Login */}
         <button style={{

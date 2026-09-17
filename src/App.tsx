@@ -1,4 +1,4 @@
-import React from 'react';
+// React import removed — not needed with new JSX transform
 import { Routes, Route } from 'react-router-dom';
 import { TopBar } from './components/TopBar';
 import { Header } from './components/Header';

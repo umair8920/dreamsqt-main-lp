@@ -60,16 +60,7 @@ const SessionCard = ({ logo, logoAlt, title, description }: {
   </div>
 );
 
-/* ── Walk-away checklist item ── */
-const WalkItem = ({ text }: { text: string }) => (
-  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, background: '#fff', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 8, padding: '10px 14px' }}>
-    <svg width={20} height={20} viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
-      <circle cx="10" cy="10" r="9" stroke={GOLD} strokeWidth={1.5}/>
-      <path d="M6 10l3 3 5-5" stroke={GOLD} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-    <p style={{ fontFamily: SF, fontSize: 14, color: DARK, lineHeight: 1.5, margin: 0 }}>{text}</p>
-  </div>
-);
+
 
 /* ── Speaker card ── */
 const SpeakerCard = ({ name, designation, photo }: { name: string; designation: string; photo: string }) => (
@@ -131,7 +122,7 @@ export const SummitPage: React.FC = () => {
   const videoRef = useRef<HTMLDivElement>(null);
   const speakerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (ref: React.RefObject<HTMLDivElement>, amount: number) => {
+  const scroll = (ref: React.RefObject<HTMLDivElement | null>, amount: number) => {
     ref.current?.scrollBy({ left: amount, behavior: 'smooth' });
   };
 

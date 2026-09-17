@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
-const GOLD = '#925E02';
+// const GOLD = '#925E02'; // unused
 const CARD_BG = '#F4EEE5';
 
 const POSTS = [

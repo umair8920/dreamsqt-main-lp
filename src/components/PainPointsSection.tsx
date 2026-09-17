@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionPill } from './SectionPill';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -27,14 +28,12 @@ const PAIN_CARDS = [
 ];
 
 export const PainPointsSection: React.FC = () => (
-  <section style={{ background: '#FEF3DC', padding: '0 80px 80px' }}>
+  <section style={{ background: '#FCF6EF', padding: '80px 80px 80px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 50, alignItems: 'flex-start' }}>
       {/* Left side */}
       <div style={{ flex: '0 0 630px', display: 'flex', flexDirection: 'column', gap: 24 }}>
         {/* Pill */}
-        <div style={{ display: 'inline-flex', alignSelf: 'flex-start', border: '1px solid #C58F28', borderRadius: 20, padding: '6px 14px' }}>
-          <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 500, color: '#925E02', letterSpacing: '0.05em' }}>PAIN POINTS</span>
-        </div>
+        <SectionPill innerBg="#FCF6EF">PAIN POINTS</SectionPill>
 
         {/* Heading */}
         <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1 }}>
@@ -64,7 +63,7 @@ export const PainPointsSection: React.FC = () => (
       {/* Right side — pain point cards */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 80 }}>
         {PAIN_CARDS.map((card) => (
-          <div key={card.title} style={{ background: '#F5C842', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div key={card.title} style={{ background: '#FFD073', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10 }}>
             {card.icon}
             <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313' }}>{card.title}</p>
             <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: '#131313', lineHeight: 1.55 }}>{card.desc}</p>

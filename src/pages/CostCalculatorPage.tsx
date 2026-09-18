@@ -1,5 +1,4 @@
 import React from 'react';
-import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
@@ -17,8 +16,6 @@ const FeatureCard = ({ icon, text }: { icon: string; text: string }) => (
 
 export const CostCalculatorPage: React.FC = () => (
   <div style={{ background: '#F4EEE5' }}>
-    {/* Top bar */}
-    <TopBar />
 
     {/* Hero section — #FCF6EF */}
     <section style={{ background: '#FCF6EF', overflow: 'hidden' }}>

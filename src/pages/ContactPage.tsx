@@ -1,5 +1,4 @@
 import React from 'react';
-import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
@@ -9,7 +8,6 @@ const CREAM = '#FCF6EF';
 
 export const ContactPage: React.FC = () => (
   <div style={{ background: CREAM }}>
-    <TopBar />
 
     {/* ── Hero ── */}
     <section style={{ background: CREAM }}>

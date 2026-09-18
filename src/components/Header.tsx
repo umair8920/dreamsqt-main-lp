@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TopBar } from './TopBar';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#925E02';
 
 const NAV_LINKS: { label: string; to: string }[] = [
-  { label: 'DS Portal', to: '#' },
+  { label: 'DS Portal', to: '/' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'DS Club', to: '#' },
   { label: 'Event', to: '/event' },
@@ -19,18 +20,22 @@ interface HeaderProps {
   hideNav?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = false }) => {
+export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
   const isDark = variant === 'dark';
   const textColor = isDark ? '#fff' : '#131313';
 
   return (
     <header style={{
       position: isDark ? 'absolute' : 'relative',
-      top: isDark ? 40 : 0,
+      top: isDark ? 0 : 'auto',
       left: 0,
       right: 0,
       zIndex: 20,
     }}>
+
+      {/* Top Bar */}
+      <TopBar />
+
       <div style={{
         maxWidth: 1440,
         margin: '0 auto',
@@ -46,7 +51,6 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
         </Link>
 
         {/* Nav */}
-        {!hideNav && (
           <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             {NAV_LINKS.map((link) =>
               link.to.startsWith('/') ? (
@@ -68,7 +72,6 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
               )
             )}
           </nav>
-        )}
 
         {/* Login */}
         <button style={{

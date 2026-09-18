@@ -1,5 +1,4 @@
 import React from 'react';
-import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
@@ -77,7 +76,6 @@ const ResourceCard = ({ img, category, title, desc, date, featured = false }: {
 
 export const ResourcesPage: React.FC = () => (
   <div style={{ background: CREAM }}>
-    <TopBar />
 
     {/* ── Hero ── */}
     <section style={{ background: CREAM, overflow: 'hidden' }}>

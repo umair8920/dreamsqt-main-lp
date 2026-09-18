@@ -1,5 +1,4 @@
 import React from 'react';
-import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
@@ -108,7 +107,6 @@ const BlogCard = ({ img, category, title, desc, date, featured = false, badge = 
 
 export const BlogPage: React.FC = () => (
   <div style={{ background: CARD_BG }}>
-    <TopBar />
 
     {/* ── Hero ── */}
     <section style={{ position: 'relative', height: 810, overflow: 'hidden' }}>

@@ -37,44 +37,89 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
       <TopBar />
 
       <div style={{
+        width: '100%',
         maxWidth: 1440,
         margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '13px 80px',
+        padding: '13px clamp(24px, 5.5vw, 80px)',
         height: 80,
+        boxSizing: 'border-box',
       }}>
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 60, height: 60 }}>
-          <img src="/logo.svg" alt="Dream Squat" style={{ width: 44, height: 44 }} />
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 60, height: 60, flexShrink: 0 }}>
+          <img src="/logo.svg" alt="Dream Squat" />
         </Link>
 
         {/* Nav */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            {NAV_LINKS.map((link) =>
-              link.to.startsWith('/') ? (
-                <Link
-                  key={link.label}
-                  to={link.to}
-                  style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.to}
-                  style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: textColor, textDecoration: 'none', padding: '12px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}
-                >
-                  {link.label}
-                </a>
-              )
-            )}
-          </nav>
+        <nav
+          style={{
+            flex: 1,
+            maxWidth: 734,
+            height: 41,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            marginLeft: 40,
+            minWidth: 0,
+          }}
+        >
+          {NAV_LINKS.map((link) =>
+            link.to.startsWith('/') ? (
+              <Link
+                key={link.label}
+                to={link.to}
+                style={{
+                  height: 41,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '12px 14px',
+                  gap: 8,
+                  fontFamily: SF,
+                  fontSize: 15,
+                  fontWeight: 400,
+                  color: textColor,
+                  textDecoration: 'none',
+                  borderRadius: 8,
+                  whiteSpace: 'nowrap',
+                  boxSizing: 'border-box',
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.to}
+                style={{
+                  height: 41,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '12px 14px',
+                  gap: 8,
+                  fontFamily: SF,
+                  fontSize: 15,
+                  fontWeight: 400,
+                  color: textColor,
+                  textDecoration: 'none',
+                  borderRadius: 8,
+                  whiteSpace: 'nowrap',
+                  boxSizing: 'border-box',
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          )}
+        </nav>
+
 
         {/* Login */}
         <button style={{
+          marginLeft: 'auto',
+          flexShrink: 0,
           fontFamily: SF,
           fontSize: 15,
           fontWeight: 500,

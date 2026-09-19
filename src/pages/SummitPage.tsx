@@ -131,13 +131,72 @@ export const SummitPage: React.FC = () => {
       {/* ── Hero ── */}
       <section style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden' }}>
         <img src="/event-hero.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #131313 10.6%, rgba(39,25,0,0.71) 52.9%, #131313 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #131313 10.58%, rgba(39,25,0,0.71) 52.88%, #131313 100%)' }} />
         <Header variant="dark" hideNav />
         <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: 40 }}>
-          <div style={{ marginBottom: 24 }}>
-            <SectionPill innerBg="#131313">
-              <span style={{ color: '#fff' }}>The Dream Squat Marketing & Branding Summit 2026</span>
-            </SectionPill>
+          <div
+            style={{
+              marginBottom: 24,
+            }}
+          >
+            <div
+              style={{
+                position: 'relative',
+                display: 'inline-block',
+                borderRadius: 20,
+                background: 'transparent',
+                boxSizing: 'border-box',
+              }}
+            >
+              {/* Gradient border only */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  padding: 1,
+                  borderRadius: 20,
+                  background:
+                    'linear-gradient(90deg, #925E02 2%, #C5A13B 29%, #E6CC60 50%, #F2DC6E 60%, #ECD465 67%, #DDBD4E 77%, #C49727 91%, #B07908 100%)',
+                  WebkitMask:
+                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  pointerEvents: 'none',
+                  boxSizing: 'border-box',
+                }}
+              />
+
+              {/* Transparent center */}
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  height: 35,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '8px 10px',
+                  borderRadius: 20,
+                  background: 'transparent',
+                  color: '#fff',
+                  fontFamily: SF,
+                  fontSize: 11,
+                  fontWeight: 500,
+                  letterSpacing: '0.05em',
+                  whiteSpace: 'nowrap',
+                  boxSizing: 'border-box',
+                }}
+              >
+                <span
+                  style={{
+                    color: '#fff',
+                    background: 'transparent',
+                  }}
+                >
+                  The Dream Squat Marketing & Branding Summit 2026
+                </span>
+              </div>
+            </div>
           </div>
           <h1 style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 24, maxWidth: 831, textAlign: 'center' }}>
             <span style={{ color: '#f2dc6e' }}>11 July 2026</span>

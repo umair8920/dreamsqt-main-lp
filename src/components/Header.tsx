@@ -19,7 +19,7 @@ interface HeaderProps {
   hideNav?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
+export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = false }) => {
   const isDark = variant === 'dark';
   const textColor = isDark ? '#fff' : '#131313';
 
@@ -35,7 +35,9 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
       {/* Top Bar */}
       <TopBar />
 
-      <div style={{
+      <div
+        className="header-inner"
+        style={{
         width: '100%',
         maxWidth: 1440,
         margin: '0 auto',
@@ -44,79 +46,89 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark' }) => {
         padding: '13px clamp(24px, 5.5vw, 80px)',
         height: 80,
         boxSizing: 'border-box',
-      }}>
+      }}
+      >
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 60, height: 60, flexShrink: 0 }}>
+        <Link
+          to="/"
+          className="page-load-reveal page-load-reveal--delay-2 interactive-lift"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 60, height: 60, flexShrink: 0 }}
+        >
           <img src="/logo.svg" alt="Dream Squat" />
         </Link>
 
         {/* Nav */}
-        <nav
-          style={{
-            flex: 1,
-            maxWidth: 734,
-            height: 41,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginLeft: 40,
-            minWidth: 0,
-          }}
-        >
-          {NAV_LINKS.map((link) =>
-            link.to.startsWith('/') ? (
-              <Link
-                key={link.label}
-                to={link.to}
-                style={{
-                  height: 41,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '12px 14px',
-                  gap: 8,
-                  fontFamily: SF,
-                  fontSize: 15,
-                  fontWeight: 400,
-                  color: textColor,
-                  textDecoration: 'none',
-                  borderRadius: 8,
-                  whiteSpace: 'nowrap',
-                  boxSizing: 'border-box',
-                }}
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <a
-                key={link.label}
-                href={link.to}
-                style={{
-                  height: 41,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '12px 14px',
-                  gap: 8,
-                  fontFamily: SF,
-                  fontSize: 15,
-                  fontWeight: 400,
-                  color: textColor,
-                  textDecoration: 'none',
-                  borderRadius: 8,
-                  whiteSpace: 'nowrap',
-                  boxSizing: 'border-box',
-                }}
-              >
-                {link.label}
-              </a>
-            )
-          )}
-        </nav>
+        {!hideNav && (
+          <nav
+            className="header-nav page-load-reveal page-load-reveal--delay-3"
+            style={{
+              flex: 1,
+              maxWidth: 734,
+              height: 41,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              marginLeft: 40,
+              minWidth: 0,
+            }}
+          >
+            {NAV_LINKS.map((link) =>
+              link.to.startsWith('/') ? (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="interactive-text-parent"
+                  style={{
+                    height: 41,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '12px 14px',
+                    gap: 8,
+                    fontFamily: SF,
+                    fontSize: 15,
+                    fontWeight: 400,
+                    color: textColor,
+                    textDecoration: 'none',
+                    borderRadius: 8,
+                    whiteSpace: 'nowrap',
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  <span className="interactive-text">{link.label}</span>
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  className="interactive-text-parent"
+                  style={{
+                    height: 41,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '12px 14px',
+                    gap: 8,
+                    fontFamily: SF,
+                    fontSize: 15,
+                    fontWeight: 400,
+                    color: textColor,
+                    textDecoration: 'none',
+                    borderRadius: 8,
+                    whiteSpace: 'nowrap',
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  <span className="interactive-text">{link.label}</span>
+                </a>
+              )
+            )}
+          </nav>
+        )}
 
 
         {/* Login */}
-        <button style={{
+        <button className="header-login interactive-button page-load-reveal page-load-reveal--delay-4" style={{
           marginLeft: 'auto',
           flexShrink: 0,
           fontFamily: SF,

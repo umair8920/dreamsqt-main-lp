@@ -38,6 +38,7 @@ const SOCIALS = [
 
 export const TopBar: React.FC = () => (
   <div
+    className="topbar-shell page-load-reveal page-load-reveal--delay-1"
     style={{
       width: '100%',
       height: 40,
@@ -47,6 +48,7 @@ export const TopBar: React.FC = () => (
     }}
   >
     <div
+      className="topbar-inner"
       style={{
         width: '100%',
         maxWidth: 1440,
@@ -61,6 +63,7 @@ export const TopBar: React.FC = () => (
     >
       {/* Contact Information */}
       <div
+        className="topbar-contacts"
         style={{
           display: 'flex',
           gap: 32,
@@ -71,6 +74,7 @@ export const TopBar: React.FC = () => (
       >
         {CONTACTS.map(({ icon, iconW, iconH, text }) => (
           <span
+            className="topbar-contact interactive-text-parent"
             key={text}
             style={{
               display: 'flex',
@@ -84,12 +88,13 @@ export const TopBar: React.FC = () => (
               flexShrink: 0,
             }}
           >
-            <img
-              src={icon}
-              alt=""
-              style={{
-                width: iconW,
-                height: iconH,
+              <img
+                src={icon}
+                alt=""
+                className="interactive-text"
+                style={{
+                  width: iconW,
+                  height: iconH,
                 display: 'block',
                 flexShrink: 0,
               }}
@@ -101,6 +106,7 @@ export const TopBar: React.FC = () => (
 
       {/* Social Icons */}
       <div
+        className="topbar-socials"
         style={{
           display: 'flex',
           gap: 8,
@@ -114,6 +120,7 @@ export const TopBar: React.FC = () => (
             key={i}
             src={src}
             alt=""
+            className="interactive-lift"
             style={{
               width: 18,
               height: 18,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -34,38 +35,40 @@ const PRODUCTS = [
 
 export const EcosystemSection: React.FC = () => (
   <section style={{ background: '#FCF6EF', padding: '0 80px 80px' }}>
-    <div style={{ maxWidth: 1280, margin: '0 auto', background: '#7B4E00', borderRadius: 28, padding: '56px 60px' }}>
-      {/* Header */}
-      <div style={{ marginBottom: 48 }}>
-        <div style={{ display: 'inline-flex', border: '1px solid rgba(255,255,255,0.35)', borderRadius: 20, padding: '5px 14px', marginBottom: 20 }}>
-          <span style={{ fontFamily: SF, fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.85)', letterSpacing: '0.08em' }}>WHAT HAPPENS AFTER DAY 90</span>
+    <ScrollReveal variant="scale">
+      <div style={{ maxWidth: 1280, margin: '0 auto', background: '#7B4E00', borderRadius: 28, padding: '56px 60px' }}>
+        {/* Header */}
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ display: 'inline-flex', border: '1px solid rgba(255,255,255,0.35)', borderRadius: 20, padding: '5px 14px', marginBottom: 20 }}>
+            <span style={{ fontFamily: SF, fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.85)', letterSpacing: '0.08em' }}>WHAT HAPPENS AFTER DAY 90</span>
+          </div>
+          <h2 style={{ fontFamily: SF, fontSize: 52, fontWeight: 700, color: '#fff', lineHeight: 1.12, maxWidth: 860, marginBottom: 16 }}>
+            Everyone else stops when the course ends. My businesses are the ones you use on day 91.
+          </h2>
+          <p style={{ fontFamily: SF, fontSize: 15, color: 'rgba(255,255,255,0.7)', maxWidth: 680 }}>
+            Most people teaching squats hand you a workbook and wish you luck. I built the infrastructure instead, because I needed it for my own practices first.
+          </p>
         </div>
-        <h2 style={{ fontFamily: SF, fontSize: 52, fontWeight: 700, color: '#fff', lineHeight: 1.12, maxWidth: 860, marginBottom: 16 }}>
-          Everyone else stops when the course ends. My businesses are the ones you use on day 91.
-        </h2>
-        <p style={{ fontFamily: SF, fontSize: 15, color: 'rgba(255,255,255,0.7)', maxWidth: 680 }}>
-          Most people teaching squats hand you a workbook and wish you luck. I built the infrastructure instead, because I needed it for my own practices first.
-        </p>
-      </div>
 
-      {/* 2x2 product grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-        {PRODUCTS.map((p) => (
-          <div key={p.name} style={{ borderRadius: 20, overflow: 'hidden', position: 'relative', height: 360 }}>
-            <img src={p.img} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%)' }} />
-            <div style={{ position: 'absolute', bottom: 24, left: 24, right: 24, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
-              <div>
-                <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 6 }}>{p.name}</h3>
-                <p style={{ fontFamily: SF, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, maxWidth: 380 }}>{p.desc}</p>
-              </div>
-              <div style={{ flexShrink: 0 }}>
-                <ArrowIcon />
+        {/* 2x2 product grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          {PRODUCTS.map((p) => (
+            <div key={p.name} style={{ borderRadius: 20, overflow: 'hidden', position: 'relative', height: 360 }}>
+              <img src={p.img} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%)' }} />
+              <div style={{ position: 'absolute', bottom: 24, left: 24, right: 24, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
+                <div>
+                  <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 6 }}>{p.name}</h3>
+                  <p style={{ fontFamily: SF, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, maxWidth: 380 }}>{p.desc}</p>
+                </div>
+                <div style={{ flexShrink: 0 }}>
+                  <ArrowIcon />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </ScrollReveal>
   </section>
 );

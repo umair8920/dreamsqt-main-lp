@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
+import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -37,43 +38,43 @@ export const ResourcesSection: React.FC = () => (
   <section style={{ background: '#F4EEE5', padding: '80px 80px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       {/* Header */}
-      <div style={{ marginBottom: 48 }}>
-        <div style={{ marginBottom: 20 }}>
-          <SectionPill innerBg="#F4EEE5">FREE RESOURCES</SectionPill>
+      <ScrollReveal>
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ marginBottom: 20 }}>
+            <SectionPill innerBg="#F4EEE5">FREE RESOURCES</SectionPill>
+          </div>
+          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, maxWidth: 580 }}>
+            From <span style={{ color: '#C58F28' }}>curiosity</span> to clinic owner
+          </h2>
         </div>
-        <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, maxWidth: 580 }}>
-          From <span style={{ color: '#C58F28' }}>curiosity</span> to clinic owner
-        </h2>
-      </div>
+      </ScrollReveal>
 
       {/* Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-        {RESOURCES.map((r) => (
-          <div key={r.title} style={{ borderRadius: 20, overflow: 'hidden', background: '#fff', display: 'flex', flexDirection: 'column' }}>
-            {/* Image */}
-            <div style={{ height: 290, overflow: 'hidden' }}>
-              <img src={r.img} alt={r.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
-            </div>
-            {/* Content */}
-            <div style={{ padding: '24px 24px 28px', flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {/* Category pill */}
-              <div style={{ display: 'inline-flex', alignSelf: 'flex-start', background: '#F5C842', borderRadius: 6, padding: '3px 10px' }}>
-                <span style={{ fontFamily: SF, fontSize: 11, fontWeight: 600, color: '#131313', letterSpacing: '0.04em' }}>{r.category}</span>
+      <ScrollReveal variant="scale">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          {RESOURCES.map((r) => (
+            <div key={r.title} style={{ borderRadius: 20, overflow: 'hidden', background: '#fff', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ height: 290, overflow: 'hidden' }}>
+                <img src={r.img} alt={r.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
-              <h3 style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313', lineHeight: 1.3 }}>{r.title}</h3>
-              <p style={{ fontFamily: SF, fontSize: 14, color: '#666', lineHeight: 1.55, flex: 1 }}>{r.desc}</p>
-              {/* Footer row */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8 }}>
-                <button style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#131313', border: 'none', borderRadius: 6, padding: '8px 16px', cursor: 'pointer' }}>
-                  <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 600, color: '#fff' }}>DOWNLOAD</span>
-                  <DownloadIcon />
-                </button>
-                <span style={{ fontFamily: SF, fontSize: 11, color: '#999' }}>{r.date}</span>
+              <div style={{ padding: '24px 24px 28px', flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <div style={{ display: 'inline-flex', alignSelf: 'flex-start', background: '#F5C842', borderRadius: 6, padding: '3px 10px' }}>
+                  <span style={{ fontFamily: SF, fontSize: 11, fontWeight: 600, color: '#131313', letterSpacing: '0.04em' }}>{r.category}</span>
+                </div>
+                <h3 style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313', lineHeight: 1.3 }}>{r.title}</h3>
+                <p style={{ fontFamily: SF, fontSize: 14, color: '#666', lineHeight: 1.55, flex: 1 }}>{r.desc}</p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8 }}>
+                  <button style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#131313', border: 'none', borderRadius: 6, padding: '8px 16px', cursor: 'pointer' }}>
+                    <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 600, color: '#fff' }}>DOWNLOAD</span>
+                    <DownloadIcon />
+                  </button>
+                  <span style={{ fontFamily: SF, fontSize: 11, color: '#999' }}>{r.date}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </ScrollReveal>
     </div>
   </section>
 );

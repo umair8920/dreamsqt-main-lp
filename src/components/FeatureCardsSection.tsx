@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
+import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -56,34 +57,38 @@ export const FeatureCardsSection: React.FC = () => (
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
       {/* Block 1 */}
-      <div style={{ marginBottom: 60 }}>
-        <Pill />
-        <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
-          Learn the exact system to{' '}
-          <span style={{ color: '#C58F28' }}>build your Dream Squat</span>
-        </h2>
-        <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
-          Designed for associates who want to own a clinic, create freedom, and grow a patient list from day one
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-          {ROW1.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
+      <ScrollReveal>
+        <div style={{ marginBottom: 60 }}>
+          <Pill />
+          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
+            Learn the exact system to{' '}
+            <span style={{ color: '#C58F28' }}>build your Dream Squat</span>
+          </h2>
+          <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
+            Designed for associates who want to own a clinic, create freedom, and grow a patient list from day one
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+            {ROW1.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Block 2 */}
-      <div>
-        <Pill />
-        <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
-          For associates who want more than{' '}
-          <span style={{ color: '#C58F28', fontStyle: 'italic' }}>a day rate</span>
-        </h2>
-        <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
-          If you're a dentist with a skill and a vision, Dream Squat shows you exactly how to turn it into your own associate‑led practice not "one day", but in the next 90 days.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-          {ROW2.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
+      <ScrollReveal variant="scale">
+        <div>
+          <Pill />
+          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
+            For associates who want more than{' '}
+            <span style={{ color: '#C58F28', fontStyle: 'italic' }}>a day rate</span>
+          </h2>
+          <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
+            If you're a dentist with a skill and a vision, Dream Squat shows you exactly how to turn it into your own associate‑led practice not "one day", but in the next 90 days.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+            {ROW2.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
     </div>
   </section>

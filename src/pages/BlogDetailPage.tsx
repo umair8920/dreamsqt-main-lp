@@ -4,12 +4,14 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { getBlogPost, getRelatedBlogPosts, type BlogPost } from '../data/blogPosts';
 import heroImage from '../assets/blog/Rectangle 34624763.png';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const PAGE_BG = '#FCF6EF';
 
 const CategoryPill = ({ label }: { label: string }) => (
   <span
+    className="blog-detail-category-pill"
     style={{
       display: 'inline-flex',
       alignItems: 'center',
@@ -64,6 +66,7 @@ const ArticleBlock = ({ block }: { block: string }) => {
 const RelatedCard = ({ post }: { post: BlogPost }) => (
   <Link
     to={`/blog/${post.slug}`}
+    className="interactive-lift blog-detail-related-card"
     style={{
       display: 'flex',
       flexDirection: 'column',
@@ -75,22 +78,23 @@ const RelatedCard = ({ post }: { post: BlogPost }) => (
       textDecoration: 'none',
     }}
   >
-    <div style={{ height: 320, overflow: 'hidden', borderRadius: '20px 20px 0 0' }}>
+    <div className="blog-detail-related-media" style={{ height: 320, overflow: 'hidden', borderRadius: '20px 20px 0 0' }}>
       <img
+        className="blog-detail-related-image"
         src={post.img}
         alt={post.title}
         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
       />
     </div>
-    <div style={{ padding: '20px 20px 24px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
+    <div className="interactive-text-parent blog-detail-related-body" style={{ padding: '20px 20px 24px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
         <CategoryPill label={post.category} />
-        <span style={{ fontFamily: SF, fontSize: 10, color: '#737373', lineHeight: 1.3 }}>{post.date}</span>
+        <span className="interactive-text" style={{ fontFamily: SF, fontSize: 10, color: '#737373', lineHeight: 1.3 }}>{post.date}</span>
       </div>
-      <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#131313', lineHeight: 1.3, margin: 0 }}>
+      <h3 className="interactive-text blog-detail-related-title-card" style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#131313', lineHeight: 1.3, margin: 0 }}>
         {post.title}
       </h3>
-      <p style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.55, margin: 0 }}>
+      <p className="interactive-text blog-detail-related-desc" style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.55, margin: 0 }}>
         {post.desc}
       </p>
     </div>
@@ -106,37 +110,51 @@ export const BlogDetailPage: React.FC = () => {
   const relatedPosts = getRelatedBlogPosts(post.slug, 2);
 
   return (
-    <div style={{ background: PAGE_BG, minHeight: '100vh' }}>
+    <div className="blog-detail-page" style={{ background: PAGE_BG, minHeight: '100vh' }}>
       <section className="blog-detail-hero">
         <Header variant="dark" />
         <img src={heroImage} alt="" className="blog-detail-hero-image" />
         <div className="blog-detail-hero-overlay" />
         <div className="blog-detail-hero-content">
-          <h1 className="blog-detail-title">{post.title}</h1>
-          <p className="blog-detail-description">{post.desc}</p>
+          <div className="page-load-reveal page-load-reveal--delay-1">
+            <CategoryPill label={post.category} />
+          </div>
+          <h1 className="blog-detail-title page-load-reveal page-load-reveal--delay-2">{post.title}</h1>
+          <p className="blog-detail-description page-load-reveal page-load-reveal--delay-3">{post.desc}</p>
         </div>
       </section>
 
       <main>
         <article className="blog-detail-article">
-
           {post.body.map((block, index) => (
-            <ArticleBlock key={`${post.slug}-${index}`} block={block} />
+            <ScrollReveal key={`${post.slug}-${index}`} delay={([100, 200, 300, 400][index % 4]) as 100 | 200 | 300 | 400}>
+              <ArticleBlock block={block} />
+            </ScrollReveal>
           ))}
 
-          <Link to={post.ctaTo} className="blog-detail-cta">
-            {post.ctaLabel} →
-          </Link>
+          <ScrollReveal variant="scale" delay={400}>
+            <Link to={post.ctaTo} className="interactive-button blog-detail-cta">
+              {post.ctaLabel} â†’
+            </Link>
+          </ScrollReveal>
         </article>
 
         <section className="blog-detail-related">
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <h2 className="blog-detail-related-title">Read more blogs</h2>
-            <div className="blog-detail-related-grid">
-              {relatedPosts.map((relatedPost) => (
-                <RelatedCard key={relatedPost.slug} post={relatedPost} />
-              ))}
-            </div>
+            <ScrollReveal variant="scale">
+              <h2 className="blog-detail-related-title">Read more blogs</h2>
+              <div className="blog-detail-related-grid">
+                {relatedPosts.map((relatedPost, index) => (
+                  <ScrollReveal
+                    key={relatedPost.slug}
+                    variant="scale"
+                    delay={([100, 200, 300, 400][index % 4]) as 100 | 200 | 300 | 400}
+                  >
+                    <RelatedCard post={relatedPost} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
         </section>
       </main>

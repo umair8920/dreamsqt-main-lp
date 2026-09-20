@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
+import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -44,33 +45,34 @@ export const SolutionSection: React.FC = () => (
   <section style={{ background: '#FCF6EF', padding: '80px 80px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       {/* Header */}
-      <div style={{ marginBottom: 48 }}>
-        <div style={{ marginBottom: 20 }}><SectionPill innerBg="#F4EEE5">THE PROBLEM</SectionPill></div>
-        <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, maxWidth: 640, marginBottom: 16 }}>
-          Instead, build your own dream practice
-        </h2>
-        <p style={{ fontFamily: SF, fontSize: 16, color: '#666', maxWidth: 630 }}>
-          Turn your knowledge into products that sell on repeat without relying on your time.
-        </p>
-      </div>
+      <ScrollReveal>
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ marginBottom: 20 }}><SectionPill innerBg="#F4EEE5">THE PROBLEM</SectionPill></div>
+          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, maxWidth: 640, marginBottom: 16 }}>
+            Instead, build your own dream practice
+          </h2>
+          <p style={{ fontFamily: SF, fontSize: 16, color: '#666', maxWidth: 630 }}>
+            Turn your knowledge into products that sell on repeat without relying on your time.
+          </p>
+        </div>
+      </ScrollReveal>
 
       {/* 3 Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
-        {CARDS.map((card) => (
-          <div key={card.title} style={{ borderRadius: 20, overflow: 'hidden', height: 704, position: 'relative', background: '#e8dcc8' }}>
-            {/* Background image */}
-            <img src="/clinic-interior.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
-            {/* Top gradient overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #F4EEE5 32%, rgba(244,238,229,0) 52%)' }} />
-            {/* Content */}
-            <div style={{ position: 'relative', zIndex: 1, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {card.icon}
-              <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 700, color: '#C58F28', marginTop: 6 }}>{card.title}</h3>
-              <p style={{ fontFamily: SF, fontSize: 14, color: '#555', lineHeight: 1.55 }}>{card.desc}</p>
+      <ScrollReveal variant="scale">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+          {CARDS.map((card) => (
+            <div key={card.title} style={{ borderRadius: 20, overflow: 'hidden', height: 704, position: 'relative', background: '#e8dcc8' }}>
+              <img src="/clinic-interior.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #F4EEE5 32%, rgba(244,238,229,0) 52%)' }} />
+              <div style={{ position: 'relative', zIndex: 1, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {card.icon}
+                <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 700, color: '#C58F28', marginTop: 6 }}>{card.title}</h3>
+                <p style={{ fontFamily: SF, fontSize: 14, color: '#555', lineHeight: 1.55 }}>{card.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </ScrollReveal>
     </div>
   </section>
 );

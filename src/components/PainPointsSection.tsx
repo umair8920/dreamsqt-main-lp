@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
+import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -32,42 +33,40 @@ export const PainPointsSection: React.FC = () => (
     <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 50, alignItems: 'flex-start' }}>
       {/* Left side */}
       <div style={{ flex: '0 0 630px', display: 'flex', flexDirection: 'column', gap: 24 }}>
-        {/* Pill */}
-        <SectionPill innerBg="#FCF6EF">PAIN POINTS</SectionPill>
-
-        {/* Heading */}
-        <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1 }}>
-          Still stuck being a Dental Associate
-        </h2>
-
-        {/* Image */}
-        <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 400, background: '#333' }}>
-          <img
-            src="/pain-img.png"
-            alt="Frustrated dental associate"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-          />
-          {/* Caption overlay */}
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0,
-            background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
-            padding: '40px 24px 20px',
-          }}>
-            <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 400, color: '#fff' }}>
-              Exhausted from long hours, unpredictable pay, and starting from zero every month?
-            </p>
+        <ScrollReveal variant="left">
+          <SectionPill innerBg="#FCF6EF">PAIN POINTS</SectionPill>
+          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 24, marginBottom: 24 }}>
+            Still stuck being a Dental Associate
+          </h2>
+          <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 400, background: '#333' }}>
+            <img
+              src="/pain-img.png"
+              alt="Frustrated dental associate"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+            />
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
+              padding: '40px 24px 20px',
+            }}>
+              <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 400, color: '#fff' }}>
+                Exhausted from long hours, unpredictable pay, and starting from zero every month?
+              </p>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Right side — pain point cards */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 80 }}>
-        {PAIN_CARDS.map((card) => (
-          <div key={card.title} style={{ background: '#FFD073', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {card.icon}
-            <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313' }}>{card.title}</p>
-            <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: '#131313', lineHeight: 1.55 }}>{card.desc}</p>
-          </div>
+        {PAIN_CARDS.map((card, idx) => (
+          <ScrollReveal key={card.title} variant="right" delay={(100 * (idx + 1)) as 100 | 200 | 300}>
+            <div style={{ background: '#FFD073', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {card.icon}
+              <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313' }}>{card.title}</p>
+              <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: '#131313', lineHeight: 1.55 }}>{card.desc}</p>
+            </div>
+          </ScrollReveal>
         ))}
       </div>
     </div>

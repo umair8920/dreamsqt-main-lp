@@ -1,4 +1,3 @@
-// React import removed — not needed with new JSX transform
 import { Routes, Route } from 'react-router-dom';
 import { TopBar } from './components/TopBar';
 import { Header } from './components/Header';
@@ -22,6 +21,7 @@ import { ResourcesPage } from './pages/ResourcesPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import './index.css';
 
 const HomePage = () => (
@@ -49,6 +49,8 @@ const HomePage = () => (
 );
 
 export default function App() {
+  useScrollReveal();
+
   return (
     <Routes>
       <Route path="/" element={<SummitPage />} />

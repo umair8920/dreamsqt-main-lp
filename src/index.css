@@ -17,3 +17,173 @@ body {
   to   { transform: translateX(-50%); }
 }
 .marquee-track { animation: marquee 28s linear infinite; }
+
+.blog-detail-hero {
+  position: relative;
+  min-height: 506px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 148px 24px 84px;
+}
+
+.blog-detail-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.blog-detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(19, 19, 19, 0.94) 0%, rgba(39, 25, 0, 0.72) 52%, rgba(19, 19, 19, 0.94) 100%),
+    rgba(19, 19, 19, 0.2);
+}
+
+.blog-detail-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.blog-detail-title {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(38px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #F2DC6E;
+  margin: 0;
+  max-width: 920px;
+}
+
+.blog-detail-description {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.42;
+  color: #fff;
+  margin: 0;
+  max-width: 860px;
+}
+
+.blog-detail-article {
+  max-width: 868px;
+  margin: 0 auto;
+  padding: 68px 24px 78px;
+}
+
+.blog-detail-h2,
+.blog-detail-h3,
+.blog-detail-p {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #131313;
+}
+
+.blog-detail-h2 {
+  font-size: clamp(28px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 44px 0 18px;
+}
+
+.blog-detail-h3 {
+  font-size: clamp(21px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 36px 0 16px;
+}
+
+.blog-detail-p {
+  font-size: 16px;
+  line-height: 1.72;
+  margin: 0 0 16px;
+}
+
+.blog-detail-p strong {
+  font-weight: 700;
+}
+
+.blog-detail-p em {
+  color: #6D6255;
+}
+
+.blog-detail-back-link {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #925E02;
+  text-decoration: none;
+}
+
+.blog-detail-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  border-radius: 8px;
+  background: #925E02;
+  color: #FBFBFB;
+  padding: 12px 30px;
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-detail-related {
+  background: #F4EEE5;
+  padding: 112px 24px 100px;
+}
+
+.blog-detail-related-title {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #231F20;
+  text-align: center;
+  margin: 0 0 56px;
+}
+
+.blog-detail-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .blog-detail-hero {
+    min-height: 560px;
+    padding-top: 170px;
+  }
+
+  .blog-detail-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-detail-hero {
+    min-height: 620px;
+    padding: 180px 20px 72px;
+  }
+
+  .blog-detail-article {
+    padding-top: 52px;
+  }
+
+  .blog-detail-related {
+    padding: 76px 20px 80px;
+  }
+}

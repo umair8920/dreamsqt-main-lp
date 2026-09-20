@@ -21,6 +21,7 @@ import { SummitPage } from './pages/SummitPage';
 import { ResourcesPage } from './pages/ResourcesPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
+import { BlogDetailPage } from './pages/BlogDetailPage';
 import './index.css';
 
 const HomePage = () => (
@@ -57,6 +58,7 @@ export default function App() {
       <Route path="/summit" element={<SummitPage />} />
       <Route path="/resources" element={<ResourcesPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/blog/:slug" element={<BlogDetailPage />} />
       <Route path="/blog" element={<BlogPage />} />
     </Routes>
   );

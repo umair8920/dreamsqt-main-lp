@@ -32,7 +32,6 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
       background: '#fff',
       display: 'flex',
       flexDirection: 'column',
-      boxShadow: post.featured ? '0px 40px 50px 0px rgba(146,94,2,0.3)' : 'none',
       position: 'relative',
     }}
   >

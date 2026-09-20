@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import footerimage from '../assets/footer/footer-background.png';
+import footerimage1 from '../assets/footer/footer-background1.png';
 import linkedinicon from '../assets/TopBaricons/linkdin.svg';
 import instagramicon from '../assets/TopBaricons/instagram.svg';
 import youtbeicon from '../assets/TopBaricons/youtube.svg';
@@ -20,7 +21,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer style={{ position: 'relative', background: '#FAF7F2', overflow: 'hidden', padding: '91px 20px 250px', minHeight: 870 }}>
+    <footer style={{ position: 'relative', background: '#FFFFFF', overflow: 'hidden', padding: '91px 20px 250px', minHeight: 870 }}>
       {/* Giant watermark */}
       <div style={{
         position: 'absolute', left: '50%', transform: 'translateX(-50%)',
@@ -68,12 +69,12 @@ export const Footer: React.FC = () => {
         <div style={{ flex: 1, minWidth: 0, borderRadius: 40, background: '#fff0d1', padding: '40px 48px 32px', position: 'relative', overflow: 'visible', minHeight: 528 }}>
           {/* Floating rotated badge */}
           <div style={{
-            position: 'absolute', top: -36, right: 62, width: 140, height: 140,
-            backgroundImage: `url(${footerimage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
-            borderRadius: 30, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 20px 30px rgba(0,0,0,0.29)', transform: 'rotate(-19.65deg)',
+            position: 'absolute', top: -36, right: 62, width: 152, height: 152,
+            backgroundImage: `url(${footerimage1})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transform: 'rotate(-19.65deg)',
           }}>
-            <img src="/logo.svg" alt="DS" style={{ width: 80, height: 80 }} />
+            
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>

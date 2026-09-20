@@ -47,8 +47,8 @@ export const CostCalculatorPage: React.FC = () => (
         </div>
 
         {/* Right — calculator screenshot card (rounded top corners only) */}
-        <div style={{ flex: 1, height: 634, borderRadius: '40px 40px 0 0', overflow: 'hidden', background: GOLD, flexShrink: 0, maxWidth: 573 }}>
-          <img src="/calc-dashboard.png" alt="Dental Practice Setup Cost Estimator" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+        <div style={{ flex: 1, height: 634, overflow: 'hidden', flexShrink: 0, maxWidth: 573 }}>
+          <img src="/calc-dashboard.png" alt="Dental Practice Setup Cost Estimator" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'top center', display: 'block' }} />
         </div>
       </div>
       </div>

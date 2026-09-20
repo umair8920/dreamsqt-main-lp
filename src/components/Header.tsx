@@ -8,7 +8,6 @@ const GOLD = '#925E02';
 const NAV_LINKS: { label: string; to: string }[] = [
   { label: 'DS Portal', to: '/' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
-  { label: 'DS Club', to: '#' },
   { label: 'Event', to: '/event' },
   { label: 'Free Resources', to: '/resources' },
   { label: 'Blogs', to: '/blog' },

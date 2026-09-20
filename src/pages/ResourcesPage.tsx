@@ -51,8 +51,8 @@ const ResourceCard = ({ img, category, title, desc, date, featured = false }: {
     boxShadow: featured ? '0px 40px 50px 0px rgba(146,94,2,0.3)' : 'none',
   }}>
     {/* Image */}
-    <div style={{ height: 290, overflow: 'hidden', borderRadius: '20px 20px 0 0', flexShrink: 0 }}>
-      <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
+    <div style={{ width: '100%', height: 290, overflow: 'hidden', borderRadius: '20px 20px 0 0', flexShrink: 0, position: 'relative' }}>
+      <img src={img} alt={title} style={{ width: '100%', height: 'auto', position: 'absolute', top: '50%', left: 0, transform: 'translateY(-50%)', display: 'block' }} />
     </div>
     {/* Content */}
     <div style={{ padding: '20px 20px 24px', flex: 1, display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -63,7 +63,7 @@ const ResourceCard = ({ img, category, title, desc, date, featured = false }: {
       <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#131313', lineHeight: 1.3, margin: 0 }}>{title}</h3>
       <p style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.55, flex: 1, margin: 0 }}>{desc}</p>
       {/* Footer row */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 4 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 12, marginTop: 4 }}>
         <button style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#131313', border: 'none', borderRadius: 30, padding: '4px 12px', cursor: 'pointer' }}>
           <span style={{ fontFamily: SF, fontSize: 12, fontWeight: 590, color: '#fff', textTransform: 'uppercase' }}>Download</span>
           <DownloadIcon />
@@ -98,16 +98,16 @@ export const ResourcesPage: React.FC = () => (
         </div>
 
         {/* Right — hero image (two tilted book covers) */}
-        <div style={{ flex: 1, position: 'relative', height: 520, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ flex: 1, position: 'relative', width: '100%', maxWidth: 611, height: 'clamp(380px, 33.45vw, 482px)', minHeight: 380, margin: '0 auto' }}>
           <img
             src="/resources-book-1.png"
             alt=""
-            style={{ position: 'absolute', left: '5%', top: '50%', transform: 'translateY(-50%) rotate(-11.47deg)', width: 280, boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)', borderRadius: 4 }}
+            style={{ position: 'absolute', width: '49.7%', height: 'auto', left: '6%', top: '0%', transform: 'rotate(-11.47deg)', transformOrigin: 'center center', boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)', borderRadius: 4, zIndex: 2, }}
           />
           <img
             src="/resources-book-2.png"
             alt=""
-            style={{ position: 'absolute', right: '5%', top: '50%', transform: 'translateY(-55%) rotate(11.14deg)', width: 260, boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)', borderRadius: 4 }}
+            style={{ position: 'absolute', width: '45.9%', height: 'auto', right: '6%', top: '3.9%', transform: 'rotate(11.47deg)', transformOrigin: 'center center', boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)', borderRadius: 4, zIndex: 1, }}
           />
         </div>
       </div>

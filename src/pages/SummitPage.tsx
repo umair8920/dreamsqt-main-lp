@@ -66,7 +66,7 @@ const SessionCard = ({ logo, logoAlt, title, description }: {
 const SpeakerCard = ({ name, designation, photo }: { name: string; designation: string; photo: string }) => (
   <div style={{ flexShrink: 0, width: 400, borderRadius: 20, overflow: 'hidden', background: '#3a3a3a' }}>
     <div style={{ height: 406, overflow: 'hidden' }}>
-      <img src={photo} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      <img src={photo} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
     </div>
     <div style={{ padding: '18px 28px 24px' }}>
       <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#fff', margin: '0 0 4px' }}>{name}</p>
@@ -247,7 +247,7 @@ export const SummitPage: React.FC = () => {
                 From inspiring keynotes to hands-on workshops and networking, every moment sparks ideas and opportunities.
               </p>
             </div>
-            <div style={{ display: 'flex', gap: 12, paddingTop: 8, flexShrink: 0 }}>
+            <div style={{ display: 'flex', gap: 12, paddingTop: 190, flexShrink: 0 }}>
               <NavArrow dir="left" onClick={() => scroll(videoRef, -420)} />
               <NavArrow dir="right" onClick={() => scroll(videoRef, 420)} />
             </div>

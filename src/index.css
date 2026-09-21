@@ -250,6 +250,11 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.summit-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .summit-session-grid-center > div {
   width: min(100%, 400px);
 }
@@ -393,6 +398,14 @@ body {
   will-change: transform, opacity;
 }
 
+.header-menu-button {
+  display: none;
+}
+
+.header-mobile-panel {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .topbar-contacts {
     gap: 20px;
@@ -478,16 +491,19 @@ body {
   }
 
   .header-nav {
-    order: 3;
-    width: 100%;
-    margin-left: 0 !important;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    height: auto;
+    display: none !important;
   }
 
   .header-login {
     margin-left: auto;
+  }
+
+  .header-menu-button {
+    display: inline-flex !important;
+  }
+
+  .header-mobile-panel {
+    display: block !important;
   }
 
   .footer-panels {
@@ -531,6 +547,43 @@ body {
 
   .summit-session-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summit-problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summit-section-header,
+  .summit-speakers-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .summit-videos-arrows,
+  .summit-speakers-arrows {
+    padding-top: 0 !important;
+  }
+
+  .summit-arrow-group {
+    margin-top: 12px;
+  }
+
+  .summit-conference-card {
+    min-height: auto !important;
+  }
+
+  .summit-conference-left {
+    flex-basis: auto !important;
+    width: 100%;
+  }
+
+  .summit-conference-right {
+    width: auto;
+  }
+
+  .footer-left-meta {
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .resources-hero-inner {
@@ -608,6 +661,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  .topbar-shell {
+    display: none;
+  }
+
   .topbar-inner {
     padding-left: 16px;
     padding-right: 16px;
@@ -627,10 +684,20 @@ body {
   .header-inner {
     padding-left: 16px;
     padding-right: 16px;
+    align-items: center;
   }
 
   .header-nav {
-    gap: 2px;
+    display: none !important;
+  }
+
+  .header-login {
+    display: none !important;
+  }
+
+  .header-menu-button {
+    display: inline-flex !important;
+    margin-left: auto;
   }
 
   .footer-root {
@@ -643,6 +710,53 @@ body {
     min-height: auto !important;
     padding: 28px 22px !important;
     border-radius: 28px !important;
+  }
+
+  .footer-left-content,
+  .footer-right-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-left-meta {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .footer-social-row {
+    margin-right: 0 !important;
+  }
+
+  .footer-right-top {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 24px !important;
+  }
+
+  .footer-newsletter {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 24px;
+  }
+
+  .footer-newsletter form {
+    width: 100% !important;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px !important;
+  }
+
+  .footer-newsletter input {
+    width: 100%;
+    padding: 10px 0 !important;
+  }
+
+  .footer-newsletter button {
+    width: 100%;
   }
 
   .footer-watermark {
@@ -680,6 +794,17 @@ body {
     padding: 11px 20px !important;
   }
 
+  .summit-hero-pill {
+    margin-bottom: 18px !important;
+  }
+
+  .summit-hero-pill-inner {
+    white-space: normal !important;
+    height: auto !important;
+    min-height: 35px;
+    text-align: center;
+  }
+
   .summit-video-card,
   .summit-speaker-card {
     width: 84vw !important;
@@ -687,6 +812,73 @@ body {
 
   .summit-video-card {
     height: 560px !important;
+  }
+
+  .summit-video-track,
+  .summit-speaker-track {
+    gap: 14px !important;
+  }
+
+  .summit-section-header {
+    margin-bottom: 28px !important;
+  }
+
+  .summit-section-copy h2 {
+    font-size: clamp(34px, 8vw, 48px) !important;
+  }
+
+  .summit-section-copy p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .summit-problem-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .summit-conference-card {
+    flex-direction: column !important;
+    border-radius: 28px !important;
+  }
+
+  .summit-conference-left {
+    padding: 28px 22px !important;
+    gap: 18px !important;
+  }
+
+  .summit-conference-left h2 {
+    font-size: clamp(32px, 8vw, 44px) !important;
+  }
+
+  .summit-conference-badge {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: -18px auto 8px !important;
+  }
+
+  .summit-conference-right {
+    margin: 0 12px 12px !important;
+    padding: 24px 18px 20px !important;
+    border-radius: 24px !important;
+  }
+
+  .summit-conference-right h3 {
+    font-size: 30px !important;
+  }
+
+  .summit-conference-right div {
+    padding: 10px !important;
+  }
+
+  .summit-speakers-header {
+    margin-bottom: 28px !important;
+  }
+
+  .summit-arrow-group {
+    gap: 10px !important;
   }
 
   .summit-speaker-card {

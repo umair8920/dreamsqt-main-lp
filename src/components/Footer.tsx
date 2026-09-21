@@ -47,16 +47,16 @@ export const Footer: React.FC = () => {
         }}
         >
           <img src="/logo-full.svg" alt="Dream Squat" className="page-load-reveal page-load-reveal--delay-1" style={{ height: 40, width: 'auto' }} />
-          <div>
+          <div className="footer-left-content">
             <h3 className="page-load-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 40, fontWeight: 700, color: '#fff0d1', lineHeight: 1.2, marginBottom: 12 }}>
               Start. Build. Open.
             </h3>
             <p className="page-load-reveal page-load-reveal--delay-3" style={{ fontFamily: SF, fontSize: 18, color: '#a7a7a7', marginBottom: 32, lineHeight: 1.45 }}>
               The smarter way to start, build and open your dental practice.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="footer-left-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <p className="page-load-reveal page-load-reveal--delay-4" style={{ fontFamily: SF, fontSize: 18, color: '#fff0d1', fontStyle: 'italic' }}>Stay in touch!</p>
-              <div style={{ display: 'flex', gap: 10, marginRight: 30 }}>
+              <div className="footer-social-row" style={{ display: 'flex', gap: 10, marginRight: 30 }}>
                 {[
                   { src: linkedinicon, alt: 'LinkedIn' },
                   { src: instagramicon, alt: 'Instagram' },
@@ -83,11 +83,11 @@ export const Footer: React.FC = () => {
             
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
-            <div style={{ display: 'flex', gap: 0, flex: 1 }}>
+          <div className="footer-right-inner" style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
+            <div className="footer-right-top" style={{ display: 'flex', gap: 0, flex: 1 }}>
               {/* Nav columns */}
-              <div style={{ display: 'flex', gap: 80, flexShrink: 0 }}>
-                <div>
+              <div className="footer-links" style={{ display: 'flex', gap: 80, flexShrink: 0 }}>
+                <div className="footer-link-column">
                   <h4 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 20, fontWeight: 600, color: '#131313', marginBottom: 12 }}>Navigation</h4>
                   {NAV_LINKS.map((l) => (
                     <div key={l} style={{ padding: '10px 0' }}>
@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <div>
+                <div className="footer-link-column">
                   <h4 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 20, fontWeight: 600, color: '#131313', marginBottom: 12 }}>Company</h4>
                   {COMPANY_LINKS.map((l) => (
                     <div key={l} style={{ padding: '10px 0' }}>
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
               </div>
 
               {/* Newsletter */}
-              <div className="scroll-reveal-right" style={{ position: 'absolute', left: 324, top: 274, width: 329 }}>
+              <div className="footer-newsletter scroll-reveal-right" style={{ position: 'absolute', left: 324, top: 274, width: 329 }}>
                 <h4 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 16, fontWeight: 700, color: '#131313', marginBottom: 8, lineHeight: 1.2, maxWidth: 299 }}>
                   Join our newsletter to get regular updates
                 </h4>

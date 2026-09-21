@@ -140,7 +140,7 @@ export const SummitPage: React.FC = () => {
         <Header variant="dark"/>
         <div className="summit-hero-content" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: 40 }}>
           <div
-            className="page-load-reveal page-load-reveal--delay-1"
+            className="summit-hero-pill page-load-reveal page-load-reveal--delay-1"
             style={{
               marginBottom: 24,
             }}
@@ -175,7 +175,7 @@ export const SummitPage: React.FC = () => {
 
               {/* Transparent center */}
               <div
-                className="page-load-reveal page-load-reveal--delay-3"
+                className="summit-hero-pill-inner page-load-reveal page-load-reveal--delay-3"
                 style={{
                   position: 'relative',
                   zIndex: 1,
@@ -220,7 +220,7 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "Still invisible" dark section ── */}
-      <section className="summit-page-section" style={{ background: DARK, padding: '80px 0' }}>
+      <section className="summit-page-section summit-problem-section" style={{ background: DARK, padding: '80px 0' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
           <ScrollReveal>
             <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 16, maxWidth: 680 }}>
@@ -233,7 +233,7 @@ export const SummitPage: React.FC = () => {
           </ScrollReveal>
           {/* 2×3 grid */}
           <ScrollReveal variant="scale">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+            <div className="summit-problem-grid" style={{ gap: 16 }}>
               <ProblemCard text="Posting consistently on Instagram, but hearing nothing back" />
               <ProblemCard text="A website that looks great but never converts to appointments" />
               <ProblemCard text="Competitors showing up on Google while you remain invisible" />
@@ -246,11 +246,11 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "A Conference Experience Like No Other" ── */}
-      <section className="summit-page-section" style={{ background: CREAM, padding: '80px 0' }}>
+      <section className="summit-page-section summit-videos-section" style={{ background: CREAM, padding: '80px 0' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
           <ScrollReveal>
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 40 }}>
-              <div>
+            <div className="summit-section-header summit-videos-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 40 }}>
+              <div className="summit-section-copy">
                 <div style={{ marginBottom: 16 }}><SectionPill innerBg={CREAM}>VIDEOS</SectionPill></div>
                 <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: DARK, lineHeight: 1.2, margin: '0 0 16px' }}>
                   A Conference Experience<br />
@@ -260,7 +260,7 @@ export const SummitPage: React.FC = () => {
                   From inspiring keynotes to hands-on workshops and networking, every moment sparks ideas and opportunities.
                 </p>
               </div>
-              <div style={{ display: 'flex', gap: 12, paddingTop: 190, flexShrink: 0 }}>
+              <div className="summit-arrow-group summit-videos-arrows" style={{ display: 'flex', gap: 12, paddingTop: 190, flexShrink: 0 }}>
                 <NavArrow dir="left" onClick={() => scroll(videoRef, -420)} />
                 <NavArrow dir="right" onClick={() => scroll(videoRef, 420)} />
               </div>
@@ -268,7 +268,7 @@ export const SummitPage: React.FC = () => {
           </ScrollReveal>
           {/* Horizontal scroll */}
           <ScrollReveal variant="scale">
-            <div ref={videoRef} style={{ display: 'flex', gap: 20, overflowX: 'auto', scrollBehavior: 'smooth', paddingBottom: 8 }}>
+            <div ref={videoRef} className="summit-video-track hide-scrollbar" style={{ display: 'flex', gap: 20, overflowX: 'auto', scrollBehavior: 'smooth', paddingBottom: 8 }}>
               {['BlZFR9VAlXo', 'BqqZflyb4rc', 'mMxENzPapm8', 'lishNutZ__I', 'BlZFR9VAlXo', 'BlZFR9VAlXo', 'BlZFR9VAlXo'].map((id, i) => (
                 <VideoCard key={i} videoId={id} />
               ))}
@@ -278,7 +278,7 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "One Day. Eight Experts." ── */}
-      <section className="summit-page-section" style={{ background: '#F4EEE5', padding: '80px 0' }}>
+      <section className="summit-page-section summit-about-section" style={{ background: '#F4EEE5', padding: '80px 0' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
           <ScrollReveal>
             <div style={{ marginBottom: 20 }}><SectionPill innerBg={CREAM}>ABOUT SUMMIT</SectionPill></div>
@@ -300,7 +300,7 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "What You'll Learn" ── */}
-      <section className="summit-page-section" style={{ background: '#FFF0D1', padding: '80px 0' }}>
+      <section className="summit-page-section summit-learn-section" style={{ background: '#FFF0D1', padding: '80px 0' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
           <ScrollReveal>
             <div className="page-load-reveal page-load-reveal--delay-1" style={{ marginBottom: 16 }}><SectionPill innerBg="#FFF0D1">VIDEOS</SectionPill></div>
@@ -311,7 +311,7 @@ export const SummitPage: React.FC = () => {
           </ScrollReveal>
           {/* 3-column grid */}
           <ScrollReveal variant="scale">
-            <div className="summit-session-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16 }}>
+            <div className="summit-session-grid" style={{ display: 'grid', gap: 16 }}>
               <SessionCard
                 logo="/session-card-dreamsquat.png"
                 logoAlt="Dream Squat"
@@ -383,14 +383,14 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "This Isn't Another Dental Conference" ── */}
-      <section className="summit-page-section" style={{ background: DARK, padding: '80px 0' }}>
+      <section className="summit-page-section summit-conference-section" style={{ background: DARK, padding: '80px 0' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
           {/* Big card with gold border */}
           <ScrollReveal variant="scale">
-            <div style={{ borderRadius: 40, border: '1px solid #ECD465', overflow: 'hidden', display: 'flex', position: 'relative', background: DARK, minHeight: 660 }}>
+            <div className="summit-conference-card" style={{ borderRadius: 40, border: '1px solid #ECD465', overflow: 'hidden', display: 'flex', position: 'relative', background: DARK, minHeight: 660 }}>
 
               {/* Left: dark bg, pill + heading */}
-              <div style={{ flex: '0 0 50%', padding: '60px 80px 60px 60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28 }}>
+              <div className="summit-conference-left" style={{ flex: '0 0 50%', padding: '60px 80px 60px 60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28 }}>
                 <div>
                   <SectionPill innerBg={DARK}><span style={{ color: '#D9D9D9' }}>WHY ATTEND</span></SectionPill>
                 </div>
@@ -407,12 +407,12 @@ export const SummitPage: React.FC = () => {
               </div>
 
               {/* Dream Squat logo badge — sits on the divider */}
-              <div style={{ position: 'absolute', left: 'calc(50% - 44px)', top: '50%', transform: 'translateY(-50%)', width: 88, height: 88, borderRadius: 20, border: '8px solid #fff', background: 'linear-gradient(90deg, #925E02 2%, #C5A13B 29%, #E6CC60 50%, #F2DC6E 60%, #ECD465 67%, #DDBD4E 77%, #C49727 91%, #B07908 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, boxShadow: '0 4px 12px rgba(0,0,0,0.25)' }}>
+              <div className="summit-conference-badge" style={{ position: 'absolute', left: 'calc(50% - 44px)', top: '50%', transform: 'translateY(-50%)', width: 88, height: 88, borderRadius: 20, border: '8px solid #fff', background: 'linear-gradient(90deg, #925E02 2%, #C5A13B 29%, #E6CC60 50%, #F2DC6E 60%, #ECD465 67%, #DDBD4E 77%, #C49727 91%, #B07908 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, boxShadow: '0 4px 12px rgba(0,0,0,0.25)' }}>
                 <img src="/summit-logo-mark.svg" alt="" className="interactive-lift summit-logo-mark" style={{ width: 50, height: 50 }} />
               </div>
 
               {/* Right: yellow panel */}
-              <div className="page-load-reveal page-load-reveal--delay-2" style={{ flex: 1, background: '#FFD073', borderRadius: 28, margin: 12, padding: '40px 40px 40px 60px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div className="summit-conference-right page-load-reveal page-load-reveal--delay-2" style={{ flex: 1, background: '#FFD073', borderRadius: 28, margin: 12, padding: '40px 40px 40px 60px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <h3 className="page-load-reveal page-load-reveal--delay-3" style={{ fontFamily: SF, fontSize: 40, fontWeight: 700, color: DARK, margin: '0 0 6px' }}>You'll walk away with:</h3>
                 {[
                   'A complete patient acquisition system ready to launch',
@@ -436,10 +436,10 @@ export const SummitPage: React.FC = () => {
       </section>
 
       {/* ── "The Speakers" ── */}
-      <section className="summit-page-section" style={{ background: DARK, padding: '0 0 80px' }}>
+      <section className="summit-page-section summit-speakers-section" style={{ background: DARK, padding: '0 0 80px' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, gap: 20, flexWrap: 'wrap' }}>
-            <div>
+          <div className="summit-speakers-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, gap: 20, flexWrap: 'wrap' }}>
+            <div className="summit-section-copy">
               <ScrollReveal>
                 <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 48, fontWeight: 700, color: '#fff', lineHeight: 1.2, margin: '0 0 12px' }}><span className="page-load-reveal page-load-reveal--delay-1">The Speakers</span></h2>
                 <p className="section-text-reveal page-load-reveal--delay-1" style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', margin: 0, maxWidth: 400 }}>
@@ -447,13 +447,13 @@ export const SummitPage: React.FC = () => {
                 </p>
               </ScrollReveal>
             </div>
-            <div style={{ display: 'flex', gap: 12, flexShrink: 0 }}>
+            <div className="summit-arrow-group summit-speakers-arrows" style={{ display: 'flex', gap: 12, flexShrink: 0 }}>
               <NavArrow dir="left" onClick={() => scroll(speakerRef, -416)} bg={YELLOW} invertIcon />
               <NavArrow dir="right" onClick={() => scroll(speakerRef, 416)} bg={YELLOW} invertIcon />
             </div>
           </div>
           {/* Horizontal scroll */}
-          <div ref={speakerRef} className="hide-scrollbar" style={{ display: 'flex', gap: 16, overflowX: 'auto', scrollBehavior: 'smooth', paddingBottom: 4 }}>
+          <div ref={speakerRef} className="hide-scrollbar summit-speaker-track" style={{ display: 'flex', gap: 16, overflowX: 'auto', scrollBehavior: 'smooth', paddingBottom: 4 }}>
             <SpeakerCard name="Zohaib Hashim" designation="Dental Lawyer – Blackmont Legal" photo="/speaker-zohaib.png" />
             <SpeakerCard name="Courtenay Rush" designation="Finance Specialist – Braemar Finance" photo="/speaker-courtenay.png" />
             <SpeakerCard name="Hassan Mushaid" designation="Marketing – The Creative Composite" photo="/speaker-hassan.png" />

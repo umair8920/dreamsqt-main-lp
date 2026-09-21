@@ -9,7 +9,7 @@ const GOLD = '#925E02';
 
 const FeatureCard = ({ icon, text }: { icon: string; text: string }) => (
   <div
-    className="interactive-lift page-load-reveal page-load-reveal--delay-2"
+    className="interactive-lift cost-feature-card page-load-reveal page-load-reveal--delay-2"
     style={{
       flex: 1,
       border: `1px solid ${GOLD}`,
@@ -37,13 +37,13 @@ export const CostCalculatorPage: React.FC = () => (
       <Header variant="light" />
 
       <div style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <div className="cost-hero-inner" style={{ display: 'flex', alignItems: 'flex-start', padding: '96px 80px 0', gap: 71 }}>
+        <div className="cost-hero-inner">
           <div style={{ flex: '0 0 643px', paddingBottom: 80, paddingTop: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
             <ScrollReveal variant="left">
               <SectionPill innerBg="#FCF6EF">
                 <span className="page-load-reveal page-load-reveal--delay-1">DREAM SQUAT PORTAL</span>
               </SectionPill>
-              <h1 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 20, marginBottom: 20 }}>
+              <h1 className="section-text-reveal cost-h1" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 20, marginBottom: 20 }}>
                 <span className="page-load-reveal page-load-reveal--delay-1">What does it actually</span>{' '}
                 <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>cost to open</span>{' '}
                 <span className="page-load-reveal page-load-reveal--delay-3">a dental practice?</span>
@@ -87,16 +87,16 @@ export const CostCalculatorPage: React.FC = () => (
     </section>
 
     <section className="cost-body" style={{ background: '#F4EEE5' }}>
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
+      <div className="cost-container">
         <ScrollReveal>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 0 60px' }}>
-            <img src="/icon-warning.svg" alt="" className="interactive-lift" style={{ width: 100, height: 100, marginBottom: 32 }} />
-            <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginBottom: 24, maxWidth: 830 }}>
+          <div className="cost-block-intro" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <img src="/icon-warning.svg" alt="" className="interactive-lift cost-block-icon" />
+            <h2 className="section-text-reveal cost-h2" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginBottom: 24, maxWidth: 830 }}>
               <span className="page-load-reveal page-load-reveal--delay-1">Why the numbers you have</span>{' '}
               <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>heard are wrong</span>
             </h2>
             <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.65, margin: '0 0 16px', maxWidth: 670 }}>
-              Ask ten people what a squat costs and you will get answers from Â£120k to Â£600k. Both are true, for different practices, and neither helps you.
+              Ask ten people what a squat costs and you will get answers from £120k to £600k. Both are true, for different practices, and neither helps you.
             </p>
             <p className="section-text-reveal page-load-reveal--delay-3" style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.65, margin: 0, maxWidth: 670 }}>
               The number that matters is yours: your surgery count, your specification, your area, your treatment mix. That is what this works out.
@@ -107,12 +107,12 @@ export const CostCalculatorPage: React.FC = () => (
         <div style={{ height: 1, background: 'rgba(0,0,0,0.12)' }} />
 
         <ScrollReveal variant="scale">
-          <div style={{ padding: '60px 0 60px' }}>
-            <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, textAlign: 'center', marginBottom: 48 }}>
+          <div className="cost-block-features">
+            <h2 className="section-text-reveal cost-h2" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, textAlign: 'center', marginBottom: 48 }}>
               <span className="page-load-reveal page-load-reveal--delay-1">What you</span>{' '}
               <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>get</span>
             </h2>
-            <div className="cost-feature-grid" style={{ display: 'flex', gap: 20 }}>
+            <div className="cost-feature-grid">
               <FeatureCard icon="/icon-code.svg" text="A realistic total range for your build" />
               <FeatureCard icon="/icon-breakdown.svg" text="The breakdown by category, so you can see what is fixed and what is a choice" />
               <FeatureCard icon="/icon-capital.svg" text="Working capital, which is the line almost everyone forgets and the one that kills practices in month four" />
@@ -124,9 +124,9 @@ export const CostCalculatorPage: React.FC = () => (
         <div style={{ height: 1, background: 'rgba(0,0,0,0.12)' }} />
 
         <ScrollReveal>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 0 100px' }}>
-            <img src="/icon-notdo.svg" alt="" className="interactive-lift" style={{ width: 100, height: 100, marginBottom: 32 }} />
-            <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginBottom: 28, maxWidth: 830 }}>
+          <div className="cost-block-outro" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <img src="/icon-notdo.svg" alt="" className="interactive-lift cost-block-icon" />
+            <h2 className="section-text-reveal cost-h2" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginBottom: 28, maxWidth: 830 }}>
               <span className="page-load-reveal page-load-reveal--delay-1">What it will</span>{' '}
               <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>not do</span>
             </h2>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import footerimage from '../assets/footer/footer-background.png';
 import footerimage1 from '../assets/footer/footer-background1.png';
@@ -11,9 +11,42 @@ const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-seri
 const NAV_LINKS = ['Home', 'Event', 'Free Resources', 'Contact Us', 'Comparison Calculator'];
 const COMPANY_LINKS = ['Blog', 'Terms and Condition', 'Privacy Policy'];
 
+/* Watermark sizing: 240px at the 1440px design width, scaled down so the text always fits the footer. */
+const WM_MAX_SIZE = 240;
+const WM_DESIGN_WIDTH = 1440;
+const WM_GUTTER = 32;
+
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [watermarkSize, setWatermarkSize] = useState(WM_MAX_SIZE);
+  const footerRef = useRef<HTMLElement>(null);
+  const watermarkTextRef = useRef<HTMLSpanElement>(null);
+
+  // Fit the watermark to the available width. The text width is measured (not hard-coded)
+  // so it stays correct whichever font ends up rendering.
+  useLayoutEffect(() => {
+    const footer = footerRef.current;
+    const text = watermarkTextRef.current;
+    if (!footer || !text) return;
+
+    const fit = () => {
+      const footerWidth = footer.clientWidth;
+      const currentSize = parseFloat(getComputedStyle(text).fontSize);
+      const textWidth = text.getBoundingClientRect().width;
+      if (!footerWidth || !currentSize || !textWidth) return;
+
+      const available = Math.min(footerWidth, WM_DESIGN_WIDTH) - (footerWidth >= WM_DESIGN_WIDTH ? 0 : WM_GUTTER);
+      const next = Math.min(WM_MAX_SIZE, Math.floor((available / (textWidth / currentSize)) * 10) / 10);
+      setWatermarkSize(next);
+    };
+
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(footer);
+    document.fonts?.ready.then(fit);
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,18 +54,29 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="footer-root" style={{ position: 'relative', background: '#FFFFFF', overflow: 'hidden', padding: '91px 20px 250px', minHeight: 870 }}>
-      {/* Giant watermark */}
+    <footer
+      ref={footerRef}
+      className="footer-root"
+      style={{
+        position: 'relative', background: '#FFFFFF', overflow: 'hidden',
+        // Reserve room below the panels for the (scaled) watermark: 250px at the 240px design size.
+        padding: '91px 20px calc(var(--wm-size) * 0.96 + 20px)',
+        '--wm-size': `${watermarkSize}px`,
+      } as React.CSSProperties}
+    >
+      {/* Giant watermark — sits on the bottom edge, its lowest 4% clipped as in the design */}
       <div
         className="footer-watermark"
+        aria-hidden="true"
         style={{
-        position: 'absolute', left: '50%', transform: 'translateX(-50%)',
-        top: 640, width: 1440, fontFamily: SF, fontSize: 240, fontWeight: 700, lineHeight: 1,
-        whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none',
-        textAlign: 'center', zIndex: 0,
-      }}
+          position: 'absolute', left: '50%', transform: 'translateX(-50%)',
+          bottom: 'calc(var(--wm-size) * -0.042)', width: `min(100%, ${WM_DESIGN_WIDTH}px)`,
+          fontFamily: SF, fontSize: 'var(--wm-size)', fontWeight: 700, lineHeight: 1,
+          whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none',
+          textAlign: 'center', zIndex: 0,
+        }}
       >
-        Dream Squat
+        <span ref={watermarkTextRef} style={{ display: 'inline-block' }}>Dream Squat</span>
       </div>
 
       <div className="footer-panels" style={{ position: 'relative', zIndex: 10, maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 18 }}>

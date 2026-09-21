@@ -19,7 +19,7 @@ const CheckItem = ({ text }: { text: string }) => (
 
 const AgendaCard = ({ icon, title, body }: { icon: string; title: string; body: string }) => (
   <div className="interactive-lift event-agenda-card" style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-    <div style={{ height: 280, borderRadius: '20px 20px 0 0', overflow: 'hidden' }}>
+    <div className="event-agenda-media" style={{ borderRadius: '20px 20px 0 0', overflow: 'hidden' }}>
       <img src="/event-agenda.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
     <div style={{ background: '#F4EEE5', borderRadius: '0 0 20px 20px', padding: '20px 20px 32px', flex: 1 }}>
@@ -61,7 +61,7 @@ export const DsClub: React.FC = () => (
               }}
             />
             <div
-              className="page-load-reveal page-load-reveal--delay-3"
+              className="event-hero-pill-inner page-load-reveal page-load-reveal--delay-3"
               style={{
                 position: 'relative',
                 zIndex: 1,
@@ -99,15 +99,15 @@ export const DsClub: React.FC = () => (
       </div>
     </section>
 
-    <section className="event-section" style={{ background: '#FCF6EF', padding: '80px 0' }}>
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
+    <section className="event-section event-section-top" style={{ background: '#FCF6EF' }}>
+      <div className="event-container">
         <ScrollReveal variant="scale">
           <div className="event-problem-panel" style={{ display: 'flex', minHeight: 540 }}>
-            <div className="page-load-reveal page-load-reveal--delay-1" style={{ flex: '0 0 560px', padding: '80px 56px 80px 50px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 24, background: '#F4EEE5', borderRadius: '20px 0 0 20px' }}>
+            <div className="event-problem-copy page-load-reveal page-load-reveal--delay-1">
               <SectionPill innerBg="#F4EEE5">
                 <span className="page-load-reveal page-load-reveal--delay-1">The Problem</span>
               </SectionPill>
-              <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#131313', lineHeight: 1.1, margin: 0 }}>
+              <h2 className="section-text-reveal event-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#131313', lineHeight: 1.1, margin: 0 }}>
                 <span className="page-load-reveal page-load-reveal--delay-1">Why a room beats a</span>{' '}
                 <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>webinar</span>
               </h2>
@@ -119,8 +119,8 @@ export const DsClub: React.FC = () => (
             <div className="interactive-lift event-right-panel page-load-reveal page-load-reveal--delay-2" style={{ flex: 1, position: 'relative', minHeight: 540, borderRadius: 20, overflow: 'hidden' }}>
               <img src="/event-clinic.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90.5deg, rgba(146,94,2,0.72) 9.6%, rgba(197,161,59,0.72) 48.7%, rgba(230,204,96,0.72) 94.0%, rgba(242,220,110,0.72) 115.5%, rgba(196,151,39,0.72) 182.4%, rgba(176,121,8,0.72) 201.8%)' }} />
-              <div style={{ position: 'relative', zIndex: 10, padding: '56px 40px', display: 'flex', flexDirection: 'column', gap: 16, height: '100%', boxSizing: 'border-box' }}>
-                <h2 className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 50, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 8 }}>What you leave with</h2>
+              <div className="event-right-content">
+                <h2 className="section-text-reveal page-load-reveal--delay-2 event-h2-sm" style={{ fontFamily: SF, fontSize: 50, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 8 }}>What you leave with</h2>
                 <CheckItem text="A realistic cost and timeline for your own build" />
                 <CheckItem text="The contacts to actually start: finance, property, compliance, equipment, marketing" />
                 <CheckItem text="A clear read on whether the next twelve months are your window or not" />
@@ -132,17 +132,17 @@ export const DsClub: React.FC = () => (
       </div>
     </section>
 
-    <section className="event-section" style={{ background: '#FCF6EF', padding: '0 0 80px' }}>
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
+    <section className="event-section event-section-agenda" style={{ background: '#FCF6EF' }}>
+      <div className="event-container">
         <ScrollReveal>
           <div style={{ marginBottom: 40 }}>
             <div className="page-load-reveal page-load-reveal--delay-1" style={{ marginBottom: 16 }}><SectionPill innerBg="#FCF6EF">Event</SectionPill></div>
-            <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: GOLD, lineHeight: 1.2, margin: 0 }}>The agenda</h2>
+            <h2 className="section-text-reveal event-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: GOLD, lineHeight: 1.2, margin: 0 }}>The agenda</h2>
           </div>
         </ScrollReveal>
 
         <ScrollReveal variant="scale">
-          <div className="event-agenda-grid" style={{ display: 'flex', gap: 20 }}>
+          <div className="event-agenda-grid">
             <AgendaCard
               icon="/event-icon-morning1.svg"
               title="Morning The numbers session"
@@ -164,7 +164,7 @@ export const DsClub: React.FC = () => (
     </section>
 
     <section className="event-room-section" style={{ width: '100%', height: 689, display: 'flex', overflow: 'hidden' }}>
-      <div style={{ flex: 1, background: GOLD, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '60px 80px' }}>
+      <div className="event-room-copy">
         <ScrollReveal variant="left">
           <div style={{ maxWidth: 540 }}>
             <div style={{ marginBottom: 24 }}>
@@ -172,7 +172,7 @@ export const DsClub: React.FC = () => (
                 <span className="page-load-reveal page-load-reveal--delay-1" style={{ color: '#fff' }}>The Problem</span>
               </SectionPill>
             </div>
-            <h2 className="section-text-reveal" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 24 }}>
+            <h2 className="section-text-reveal event-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 24 }}>
               Who is in the room
             </h2>
             <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 16, color: '#fff', lineHeight: 1.65, margin: 0 }}>
@@ -181,7 +181,7 @@ export const DsClub: React.FC = () => (
           </div>
         </ScrollReveal>
       </div>
-      <div className="interactive-lift" style={{ flex: 1, overflow: 'hidden' }}>
+      <div className="interactive-lift event-room-media" style={{ flex: 1, overflow: 'hidden' }}>
         <ScrollReveal variant="right" style={{ height: '100%' }}>
           <img src="/event-room.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
         </ScrollReveal>

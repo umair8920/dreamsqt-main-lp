@@ -87,8 +87,8 @@ export const BlogPage: React.FC = () => (
     </section>
 
     <section className="blog-grid-section" style={{ padding: '80px 0 100px' }}>
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
-        <div className="blog-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div className="blog-container">
+        <div className="blog-grid">
           {blogPosts.map((post, index) => (
             <ScrollReveal
               key={post.slug}

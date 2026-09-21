@@ -53,7 +53,9 @@ export const CostCalculatorPage: React.FC = () => (
               </p>
               <div>
                 <a
-                  href="#calculator"
+                  href="https://dreamsquat-practice-cost.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="interactive-button page-load-reveal page-load-reveal--delay-3"
                   style={{
                     display: 'inline-flex',

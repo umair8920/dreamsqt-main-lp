@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
         style={{
         position: 'absolute', left: '50%', transform: 'translateX(-50%)',
         top: 640, width: 1440, fontFamily: SF, fontSize: 240, fontWeight: 700, lineHeight: 1,
-        opacity: 0.03, color: '#131313', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none',
+        whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none',
         textAlign: 'center', zIndex: 0,
       }}
       >

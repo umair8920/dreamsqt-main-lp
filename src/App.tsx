@@ -15,8 +15,8 @@ import { EcosystemSection } from './components/EcosystemSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { Footer } from './components/Footer';
 import { CostCalculatorPage } from './pages/CostCalculatorPage';
-import { EventPage } from './pages/EventPage';
-import { SummitPage } from './pages/SummitPage';
+import { DsClub } from './pages/DsClub';
+import { EventPage } from './pages/Event';
 import { ResourcesPage } from './pages/ResourcesPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
@@ -53,11 +53,11 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<SummitPage />} />
+      <Route path="/" element={<EventPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/cost-calculator" element={<CostCalculatorPage />} />
+      <Route path="/ds-club" element={<DsClub />} />
       <Route path="/event" element={<EventPage />} />
-      <Route path="/summit" element={<SummitPage />} />
       <Route path="/resources" element={<ResourcesPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/blog/:slug" element={<BlogDetailPage />} />

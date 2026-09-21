@@ -14,7 +14,7 @@ const CONTACTS = [
     icon: ICON_MAIL,
     iconW: 17,
     iconH: 13,
-    text: 'Email: cqcmedisolutions@gmail.com',
+    text: 'Email: dreamsquatpractice@gmail.com',
   },
   {
     icon: ICON_PHONE,

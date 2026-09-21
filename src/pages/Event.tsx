@@ -13,7 +13,7 @@ const CREAM = '#FCF6EF';
 
 /* ── Problem card (yellow) ── */
 const ProblemCard = ({ text }: { text: string }) => (
-  <div className="interactive-lift summit-problem-card page-load-reveal page-load-reveal--delay-1" style={{ background: YELLOW, borderRadius: 16, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+  <div className="interactive-lift summit-problem-card page-load-reveal page-load-reveal--delay-1" style={{ background: YELLOW, borderRadius: 16, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 16, height: '100%', boxSizing: 'border-box', overflow: 'hidden' }}>
     <img src="/summit-warning-icon.svg" alt="" style={{ width: 50, height: 50 }} />
     <p className="page-load-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 15, color: DARK, lineHeight: 1.55, margin: 0 }}>{text}</p>
   </div>
@@ -21,7 +21,7 @@ const ProblemCard = ({ text }: { text: string }) => (
 
 /* ── Solution card (white) ── */
 const SolutionCard = () => (
-  <div className="interactive-lift summit-solution-card page-load-reveal page-load-reveal--delay-2" style={{ background: '#fff', borderRadius: 16, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+  <div className="interactive-lift summit-solution-card page-load-reveal page-load-reveal--delay-2" style={{ background: '#fff', borderRadius: 16, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 12, height: '100%', boxSizing: 'border-box', overflow: 'hidden' }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <svg width={20} height={20} viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke={GOLD} strokeWidth={1.5}/><path d="M6 10l3 3 5-5" stroke={GOLD} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/></svg>
       <p className="page-load-reveal page-load-reveal--delay-3" style={{ fontFamily: SF, fontSize: 15, fontWeight: 600, color: DARK, margin: 0 }}>You don't have a skills problem.</p>
@@ -50,19 +50,21 @@ const VideoCard = ({ videoId }: { videoId: string }) => (
 const SessionCard = ({ logo, logoAlt, title, description }: {
   logo: string; logoAlt?: string; title: string; description: string;
 }) => (
-  <div className="interactive-lift summit-session-card page-load-reveal page-load-reveal--delay-1" style={{ display: 'flex', flexDirection: 'column', borderRadius: 20, overflow: 'hidden' }}>
-    <div style={{ height: 290, overflow: 'hidden', borderRadius: '20px 20px 0 0' }}>
-      <img src={logo} alt={logoAlt || ''} className="interactive-lift summit-card-logo" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+  <ScrollReveal variant="scale" style={{ height: '100%' }}>
+    <div className="interactive-lift summit-session-card page-load-reveal page-load-reveal--delay-1" style={{ display: 'flex', flexDirection: 'column', borderRadius: 20, overflow: 'hidden', height: '100%' }}>
+      <div style={{ height: 290, overflow: 'hidden', borderRadius: '20px 20px 0 0' }}>
+        <img src={logo} alt={logoAlt || ''} className="interactive-lift summit-card-logo" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      </div>
+      <div style={{ background: '#fff', padding: '20px 20px 24px', flex: 1 }}>
+        <h4 className="page-load-reveal page-load-reveal--delay-2 interactive-text-parent" style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: DARK, lineHeight: 1.35, margin: '0 0 8px' }}>
+          <span className="interactive-text">{title}</span>
+        </h4>
+        <p className="page-load-reveal page-load-reveal--delay-3 interactive-text-parent" style={{ fontFamily: SF, fontSize: 14, color: DARK, lineHeight: 1.55, margin: 0, opacity: 0.7 }}>
+          <span className="interactive-text">{description}</span>
+        </p>
+      </div>
     </div>
-    <div style={{ background: '#fff', padding: '20px 20px 24px', flex: 1 }}>
-      <h4 className="page-load-reveal page-load-reveal--delay-2 interactive-text-parent" style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: DARK, lineHeight: 1.35, margin: '0 0 8px' }}>
-        <span className="interactive-text">{title}</span>
-      </h4>
-      <p className="page-load-reveal page-load-reveal--delay-3 interactive-text-parent" style={{ fontFamily: SF, fontSize: 14, color: DARK, lineHeight: 1.55, margin: 0, opacity: 0.7 }}>
-        <span className="interactive-text">{description}</span>
-      </p>
-    </div>
-  </div>
+  </ScrollReveal>
 );
 
 
@@ -123,7 +125,7 @@ const NavArrow = ({ dir, onClick, bg = DARK, invertIcon = false }: { dir: 'left'
   </button>
 );
 
-export const SummitPage: React.FC = () => {
+export const EventPage: React.FC = () => {
   const videoRef = useRef<HTMLDivElement>(null);
   const speakerRef = useRef<HTMLDivElement>(null);
 
@@ -232,16 +234,26 @@ export const SummitPage: React.FC = () => {
             </p>
           </ScrollReveal>
           {/* 2×3 grid */}
-          <ScrollReveal variant="scale">
-            <div className="summit-problem-grid" style={{ gap: 16 }}>
+          <div className="summit-problem-grid" style={{ gap: 16 }}>
+            <ScrollReveal variant="scale" delay={100}>
               <ProblemCard text="Posting consistently on Instagram, but hearing nothing back" />
+            </ScrollReveal>
+            <ScrollReveal variant="scale" delay={200}>
               <ProblemCard text="A website that looks great but never converts to appointments" />
+            </ScrollReveal>
+            <ScrollReveal variant="scale" delay={300}>
               <ProblemCard text="Competitors showing up on Google while you remain invisible" />
+            </ScrollReveal>
+            <ScrollReveal variant="scale" delay={100}>
               <ProblemCard text="The best-kept secret in your town, for all the wrong reasons" />
+            </ScrollReveal>
+            <ScrollReveal variant="scale" delay={200}>
               <ProblemCard text="Patients enquire, then disappear before booking" />
+            </ScrollReveal>
+            <ScrollReveal variant="scale" delay={300}>
               <SolutionCard />
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -310,7 +322,7 @@ export const SummitPage: React.FC = () => {
             </h2>
           </ScrollReveal>
           {/* 3-column grid */}
-          <ScrollReveal variant="scale">
+          <div>
             <div className="summit-session-grid" style={{ display: 'grid', gap: 16 }}>
               <SessionCard
                 logo="/session-card-dreamsquat.png"
@@ -321,50 +333,50 @@ export const SummitPage: React.FC = () => {
               <SessionCard
                 logo="/session-card-medifinance.png"
                 logoAlt="Medifinance"
-                title="Location & Finance â€“ Medifinance"
+                title="Location & Finance - Medifinance"
                 description="Picking the postcode that pays you back with Nigel Crossman"
               />
               <SessionCard
                 logo="/session-card-blackmont.png"
                 logoAlt="Blackmont Legal"
-                title="Lawyers & Lease â€“ Blackmont Legal"
+                title="Lawyers & Lease - Blackmont Legal"
                 description="The lease clauses that make or break your practice with Zohaib Hashim"
               />
               <SessionCard
                 logo="/session-card-braemar.png"
                 logoAlt="Braemar Finance"
-                title="Securing Your Funding â€“ Braemar Finance"
-                description="What lenders really want to see â€” with Courtenay Rush"
+                title="Securing Your Funding - Braemar Finance"
+                description="FundingWhat lenders really want to see — with Courtenay Rush"
               />
               <SessionCard
                 logo="/session-card-excel.png"
                 logoAlt="Excel Building Contractors"
-                title="Building Your Practice â€“ Excel Building Contractors"
-                description="From shell to surgery, done right â€” with Sharaz Mir"
+                title="Building Your Practice - Excel Building Contractors"
+                description="From shell to surgery, done right — with Sharaz Mir"
               />
               <SessionCard
                 logo="/session-card-smartdental.png"
                 logoAlt="Smart Dental Compliance"
-                title="CQC & Compliance â€“ Smart Dental Compliance"
-                description="Pass first time: cracking the registration code â€” with Victoria Yannagas"
+                title="CQC & Compliance - Smart Dental Compliance"
+                description="Pass first time: cracking the registration code — with Victoria Yannagas"
               />
               <SessionCard
                 logo="/session-card-flossly.png"
                 logoAlt="Flossly.OS & Twoth Match"
-                title="Systemise Your Practice â€“ Flossly.OS & Twoth Match"
-                description="Building the back-office that runs itself â€” with Sabah Arif"
+                title="Systemise Your Practice - Flossly.OS & Twoth Match"
+                description="Building the back-office that runs itself — with Sabah Arif"
               />
               <SessionCard
                 logo="/session-card-reginamartin.png"
                 logoAlt="Regina Martin"
-                title="Your Online Presence â€“ Regina Martin"
+                title="Your Online Presence - Regina Martin"
                 description="How SEO, branding and websites attract patients from day one (Marketing)"
               />
               <SessionCard
                 logo="/session-card-creative.png"
                 logoAlt="The Creative Composite"
-                title="Fill Your Chair â€“ The Creative Composite"
-                description="The patient acquisition playbook (Marketing) â€“ with Hassan Mushaid"
+                title="Fill Your Chair - The Creative Composite"
+                description="The patient acquisition playbook (Marketing) - with Hassan Mushaid"
               />
             </div>
             {/* Last row: centered single card */}
@@ -374,11 +386,11 @@ export const SummitPage: React.FC = () => {
                   logo="/session-card-reginamartin.png"
                   logoAlt="VoIP Shop"
                   title="Never Miss Another Patient Call – VoIP Shop"
-                  description="Building a communication system that grows with your practice – with Kully Singh Hothi"
+                  description="Building a communication system that grows with your practice - with Kully Singh Hothi"
                 />
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 

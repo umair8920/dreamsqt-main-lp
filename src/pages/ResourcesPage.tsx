@@ -45,14 +45,12 @@ const ResourceCard = ({
   title,
   desc,
   date,
-  featured = false,
 }: {
   img: string;
   category: string;
   title: string;
   desc: string;
   date: string;
-  featured?: boolean;
 }) => (
   <div
     className="interactive-lift resources-card"
@@ -63,7 +61,6 @@ const ResourceCard = ({
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      boxShadow: featured ? '0px 40px 50px 0px rgba(146,94,2,0.3)' : 'none',
     }}
   >
     <div
@@ -164,10 +161,8 @@ export const ResourcesPage: React.FC = () => (
           </ScrollReveal>
         </div>
 
-        <div className="resources-hero-visual interactive-lift" style={{ flex: 1, height: 440, position: 'relative', overflow: 'hidden' }}>
-          <ScrollReveal variant="right" style={{ height: '100%' }}>
-            <img className="resources-hero-image" src="/resources-hero.png" alt="Free resources" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'top center' }} />
-          </ScrollReveal>
+        <div className="resources-hero-visual" style={{ flex: 1, height: 440, position: 'relative', overflow: 'hidden' }}>
+          <img className="resources-hero-image" src="/resources-hero.png" alt="Free resources" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'top center' }} />
         </div>
       </div>
     </section>
@@ -177,7 +172,7 @@ export const ResourcesPage: React.FC = () => (
         <div className="resources-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 24 }}>
           {ALL_RESOURCES.map((r, i) => (
             <ScrollReveal key={`${r.title}-${i}`} variant="scale" delay={([100, 200, 300, 400][i % 4]) as 100 | 200 | 300 | 400}>
-              <ResourceCard {...r} featured={i === 1} />
+              <ResourceCard {...r} />
             </ScrollReveal>
           ))}
         </div>

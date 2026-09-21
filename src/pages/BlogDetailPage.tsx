@@ -134,9 +134,9 @@ export const BlogDetailPage: React.FC = () => {
 
           <ScrollReveal variant="scale" delay={400}>
             <Link to={post.ctaTo} className="interactive-button blog-detail-cta">
-              {post.ctaLabel} â†’
+              {post.ctaLabel} →
             </Link>
-          </ScrollReveal>
+          </ScrollReveal> 
         </article>
 
         <section className="blog-detail-related">

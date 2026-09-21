@@ -34,7 +34,7 @@ const AgendaCard = ({ icon, title, body }: { icon: string; title: string; body: 
   </div>
 );
 
-export const EventPage: React.FC = () => (
+export const DsClub: React.FC = () => (
   <div>
     <section className="event-hero" style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden' }}>
       <TopBar />
@@ -94,7 +94,7 @@ export const EventPage: React.FC = () => (
           One day. Everyone you need to open a practice, in the same room. Lenders, suppliers, compliance, marketing, and dentists who are twelve months ahead of you.
         </p>
         <a href="#book" className="interactive-button event-hero-cta page-load-reveal page-load-reveal--delay-4" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: GOLD, color: '#fbfbfb', fontFamily: SF, fontSize: 14, fontWeight: 590, padding: '12px 30px', borderRadius: 8, textDecoration: 'none' }}>
-          Book my seat â†’
+          Book my seat →
         </a>
       </div>
     </section>

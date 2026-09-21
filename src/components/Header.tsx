@@ -8,6 +8,7 @@ const GOLD = '#925E02';
 const NAV_LINKS: { label: string; to: string }[] = [
   { label: 'DS Portal', to: '/' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
+  { label: 'DS Club', to: '/ds-club' },
   { label: 'Event', to: '/event' },
   { label: 'Free Resources', to: '/resources' },
   { label: 'Blogs', to: '/blog' },
@@ -109,10 +110,10 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
         {/* Logo */}
         <Link
           to="/"
-          className="page-load-reveal page-load-reveal--delay-2 interactive-lift"
+          className="page-load-reveal page-load-reveal--delay-2 header-logo"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 60, height: 60, flexShrink: 0 }}
         >
-          <img src="/logo.svg" alt="Dream Squat" />
+          <img className="header-logo-image" src="/logo.svg" alt="Dream Squat" />
         </Link>
 
         {/* Nav */}

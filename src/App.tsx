@@ -53,8 +53,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<EventPage />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/cost-calculator" element={<CostCalculatorPage />} />
       <Route path="/ds-club" element={<DsClub />} />
       <Route path="/event" element={<EventPage />} />

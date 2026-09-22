@@ -1,27 +1,45 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
 import { ScrollReveal } from './ScrollReveal';
+import painpoint1 from '../assets/homeicons/painpoint1.svg';
+import painpoint2 from '../assets/homeicons/painpoint2.svg';
+import painpoint3 from '../assets/homeicons/painpoint3.svg';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
 const PAIN_CARDS = [
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="rgba(0,0,0,0.08)"/><path d="M18 8a5 5 0 1 1 0 10A5 5 0 0 1 18 8zm-8 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#131313" strokeWidth="2" strokeLinecap="round"/><path d="M24 20l3-3m0 0l3 3m-3-3v6" stroke="#131313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <img
+        src={painpoint1}
+        alt="Tired & Burnt Out"
+        width={50}
+        height={50}
+      />
     ),
     title: 'Tired & Burnt Out',
     desc: "Frustrated, tired, and burnout working for another dentist's dream.",
   },
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="rgba(0,0,0,0.08)"/><circle cx="18" cy="18" r="9" stroke="#131313" strokeWidth="2"/><path d="M18 13v5l3 3" stroke="#131313" strokeWidth="2" strokeLinecap="round"/><path d="M9 9l18 18" stroke="#131313" strokeWidth="1.5" strokeLinecap="round"/></svg>
+      <img
+        src={painpoint2}
+        alt="No Work-Life Balance"
+        width={50}
+        height={50}
+      />
     ),
     title: 'No Work-Life Balance',
     desc: 'Stressed with poor work life balance, and always working overtime.',
   },
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="rgba(0,0,0,0.08)"/><circle cx="18" cy="18" r="9" stroke="#131313" strokeWidth="2"/><path d="M18 12v12M14 14l8 0M14 22l8 0" stroke="#131313" strokeWidth="1.8" strokeLinecap="round"/></svg>
+      <img
+        src={painpoint3}
+        alt="No Work-Life Balance"
+        width={50}
+        height={50}
+      />
     ),
     title: 'Income Stuck',
     desc: 'Limited earning potentials, with no career progressions.',
@@ -29,24 +47,26 @@ const PAIN_CARDS = [
 ];
 
 export const PainPointsSection: React.FC = () => (
-  <section style={{ background: '#FCF6EF', padding: '80px 80px 80px' }}>
-    <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 50, alignItems: 'flex-start' }}>
+  <section className="home-pain-section" style={{ background: '#FCF6EF', padding: '80px 80px 80px' }}>
+    <div className="home-pain-row" style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 50, alignItems: 'flex-start' }}>
       {/* Left side */}
-      <div style={{ flex: '0 0 630px', display: 'flex', flexDirection: 'column', gap: 24 }}>
+      <div className="home-pain-left" style={{ flex: '0 0 630px', display: 'flex', flexDirection: 'column', gap: 24 }}>
         <ScrollReveal variant="left">
           <SectionPill innerBg="#FCF6EF">PAIN POINTS</SectionPill>
-          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 24, marginBottom: 24 }}>
+          <h2 className="home-pain-title" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 24, marginBottom: 24 }}>
             Still stuck being a Dental Associate
           </h2>
-          <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 400, background: '#333' }}>
+          <div className="home-pain-image home-card interactive-lift" style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 400, background: '#333' }}>
             <img
               src="/pain-img.png"
               alt="Frustrated dental associate"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+              className="home-card-image"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
             <div style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0,
-              background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
+              position: 'absolute', bottom: 0, left: 0, right: 0, top: 0,
+              background: 'linear-gradient(180.09deg, rgba(121, 77, 0, 0) 38.64%, #000000 89.9%)',
+              display: 'flex', alignItems: 'flex-end',
               padding: '40px 24px 20px',
             }}>
               <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 400, color: '#fff' }}>
@@ -58,13 +78,13 @@ export const PainPointsSection: React.FC = () => (
       </div>
 
       {/* Right side — pain point cards */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 80 }}>
+      <div className="home-pain-right" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20 }}>
         {PAIN_CARDS.map((card, idx) => (
           <ScrollReveal key={card.title} variant="right" delay={(100 * (idx + 1)) as 100 | 200 | 300}>
-            <div style={{ background: '#FFD073', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div className="interactive-lift" style={{ background: '#FFD073', borderRadius: 20, padding: '28px 32px', display: 'flex', flexDirection: 'column', gap: 10, overflow: 'hidden', }}>
               {card.icon}
-              <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313' }}>{card.title}</p>
-              <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: '#131313', lineHeight: 1.55 }}>{card.desc}</p>
+              <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#925E02' }}>{card.title}</p>
+              <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 400, color: '#131313', lineHeight: 1.55 }}>{card.desc}</p>
             </div>
           </ScrollReveal>
         ))}
@@ -72,3 +92,4 @@ export const PainPointsSection: React.FC = () => (
     </div>
   </section>
 );
+

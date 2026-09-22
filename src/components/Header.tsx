@@ -6,7 +6,7 @@ const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-seri
 const GOLD = '#925E02';
 
 const NAV_LINKS: { label: string; to: string }[] = [
-  { label: 'DS Portal', to: '/' },
+  { label: 'DS Portal', to: 'https://portal.dreamsquats.co.uk/' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'DS Club', to: '/ds-club' },
   { label: 'Event', to: '/event' },
@@ -59,6 +59,8 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
       <a
         key={link.label}
         href={link.to}
+        target="_blank"
+        rel="noopener noreferrer"
         className="interactive-text-parent header-nav-link"
         onClick={() => setMobileMenuOpen(false)}
         style={{

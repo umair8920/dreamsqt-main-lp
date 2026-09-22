@@ -249,6 +249,41 @@ body {
   }
 }
 
+/* ── Home page: card hover treatment (mirrors .resources-card-image / .blog-card-image) ── */
+.home-card-media {
+  will-change: transform;
+}
+
+.home-card-image {
+  transition: transform 0.78s cubic-bezier(0.16, 1, 0.3, 1), filter 0.78s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-card:hover .home-card-image,
+.home-card:focus-within .home-card-image {
+  transform: scale(1.05);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.home-card-arrow {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-card:hover .home-card-arrow,
+.home-card:focus-within .home-card-arrow {
+  transform: translate3d(3px, -3px, 0);
+}
+
+.home-timeline-row {
+  transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 12px;
+}
+
+.home-timeline-row:hover,
+.home-timeline-row:focus-within {
+  background-color: rgba(146, 94, 2, 0.06);
+  padding-left: 12px;
+}
+
 .footer-watermark {
   color: rgba(19, 19, 19, 0.03);
   background-image: linear-gradient(
@@ -1780,5 +1815,309 @@ body {
 
   .event-room-media {
     height: 300px;
+  }
+}
+
+/* ── Home page: responsive ── */
+.home-marquee-text {
+  will-change: auto;
+}
+
+@media (max-width: 1280px) {
+  .home-hero-content {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+
+  .home-event-wrap {
+    padding: 56px 48px !important;
+  }
+
+  .home-event-card {
+    padding: 56px 48px !important;
+  }
+
+  .home-everything-section,
+  .home-pain-section,
+  .home-solution-section,
+  .home-feature-section,
+  .home-stories-section,
+  .home-founder-section,
+  .home-ecosystem-section {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+
+  .home-proof-content {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+
+  .home-hero-title {
+    font-size: clamp(42px, 5vw, 60px) !important;
+  }
+
+  .home-everything-title,
+  .home-pain-title,
+  .home-solution-title,
+  .home-feature-title,
+  .home-stories-title,
+  .home-founder-title,
+  .home-ecosystem-title {
+    font-size: clamp(38px, 4.6vw, 56px) !important;
+  }
+
+  .home-everything-left,
+  .home-pain-left {
+    flex: 0 0 42% !important;
+  }
+
+  .home-stories-left {
+    flex: 0 0 46% !important;
+  }
+
+  .home-founder-photo {
+    flex: 0 0 44% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-hero,
+  .home-event-hero {
+    height: auto !important;
+  }
+
+  .home-hero-content {
+    min-height: 620px;
+    padding: 100px 40px 56px !important;
+  }
+
+  .home-event-wrap {
+    padding: 48px 32px !important;
+  }
+
+  .home-event-card {
+    padding: 40px 32px !important;
+  }
+
+  .home-event-title {
+    font-size: clamp(30px, 4.6vw, 44px) !important;
+  }
+
+  .home-proof-section {
+    height: auto !important;
+  }
+
+  .home-proof-content {
+    padding: 64px 40px !important;
+  }
+
+  .home-proof-text {
+    font-size: clamp(20px, 3vw, 26px) !important;
+  }
+
+  .home-everything-row,
+  .home-pain-row,
+  .home-stories-row,
+  .home-founder-top {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  .home-everything-left,
+  .home-everything-right,
+  .home-pain-left,
+  .home-pain-right,
+  .home-stories-left,
+  .home-stories-right,
+  .home-founder-photo,
+  .home-founder-bio {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .home-everything-right {
+    height: 420px !important;
+  }
+
+  .home-founder-photo {
+    height: 420px !important;
+  }
+
+  .home-founder-bio {
+    padding-top: 0 !important;
+  }
+
+  .home-solution-grid,
+  .home-feature-grid,
+  .home-founder-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .home-solution-card {
+    height: 480px !important;
+  }
+
+  .home-ecosystem-card {
+    padding: 48px 40px !important;
+  }
+
+  .home-ecosystem-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-everything-section,
+  .home-pain-section,
+  .home-solution-section,
+  .home-feature-section,
+  .home-stories-section,
+  .home-founder-section,
+  .home-ecosystem-section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .home-hero-title {
+    font-size: clamp(38px, 5.6vw, 52px) !important;
+  }
+
+  .home-hero-copy {
+    font-size: clamp(18px, 2.6vw, 22px) !important;
+  }
+
+  .home-everything-title,
+  .home-pain-title,
+  .home-solution-title,
+  .home-feature-title,
+  .home-stories-title,
+  .home-founder-title,
+  .home-ecosystem-title {
+    font-size: clamp(34px, 5vw, 48px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-marquee {
+    height: 44px !important;
+  }
+
+  .home-marquee-text {
+    font-size: 14px !important;
+    padding-right: 28px !important;
+  }
+
+  .home-hero-content {
+    padding: 88px 20px 44px !important;
+    min-height: 560px;
+  }
+
+  .home-hero-title {
+    font-size: clamp(30px, 8vw, 42px) !important;
+    margin-bottom: 18px !important;
+  }
+
+  .home-hero-copy {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .home-hero-cta {
+    padding: 12px 24px !important;
+  }
+
+  .home-event-wrap {
+    padding: 28px 16px !important;
+  }
+
+  .home-event-card {
+    padding: 32px 20px !important;
+  }
+
+  .home-event-title {
+    font-size: clamp(26px, 8vw, 34px) !important;
+  }
+
+  .home-event-body {
+    font-size: 15px !important;
+  }
+
+  .home-proof-content {
+    padding: 48px 20px !important;
+  }
+
+  .home-proof-text {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+
+  .home-everything-section,
+  .home-pain-section,
+  .home-solution-section,
+  .home-feature-section,
+  .home-stories-section,
+  .home-founder-section {
+    padding: 48px 20px !important;
+  }
+
+  .home-ecosystem-section {
+    padding: 0 20px 48px !important;
+  }
+
+  .home-ecosystem-card {
+    padding: 32px 20px !important;
+  }
+
+  .home-everything-left,
+  .home-everything-right,
+  .home-pain-left,
+  .home-pain-right,
+  .home-stories-left,
+  .home-stories-right {
+    width: 100% !important;
+  }
+
+  .home-everything-right {
+    height: 280px !important;
+  }
+
+  .home-pain-image {
+    height: 260px !important;
+  }
+
+  .home-founder-photo {
+    height: 280px !important;
+  }
+
+  .home-solution-grid,
+  .home-feature-grid,
+  .home-founder-stats-grid,
+  .home-ecosystem-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-solution-card {
+    height: 360px !important;
+  }
+
+  .home-founder-stats-grid > div {
+    height: 240px !important;
+  }
+
+  .home-stories-stats {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .home-everything-title,
+  .home-pain-title,
+  .home-solution-title,
+  .home-feature-title,
+  .home-stories-title,
+  .home-founder-title,
+  .home-ecosystem-title {
+    font-size: clamp(30px, 8.5vw, 40px) !important;
   }
 }

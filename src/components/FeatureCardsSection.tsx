@@ -1,31 +1,37 @@
 import React from 'react';
-import { SectionPill } from './SectionPill';
 import { ScrollReveal } from './ScrollReveal';
+import featurecard1 from '../assets/homeicons/featurecard1.svg';
+import featurecard2 from '../assets/homeicons/featurecard2.svg';
+import featurecard3 from '../assets/homeicons/featurecard3.svg';
+
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
 const IconSystem = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-    <rect width="44" height="44" rx="10" fill="rgba(0,0,0,0.1)"/>
-    <path d="M22 12v4M16 14.5l2.8 2.8M12 22h4M14.5 28l2.8-2.8M22 32v-4M27.5 29.2l2.8 2.8M32 22h-4M29.5 15.8l-2.8 2.8" stroke="#131313" strokeWidth="1.8" strokeLinecap="round"/>
-    <circle cx="22" cy="22" r="4" stroke="#131313" strokeWidth="1.8"/>
-  </svg>
+  <img
+        src={featurecard1}
+        alt="Tired & Burnt Out"
+        width={50}
+        height={50}
+      />
 );
 
 const IconHand = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-    <rect width="44" height="44" rx="10" fill="rgba(0,0,0,0.1)"/>
-    <path d="M14 26c0 4 3.6 7 8 7s8-3 8-7v-6h-4v-6a2 2 0 0 0-4 0v6h-4v6z" stroke="#131313" strokeWidth="1.8" strokeLinejoin="round"/>
-    <path d="M22 14v4" stroke="#131313" strokeWidth="1.8" strokeLinecap="round"/>
-  </svg>
+  <img
+        src={featurecard2}
+        alt="Tired & Burnt Out"
+        width={50}
+        height={50}
+      />
 );
 
 const IconBulb = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-    <rect width="44" height="44" rx="10" fill="rgba(0,0,0,0.1)"/>
-    <path d="M22 13a7 7 0 0 1 7 7c0 2.8-1.6 5.2-4 6.5V29h-6v-2.5c-2.4-1.3-4-3.7-4-6.5a7 7 0 0 1 7-7z" stroke="#131313" strokeWidth="1.8" strokeLinejoin="round"/>
-    <path d="M19 31h6" stroke="#131313" strokeWidth="1.8" strokeLinecap="round"/>
-  </svg>
+  <img
+        src={featurecard3}
+        alt="Tired & Burnt Out"
+        width={50}
+        height={50}
+      />
 );
 
 const ROW1 = [
@@ -41,33 +47,68 @@ const ROW2 = [
 ];
 
 const Pill = () => (
-  <div style={{ marginBottom: 20 }}><SectionPill innerBg="#FCF6EF">IS THIS YOU?</SectionPill></div>
+  <div style={{ marginBottom: 20 }}>
+    <div style={{ position: 'relative', display: 'inline-block', borderRadius: 20, background: 'transparent', boxSizing: 'border-box' }}>
+      {/* Gradient border only */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          padding: 1,
+          borderRadius: 20,
+          background:
+            'linear-gradient(90deg, #925E02 2%, #C5A13B 29%, #E6CC60 50%, #F2DC6E 60%, #ECD465 67%, #DDBD4E 77%, #C49727 91%, #B07908 100%)',
+          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+          pointerEvents: 'none',
+          boxSizing: 'border-box',
+        }}
+      />
+      {/* Transparent center */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '6px 18px',
+          borderRadius: 20,
+          background: 'transparent',
+          boxSizing: 'border-box',
+        }}
+      >
+        <span style={{ fontFamily: SF, fontSize: 12, fontWeight: 500, color: '#fff', letterSpacing: '0.09em' }}>IS THIS YOU?</span>
+      </div>
+    </div>
+  </div>
 );
 
 const FeatureCard = ({ Icon, title, desc }: { Icon: React.FC; title: string; desc: string }) => (
-  <div style={{ background: '#FFD073', borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+  <div className="interactive-lift" style={{ background: '#FFD073', borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 14, overflow: 'hidden', boxSizing: 'border-box' }}>
     <Icon />
-    <h3 style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#131313' }}>{title}</h3>
-    <p style={{ fontFamily: SF, fontSize: 14, color: '#444', lineHeight: 1.6 }}>{desc}</p>
+    <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#925E02' }}>{title}</h3>
+    <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 400, color: '#925E02', lineHeight: 1.6 }}>{desc}</p>
   </div>
 );
 
 export const FeatureCardsSection: React.FC = () => (
-  <section style={{ background: '#131313', padding: '80px 80px' }}>
+  <section className="home-feature-section" style={{ background: '#131313', padding: '80px 80px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
       {/* Block 1 */}
       <ScrollReveal>
         <div style={{ marginBottom: 60 }}>
           <Pill />
-          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
+          <h2 className="home-feature-title" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
             Learn the exact system to{' '}
-            <span style={{ color: '#C58F28' }}>build your Dream Squat</span>
+            <span style={{ color: '#925E02' }}>build your Dream Squat</span>
           </h2>
-          <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
+          <p style={{ fontFamily: SF, fontSize: 16, color: '#FFFFFF', maxWidth: 720, marginBottom: 40 }}>
             Designed for associates who want to own a clinic, create freedom, and grow a patient list from day one
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="home-feature-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {ROW1.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
           </div>
         </div>
@@ -77,14 +118,14 @@ export const FeatureCardsSection: React.FC = () => (
       <ScrollReveal variant="scale">
         <div>
           <Pill />
-          <h2 style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
+          <h2 className="home-feature-title" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.1, maxWidth: 700, marginBottom: 16 }}>
             For associates who want more than{' '}
-            <span style={{ color: '#C58F28', fontStyle: 'italic' }}>a day rate</span>
+            <span style={{ color: '#925E02', fontStyle: 'italic' }}>a day rate</span>
           </h2>
-          <p style={{ fontFamily: SF, fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 720, marginBottom: 40 }}>
+          <p style={{ fontFamily: SF, fontSize: 16, color: '#FCF6EF', maxWidth: 720, marginBottom: 40 }}>
             If you're a dentist with a skill and a vision, Dream Squat shows you exactly how to turn it into your own associate‑led practice not "one day", but in the next 90 days.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="home-feature-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {ROW2.map((c) => <FeatureCard key={c.title} Icon={c.Icon} title={c.title} desc={c.desc} />)}
           </div>
         </div>

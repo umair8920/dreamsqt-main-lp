@@ -1,4 +1,5 @@
 import React from 'react';
+import heroBg from '../assets/hero-1.png';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -10,7 +11,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => (
   <section className="home-hero" style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden' }}>
     {/* Background image */}
     <img
-      src="/hero-bg.png"
+      src={heroBg}
       alt=""
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
     />

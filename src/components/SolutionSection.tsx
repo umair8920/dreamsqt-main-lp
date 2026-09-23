@@ -4,6 +4,7 @@ import { ScrollReveal } from './ScrollReveal';
 import card1 from '../assets/homeicons/card1.svg';
 import card2 from '../assets/homeicons/card2.svg';
 import card3 from '../assets/homeicons/card3.svg';
+import cardimage1 from '../assets/homeicons/cardimage1.png';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -19,6 +20,7 @@ const CARDS = [
     ),
     title: 'Set Your Own Schedule',
     desc: 'Owning your own dental practice lets you control your own schedule',
+    image: cardimage1,
   },
   {
     icon: (
@@ -31,6 +33,7 @@ const CARDS = [
     ),
     title: 'Create Something You Own',
     desc: 'Opening your own clinic gives you a chance to own a valuable asset',
+    image: '/clinic-interior-2.png',
   },
   {
     icon: (
@@ -43,6 +46,7 @@ const CARDS = [
     ),
     title: 'Design It Your Way',
     desc: 'Freedom to design your own clinic, protocol, systems without any pushbacks',
+    image: '/clinic-interior-3.png',
   },
 ];
 
@@ -67,7 +71,7 @@ export const SolutionSection: React.FC = () => (
         <div className="home-solution-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
           {CARDS.map((card) => (
             <div key={card.title} className="home-solution-card home-card interactive-lift" style={{ borderRadius: 20, overflow: 'hidden', height: 704, position: 'relative', background: '#e8dcc8' }}>
-              <img src="/clinic-interior.png" alt="" className="home-card-image" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+              <img src={card.image} alt="" className="home-card-image" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(179.52deg, #F4EEE5 29.13%, rgba(255, 240, 209, 0) 51.03%)' }} />
               <div style={{ position: 'relative', zIndex: 1, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {card.icon}

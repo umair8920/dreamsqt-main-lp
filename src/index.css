@@ -2139,3 +2139,148 @@ body {
     font-size: clamp(30px, 8.5vw, 40px) !important;
   }
 }
+
+/* ── DS Portal page: responsive ── */
+.portal-hero-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 96px 80px 0;
+}
+
+@media (max-width: 1280px) {
+  .portal-hero-inner {
+    gap: 32px;
+  }
+
+  .portal-hero-inner > div:first-child {
+    flex: 1 1 0 !important;
+    min-width: 0;
+  }
+
+  .portal-hero-art {
+    min-width: 0;
+  }
+
+  .portal-h1 {
+    font-size: clamp(38px, 4.4vw, 56px) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portal-hero-inner {
+    flex-direction: column;
+    gap: 28px;
+    padding: 64px 40px 0;
+  }
+
+  .portal-hero-inner > div {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .portal-hero-inner > div:first-child {
+    padding-bottom: 0 !important;
+  }
+
+  .portal-hero-art {
+    height: 420px !important;
+  }
+
+  .portal-h1 {
+    font-size: clamp(32px, 5.6vw, 48px) !important;
+  }
+
+  .portal-h2 {
+    font-size: clamp(30px, 4.6vw, 44px) !important;
+  }
+
+  .portal-section {
+    padding: 56px 40px !important;
+  }
+
+  .portal-problem-row,
+  .portal-founder-top,
+  .portal-ai-row,
+  .portal-pricing-card {
+    flex-direction: column !important;
+  }
+
+  .portal-problem-row > div,
+  .portal-founder-top > div,
+  .portal-ai-row > div,
+  .portal-pricing-card > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .portal-founder-photo,
+  .portal-ai-art,
+  .portal-pricing-art {
+    height: 320px !important;
+  }
+
+  .portal-grid-3,
+  .portal-risk-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .portal-founder-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .portal-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-hero-inner {
+    padding: 48px 20px 0;
+  }
+
+  .portal-hero-art {
+    height: 280px !important;
+  }
+
+  .portal-h1 {
+    font-size: clamp(30px, 8vw, 38px) !important;
+  }
+
+  .portal-h2 {
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+  }
+
+  .portal-section {
+    padding: 40px 20px !important;
+  }
+
+  .portal-tag-row {
+    gap: 8px !important;
+  }
+
+  .portal-grid-3,
+  .portal-risk-grid,
+  .portal-founder-stats-grid,
+  .portal-showcase-grid,
+  .portal-pricing-benefits {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portal-founder-photo {
+    height: 240px !important;
+  }
+
+  .portal-cta-card {
+    padding: 32px 24px !important;
+  }
+
+  .portal-feature-chip {
+    width: 110px !important;
+  }
+
+  .portal-pricing-card {
+    padding: 24px !important;
+  }
+}

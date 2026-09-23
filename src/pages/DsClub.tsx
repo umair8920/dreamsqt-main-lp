@@ -19,9 +19,6 @@ const CheckItem = ({ text }: { text: string }) => (
 
 const AgendaCard = ({ icon, title, body }: { icon: string; title: string; body: string }) => (
   <div className="interactive-lift event-agenda-card" style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, borderRadius: 20, overflow: 'hidden' }}>
-    <div className="event-agenda-media" style={{ borderRadius: '20px 20px 0 0', overflow: 'hidden' }}>
-      <img src="/event-agenda.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-    </div>
     <div style={{ background: '#F4EEE5', borderRadius: '0 0 20px 20px', padding: '20px 20px 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
       <img src={icon} alt="" className="interactive-lift event-agenda-icon" style={{ width: 50, height: 50, marginBottom: 12, flexShrink: 0 }} />
       <h3 className="interactive-text-parent page-load-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: GOLD, lineHeight: 1.3, marginBottom: 12, minHeight: 'calc(1.3em * 2)', display: 'flex', alignItems: 'flex-start' }}>

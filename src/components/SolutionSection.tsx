@@ -5,6 +5,9 @@ import card1 from '../assets/homeicons/card1.svg';
 import card2 from '../assets/homeicons/card2.svg';
 import card3 from '../assets/homeicons/card3.svg';
 import cardimage1 from '../assets/homeicons/cardimage1.png';
+import cardimage2 from '../assets/homeicons/cardimage2.png';
+import cardimage3 from '../assets/homeicons/cardimage3.png';
+
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -33,7 +36,7 @@ const CARDS = [
     ),
     title: 'Create Something You Own',
     desc: 'Opening your own clinic gives you a chance to own a valuable asset',
-    image: '/clinic-interior-2.png',
+    image: cardimage2,
   },
   {
     icon: (
@@ -46,7 +49,7 @@ const CARDS = [
     ),
     title: 'Design It Your Way',
     desc: 'Freedom to design your own clinic, protocol, systems without any pushbacks',
-    image: '/clinic-interior-3.png',
+    image: cardimage3,
   },
 ];
 

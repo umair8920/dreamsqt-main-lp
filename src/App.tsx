@@ -15,6 +15,7 @@ import { EcosystemSection } from './components/EcosystemSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { Footer } from './components/Footer';
 import { CostCalculatorPage } from './pages/CostCalculatorPage';
+import { DsPortalPage } from './pages/DsPortalPage';
 import { DsClub } from './pages/DsClub';
 import { EventPage } from './pages/Event';
 import { ResourcesPage } from './pages/ResourcesPage';
@@ -54,6 +55,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/ds-portal" element={<DsPortalPage />} />
       <Route path="/cost-calculator" element={<CostCalculatorPage />} />
       <Route path="/ds-club" element={<DsClub />} />
       <Route path="/event" element={<EventPage />} />

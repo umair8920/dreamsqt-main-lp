@@ -6,7 +6,7 @@ const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-seri
 const GOLD = '#925E02';
 
 const NAV_LINKS: { label: string; to: string }[] = [
-  { label: 'DS Portal', to: 'https://portal.dreamsquats.co.uk/' },
+  { label: 'DS Portal', to: '/ds-portal' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'DS Club', to: '/ds-club' },
   { label: 'Event', to: '/event' },

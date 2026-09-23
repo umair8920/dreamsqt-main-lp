@@ -2148,6 +2148,12 @@ body {
   padding: 96px 80px 0;
 }
 
+/* Hero image bleeds through the right padding (and the centred-wrapper gutter on wide screens) to the screen edge */
+.portal-hero-art {
+  margin-right: calc(-80px - max(0px, (100vw - 1440px) / 2));
+  margin-bottom: 80px; /* same gap the text column has, so the image never touches the trust strip */
+}
+
 @media (max-width: 1280px) {
   .portal-hero-inner {
     gap: 32px;
@@ -2185,7 +2191,8 @@ body {
   }
 
   .portal-hero-art {
-    height: 420px !important;
+    height: auto !important;
+    margin-right: 0;
   }
 
   .portal-h1 {
@@ -2219,6 +2226,7 @@ body {
   .portal-ai-art,
   .portal-pricing-art {
     height: 320px !important;
+    min-height: 0 !important;
   }
 
   .portal-grid-3,
@@ -2241,7 +2249,7 @@ body {
   }
 
   .portal-hero-art {
-    height: 280px !important;
+    height: auto !important;
   }
 
   .portal-h1 {
@@ -2260,6 +2268,10 @@ body {
     gap: 8px !important;
   }
 
+  .portal-problem-arrow {
+    display: none;
+  }
+
   .portal-grid-3,
   .portal-risk-grid,
   .portal-founder-stats-grid,
@@ -2270,6 +2282,7 @@ body {
 
   .portal-founder-photo {
     height: 240px !important;
+    min-height: 0 !important;
   }
 
   .portal-cta-card {

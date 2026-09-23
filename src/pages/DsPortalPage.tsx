@@ -11,21 +11,29 @@ import {
   Sparkles,
   Target,
   CheckCircle2,
-  Layers,
-  HelpCircle,
-  Compass,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
 import { ScrollReveal } from '../components/ScrollReveal';
+import hero1 from '../assets/dsportal/hero.png'
+import longArrow from '../assets/dsportal/long-arrow.svg'
+import icon1 from '../assets/dsportal/icon1.svg'
+import icon2 from '../assets/dsportal/icon2.svg'
+import icon3 from '../assets/dsportal/icon3.svg'
+import icon4 from '../assets/dsportal/icon4.svg'
+import builtimage1 from '../assets/dsportal/builtimage1.png'
+import founder1 from '../assets/homeicons/founder 1.png'
+import founder2 from '../assets/homeicons/founder 2.png'
+import founder3 from '../assets/homeicons/founder 3.png'
+import founder4 from '../assets/homeicons/founder 4.png'
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#925E02';
 const DARK = '#131313';
 const CREAM = '#FCF6EF';
 const CHIP = '#F4EEE5';
-const CARD = '#FFD073';
+//onst CARD = '#FFD073';
 
 /* ── shared local pieces ─────────────────────────────────────────── */
 
@@ -65,25 +73,25 @@ const CtaButton: React.FC<{ href?: string; onClick?: () => void; children: React
 };
 
 const CheckItem: React.FC<{ text: string }> = ({ text }) => (
-  <div className="interactive-lift" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, background: '#fff', border: '1px solid #e3aa33', borderRadius: 10, padding: 12 }}>
-    <img src="/event-check.svg" alt="" style={{ width: 22, height: 22, flexShrink: 0, marginTop: 1 }} />
-    <p className="interactive-text-parent" style={{ fontFamily: SF, fontSize: 15, color: DARK, lineHeight: 1.5, margin: 0 }}>
+  <div className="interactive-lift" style={{ display: 'flex', alignItems: 'center', gap: 8, width: 'fit-content', background: CREAM, border: '1px solid #e3aa33', borderRadius: 8, padding: '8px 12px', overflow: 'hidden' }}>
+    <img src="/event-check.svg" alt="" style={{ width: 20, height: 20, flexShrink: 0 }} />
+    <p className="interactive-text-parent" style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.4, margin: 0 }}>
       <span className="interactive-text">{text}</span>
     </p>
   </div>
 );
 
 const Tag: React.FC<{ text: string }> = ({ text }) => (
-  <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 400, color: DARK, background: CHIP, border: '1px solid rgba(19,19,19,0.1)', borderRadius: 999, padding: '6px 14px', whiteSpace: 'nowrap' }}>
+  <span style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, whiteSpace: 'nowrap', lineHeight: 1.3 }}>
     {text}
   </span>
 );
 
-const InfoCard: React.FC<{ Icon: React.FC<{ size?: number; color?: string }>; title: string; desc: string }> = ({ Icon, title, desc }) => (
-  <div className="interactive-lift" style={{ background: CARD, borderRadius: 20, padding: '28px 26px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-    <Icon size={36} color={GOLD} />
-    <h3 style={{ fontFamily: SF, fontSize: 22, fontWeight: 700, color: GOLD, margin: 0 }}>{title}</h3>
-    <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.55, margin: 0 }}>{desc}</p>
+const InfoCard: React.FC<{ icon: string; title: string; desc: string }> = ({ icon, title, desc }) => (
+  <div className="interactive-lift" style={{ background: DARK, borderRadius: 20, border: '1px solid #925E02', padding: '28px 26px', display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
+    <img src={icon} alt="" aria-hidden="true" style={{ display: 'block', width: 60, height: 60 }} />
+    <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 700, color: '#FFFFFF', margin: 0 }}>{title}</h3>
+    <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FFFFFF', lineHeight: 1.55, margin: 0 }}>{desc}</p>
   </div>
 );
 
@@ -150,13 +158,15 @@ export const DsPortalPage: React.FC = () => (
               <SectionPill innerBg={CREAM}>
                 <span className="page-load-reveal page-load-reveal--delay-1">DREAM SQUAT PORTAL</span>
               </SectionPill>
-              <h1 className="section-text-reveal portal-h1" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: DARK, lineHeight: 1.1, marginTop: 20, marginBottom: 16 }}>
-                <span className="page-load-reveal page-load-reveal--delay-1">Everything you need to open your squat dental practice.</span>
+              <h1 className="section-text-reveal portal-h1" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: DARK, lineHeight: 1.1, marginTop: 20, marginBottom: 16 }}>
+                <span className="page-load-reveal page-load-reveal--delay-1">
+                  <span style={{ color: GOLD }}>Everything</span>{' '}
+                  you need to open your squat dental practice.</span>
               </h1>
-              <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 20, fontWeight: 600, color: GOLD, margin: '0 0 16px' }}>
+              <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 24, fontWeight: 400, color: DARK, margin: '0 0 16px' }}>
                 One place. One price. No guesswork.
               </p>
-              <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: '0 0 28px', maxWidth: 560 }}>
+              <p className="section-text-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 16, color: DARK, fontWeight: 400, lineHeight: 1.65, margin: '0 0 28px', maxWidth: 560 }}>
                 You've got the clinical skills. You've got the ambition. What you've been missing is a clear roadmap to turn your vision into a successful dental practice.
               </p>
               <div className="page-load-reveal page-load-reveal--delay-3">
@@ -165,9 +175,9 @@ export const DsPortalPage: React.FC = () => (
             </ScrollReveal>
           </div>
 
-          <div className="portal-hero-art interactive-lift page-load-reveal page-load-reveal--delay-2" style={{ flex: 1, height: 600, overflow: 'hidden', flexShrink: 0, borderRadius: 24, background: '#fff' }}>
-            <ScrollReveal variant="right" style={{ height: '100%' }}>
-              <img src="/calc-dashboard.png" alt="Dream Squat portal dashboard" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'top center', display: 'block' }} />
+          <div className="portal-hero-art interactive-lift page-load-reveal page-load-reveal--delay-2" style={{ flex: '1 1 0', minWidth: 0, height: 'auto' }}>
+            <ScrollReveal variant="right">
+              <img src={hero1} alt="Dream Squat portal dashboard" style={{ width: '100%', height: 'auto', display: 'block' }} />
             </ScrollReveal>
           </div>
         </div>
@@ -176,7 +186,7 @@ export const DsPortalPage: React.FC = () => (
 
     {/* Trust strip */}
     <section style={{ background: GOLD, padding: '18px 24px' }}>
-      <p className="section-text-reveal" style={{ fontFamily: SF, fontSize: 15, fontWeight: 500, color: '#fff', textAlign: 'center', margin: 0 }}>
+      <p className="section-text-reveal" style={{ fontFamily: SF, fontSize: 14, fontWeight: 590, color: CREAM, textAlign: 'center', margin: 0 }}>
         Trusted by 70+ dentists who have opened their own practices across the UK
       </p>
     </section>
@@ -184,34 +194,56 @@ export const DsPortalPage: React.FC = () => (
     {/* The Problem */}
     <section className="portal-section" style={{ background: CHIP, padding: '80px 80px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div className="portal-problem-row" style={{ display: 'flex', gap: 50, alignItems: 'flex-start' }}>
+        <div className="portal-problem-row" style={{ position: 'relative', display: 'flex', gap: 50, alignItems: 'flex-start' }}>
+          <img className="portal-problem-arrow" src={longArrow} alt="" aria-hidden="true" style={{ position: 'absolute', left: 500, top: 393, width: 234, height: 166, pointerEvents: 'none', zIndex: 2 }} />
           <div style={{ flex: '0 0 580px', display: 'flex', flexDirection: 'column', gap: 16 }}>
             <ScrollReveal variant="left">
               <SectionPill innerBg={CHIP}>THE PROBLEM</SectionPill>
-              <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 48, fontWeight: 700, color: DARK, lineHeight: 1.15, marginTop: 20, marginBottom: 16 }}>
-                Going squat shouldn't feel this complicated.
+              <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: DARK, lineHeight: 1.15, marginTop: 20, marginBottom: 16 }}>
+                Going squat shouldn't feel this 
+                <span style={{ color: GOLD }}>{' '}complicated.</span>
               </h2>
-              <p style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: '0 0 12px' }}>
+              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: '0 0 12px' }}>
                 Most dentists who dream of opening their own practice never take the leap.
               </p>
-              <p style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: '0 0 20px' }}>
+              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 700, color: DARK, lineHeight: 1.65, margin: '0 0 20px' }}>
                 Not because they aren't capable but because finding the right information can feel impossible.
               </p>
-              <div className="portal-tag-row" style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-                <Tag text="Google searches." />
-                <Tag text="Conflicting advice" />
-                <Tag text="Endless decisions" />
-                <Tag text="Months spent trying to work out" />
-                <Tag text="what to do" />
-                <Tag text="when to do it" />
-                <Tag text="who to trust." />
+              <div className="portal-tag-row" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="Google searches." />
+                  </div>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="Conflicting advice" />
+                  </div>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="Endless decisions" />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="Months spent trying to work out" />
+                  </div>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="what to do" />
+                  </div>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="when to do it" />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  <div style={{ minHeight: 41, width: 'fit-content', border: '1px solid #E3AA33', background: '#FFF0D1', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Tag text="who to trust." />
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
 
-          <div className="interactive-lift" style={{ flex: 1, background: '#fff', border: `1px solid ${GOLD}33`, borderRadius: 20, padding: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className="interactive-lift" style={{ flex: 1, maxWidth: 600, minHeight: 460, background: 'linear-gradient(90.45deg, #925E02 -9.6%, #C5A13B 48.65%, #E6CC60 93.96%, #F2DC6E 115.53%, #ECD465 130.63%, #DDBD4E 152.2%, #C49727 182.41%, #B07908 201.82%)', borderRadius: 20, padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
             <ScrollReveal variant="right">
-              <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: GOLD, lineHeight: 1.3, margin: '0 0 16px' }}>
+              <h3 style={{ fontFamily: SF, fontSize: 50, fontWeight: 700, color: '#fff', lineHeight: 1.2, margin: '0 0 28px' }}>
                 You're a brilliant clinician being asked to become a business owner overnight.
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -226,29 +258,36 @@ export const DsPortalPage: React.FC = () => (
 
     {/* Why we built Dream Squat */}
     <section className="portal-section" style={{ background: DARK, padding: '80px 80px', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 46% 36% at 50% 24%, ${GOLD}26 0%, transparent 100%)`, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 125, left: '50%', transform: 'translateX(-50%)', width: 1328, maxWidth: '100%', height: 500, background: 'radial-gradient(50% 50% at 50% 50%, #925E02 0%, rgba(227, 170, 51, 0) 100%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative' }}>
         <ScrollReveal>
-          <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 48, fontWeight: 700, color: '#fff', lineHeight: 1.15, textAlign: 'center', maxWidth: 820, margin: '0 auto 40px' }}>
-            That's exactly why we built Dream Squat.
+          <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.15, textAlign: 'center', maxWidth: 820, margin: '0 auto 40px', position: 'relative', top: -24 }}>
+            That's exactly why we<br />
+            built <span style={{ color: GOLD }}>Dream Squat.</span>
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal variant="scale">
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
-            <div className="interactive-lift" style={{ height: 460, width: 'fit-content', borderRadius: 24, overflow: 'hidden', background: '#fff' }}>
-              <img src="/calc-dashboard.png" alt="Dream Squat build journey dashboard" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'contain' }} />
+        <div style={{ position: 'relative' }}>
+          <ScrollReveal variant="scale">
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 64 }}>
+              <div style={{ position: 'relative', height: 460, width: 'fit-content' }}>
+                <div className="interactive-lift" style={{ height: '100%', borderRadius: 24, overflow: 'hidden' }}>
+                  <img src={builtimage1} alt="Dream Squat build journey dashboard" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'contain' }} />
+                  <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '50%', background: 'linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, #131313 84.16%)', pointerEvents: 'none' }} />
+                </div>
+                <img src={icon4} alt="" aria-hidden="true" style={{ position: 'absolute', left: -45, bottom: '100%', transform: 'translateY(30px)', display: 'block', zIndex: 2 }} />
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
 
-        <ScrollReveal variant="scale">
-          <div className="portal-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-            <InfoCard Icon={Layers} title="Information Overload" desc="Scattered advice and endless Google searches." />
-            <InfoCard Icon={HelpCircle} title="Decision Paralysis" desc="Too many decisions. No clear path forward." />
-            <InfoCard Icon={Compass} title="No Dedicated Roadmap" desc="Nothing built specifically for dentists starting from scratch." />
-          </div>
-        </ScrollReveal>
+          <ScrollReveal variant="scale">
+            <div className="portal-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+              <InfoCard icon={icon1} title="Information Overload" desc="Scattered advice and endless Google searches." />
+              <InfoCard icon={icon2} title="Decision Paralysis" desc="Too many decisions. No clear path forward." />
+              <InfoCard icon={icon3} title="No Dedicated Roadmap" desc="Nothing built specifically for dentists starting from scratch." />
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
 
@@ -256,24 +295,34 @@ export const DsPortalPage: React.FC = () => (
     <section className="portal-section" style={{ background: CREAM, padding: '80px 80px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <ScrollReveal>
-          <div className="portal-founder-top" style={{ display: 'flex', gap: 50, alignItems: 'flex-start', marginBottom: 24 }}>
-            <div className="interactive-lift portal-founder-photo" style={{ flex: '0 0 480px', height: 460, borderRadius: 20, overflow: 'hidden', background: '#ccc' }}>
-              <img src="/saba.png" alt="Saba Arif" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+          <div className="portal-founder-top" style={{ display: 'flex', gap: 50, alignItems: 'stretch', marginBottom: 24 }}>
+            <div className="interactive-lift portal-founder-photo" style={{ flex: '0 0 480px', position: 'relative', borderRadius: 20, overflow: 'hidden', background: '#ccc' }}>
+              <img src="/saba.png" alt="Saba Arif" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
             </div>
             <div style={{ flex: 1, paddingTop: 8 }}>
               <div style={{ marginBottom: 20 }}><SectionPill innerBg={CHIP}>BUILT FROM EXPERIENCE</SectionPill></div>
-              <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 44, fontWeight: 700, color: DARK, lineHeight: 1.15, marginBottom: 24 }}>
-                Built by someone who's done it. Three times.
+              <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: DARK, lineHeight: 1.15, marginBottom: 24 }}>
+                Built by someone who's 
+                done it.
+                <span style={{ color: GOLD }}> {''}Three times.</span>
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <p style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: 0 }}>
-                  Dream Squat was created by Saba Arif, a dental clinic owner who has opened three squat practices from scratch.
+                <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: 0 }}>
+                  <span style={{ fontWeight: 700 }}>Dream Squat</span>
+                   was created by 
+                   <span style={{ fontWeight: 700 }}>Saba Arif</span>, a dental clinic owner who has 
+                   <span style={{ fontWeight: 700 }}>opened three squat practices from scratch.</span>
                 </p>
-                <p style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: 0 }}>
                   She has since mentored 70+ dentists through the process from finding the right location and securing finance to CQC registration, fit-out, equipment and marketing.
                 </p>
-                <p style={{ fontFamily: SF, fontSize: 16, color: DARK, lineHeight: 1.65, margin: 0 }}>
-                  Saba didn't build Dream Squat from a textbook. She built it from real practices, real decisions, real mistakes and years of helping dentists make the leap.
+                <div style={{ height: 1, background: '#E3AA33', marginTop: 10 }} />
+                  <div style={{ textAlign: 'left', maxWidth: 640, margin: '5px 0 0' }}>
+                    <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: GOLD, margin: '0 0 5px' }}>This isn't theory. It's experience.</h3>
+                  </div>
+                <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: 0 }}>
+                  Saba didn't build Dream Squat from a textbook. 
+                  <br /> She built it from real practices, real decisions, real mistakes and years of helping dentists make the leap.
                 </p>
               </div>
             </div>
@@ -282,31 +331,27 @@ export const DsPortalPage: React.FC = () => (
 
         <ScrollReveal variant="scale">
           <div className="portal-founder-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
-            <div className="interactive-lift" style={{ borderRadius: 20, overflow: 'hidden', height: 260, position: 'relative', background: DARK }}>
-              <img src="/practices-clinic.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180.09deg, rgba(121,77,0,0) 38.64%, #000000 89.9%)' }} />
-              <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20 }}>
-                <p style={{ fontFamily: SF, fontWeight: 400, fontSize: 16, color: CREAM, lineHeight: 1.5, margin: 0 }}>
-                  Everything she wished she'd had when she opened her first practice is now inside Dream Squat.
-                </p>
-              </div>
-            </div>
             {[
-              { value: '3', label: 'Practices opened' },
-              { value: '70+', label: 'Dentists mentored' },
-              { value: '1', label: 'Complete roadmap' },
-            ].map((s) => (
-              <div key={s.label} className="interactive-lift" style={{ borderRadius: 20, height: 260, background: CHIP, border: `1px solid ${GOLD}33`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 20 }}>
-                <p style={{ fontFamily: SF, fontSize: 48, fontWeight: 700, color: GOLD, lineHeight: 1, margin: 0 }}>{s.value}</p>
-                <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: DARK, marginTop: 6, marginBottom: 0 }}>{s.label}</p>
+              { img: founder1, text: "Everything she wished she'd had when she opened her first practice is now inside Dream Squat." },
+              { img: founder2, value: '3', label: 'Practices opened' },
+              { img: founder3, value: '70+', label: 'Dentists mentored' },
+              { img: founder4, value: '1', label: 'Complete roadmap' },
+            ].map((c, i) => (
+              <div key={i} className="interactive-lift" style={{ borderRadius: 20, overflow: 'hidden', height: 391, position: 'relative', background: DARK }}>
+                <img src={c.img} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180.09deg, rgba(121, 77, 0, 0) 38.64%, #000000 89.9%)' }} />
+                <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20 }}>
+                  {c.text ? (
+                    <p style={{ fontFamily: SF, fontWeight: 400, fontSize: 16, color: CREAM, lineHeight: 1.5, margin: 0 }}>{c.text}</p>
+                  ) : (
+                    <>
+                      <p style={{ fontFamily: SF, fontSize: 48, fontWeight: 700, color: '#fff', lineHeight: 1, margin: 0 }}>{c.value}</p>
+                      <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: CREAM, marginTop: 6, marginBottom: 0 }}>{c.label}</p>
+                    </>
+                  )}
+                </div>
               </div>
             ))}
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div style={{ textAlign: 'center', maxWidth: 640, margin: '40px auto 0' }}>
-            <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: GOLD, margin: '0 0 10px' }}>This isn't theory. It's experience.</h3>
           </div>
         </ScrollReveal>
       </div>

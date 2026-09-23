@@ -203,20 +203,20 @@ export const EventPage: React.FC = () => {
                     background: 'transparent',
                   }}
                 >
-                  The Dream Squat Marketing & Branding Summit 2026
+                  The Dream Squat Conference 2026
                 </span>
               </div>
             </div>
           </div>
           <h1 className="summit-hero-title page-load-reveal page-load-reveal--delay-2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 24, maxWidth: 831, textAlign: 'center' }}>
-            <span style={{ color: '#f2dc6e' }}>11 July 2026</span>
-            {', Kings Cross, London'}
+            <span style={{ color: '#f2dc6e' }}>25 September 2026</span>
+            {', The Midland, Manchester'}
           </h1>
           <p className="summit-hero-copy page-load-reveal page-load-reveal--delay-3" style={{ fontFamily: SF, fontSize: 24, color: '#fff', lineHeight: 1.5, marginBottom: 36, maxWidth: 643, textAlign: 'center' }}>
-            One day. Eight marketing experts. Every strategy, system, and tool you need to fill your chair and grow your clinic.
+            One day. Everyone you need to open a practice, in the same room. Lenders, suppliers, compliance, marketing, and dentists who are twelve months ahead of you.
           </p>
           <a href="#book" className="summit-hero-cta interactive-button page-load-reveal page-load-reveal--delay-4" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: GOLD, color: '#fbfbfb', fontFamily: SF, fontSize: 14, fontWeight: 590, padding: '12px 30px', borderRadius: 8, textDecoration: 'none' }}>
-            Grab your ticket →
+            Book my seat →
           </a>
         </div>
       </section>

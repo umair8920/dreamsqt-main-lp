@@ -22,21 +22,25 @@ const PRODUCTS = [
     img: product1,
     name: 'Flossly',
     desc: 'The practice CRM and operating system my clinics run on. Enquiries, treatment plans, recalls, reporting.',
+    link: 'https://flossly.ai/',
   },
   {
     img: product2,
     name: 'TwothMatch',
     desc: 'Dental recruitment, so hiring your associate and nurses is not a job ad and a prayer.',
+    link: 'https://www.twothmatch.co.uk/',
   },
   {
     img: product3,
     name: 'CQC MediSolutions',
     desc: 'Registration, policies, mock inspections and registered manager prep, run by a team that submits registrations every week.',
+    link: 'https://www.cqcmedisolutions.co.uk/',
   },
   {
     img: product4,
     name: 'Smart Dental Compliance and Training',
     desc: 'Ongoing CPD and compliance that keeps you inspection ready every year after.',
+    link: 'https://www.smartdentalservices.co.uk/',
   },
 ];
 
@@ -93,7 +97,15 @@ export const EcosystemSection: React.FC = () => (
         {/* 2x2 product grid */}
         <div className="home-ecosystem-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {PRODUCTS.map((p) => (
-            <div key={p.name} className="home-card interactive-lift" style={{ borderRadius: 20, overflow: 'hidden', position: 'relative', height: 360 }}>
+            <a
+              key={p.name}
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-card interactive-lift"
+              style={{ borderRadius: 20, overflow: 'hidden', position: 'relative', height: 360, display: 'block', textDecoration: 'none' }}
+              aria-label={`Visit ${p.name}`}
+            >
               <img src={p.img} alt={p.name} className="home-card-image" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(181.87deg, rgba(19, 19, 19, 0) 42.46%, #131313 98.42%)' }} />
               <div style={{ position: 'absolute', bottom: 24, left: 24, right: 24, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
@@ -101,11 +113,11 @@ export const EcosystemSection: React.FC = () => (
                   <h3 style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#FCF6EF', marginBottom: 6 }}>{p.name}</h3>
                   <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 400, color: '#FCF6EF', lineHeight: 1.5, maxWidth: 380 }}>{p.desc}</p>
                 </div>
-                <div className="home-card-arrow" style={{ flexShrink: 0 }}>
+                <span className="home-card-arrow" style={{ flexShrink: 0, display: 'inline-flex' }}>
                   <ArrowIcon />
-                </div>
+                </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

@@ -73,7 +73,7 @@ export const EventSection: React.FC<EventSectionProps> = ({ onJoinClick }) => (
             className="interactive-button"
             style={{ fontFamily: SF, fontSize: 14, fontWeight: 600, color: '#fff', background: '#925E02', border: 'none', borderRadius: 8, padding: '14px 36px', cursor: 'pointer', letterSpacing: '0.04em' }}
           >
-            JOIN FOR £19.99/MONTH →
+            Book a ticket →
           </button>
           </div>
         </div>

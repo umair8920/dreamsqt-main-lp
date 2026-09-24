@@ -2148,6 +2148,44 @@ body {
   padding: 96px 80px 0;
 }
 
+/* Portal explorer: content swap animation + image zoom */
+@keyframes portal-swap-in {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes portal-img-in {
+  from { opacity: 0; transform: scale(1.08); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.portal-swap > * {
+  animation: portal-swap-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.portal-swap > *:nth-child(2) { animation-delay: 0.06s; }
+.portal-swap > *:nth-child(3) { animation-delay: 0.12s; }
+.portal-swap > *:nth-child(4) { animation-delay: 0.18s; }
+.portal-swap > *:nth-child(5) { animation-delay: 0.24s; }
+.portal-swap > *:nth-child(6) { animation-delay: 0.3s; }
+.portal-swap > *:nth-child(7) { animation-delay: 0.36s; }
+
+.portal-explorer-img {
+  animation: portal-img-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-ai-art:hover .portal-explorer-img {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-swap > *,
+  .portal-explorer-img {
+    animation: none;
+  }
+}
+
 /* Hero image bleeds through the right padding (and the centred-wrapper gutter on wide screens) to the screen edge */
 .portal-hero-art {
   margin-right: calc(-80px - max(0px, (100vw - 1440px) / 2));
@@ -2228,6 +2266,10 @@ body {
   .portal-pricing-card > div {
     flex: none !important;
     width: 100% !important;
+  }
+
+  .portal-ai-text {
+    min-height: 0 !important;
   }
 
   .portal-founder-photo,

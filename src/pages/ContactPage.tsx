@@ -42,17 +42,22 @@ export const ContactPage: React.FC = () => (
 
           <div className="contact-right-column" style={{ flex: 1, minHeight: 866 }}>
             <ScrollReveal variant="right" style={{ height: '100%' }}>
-              <div className="interactive-lift contact-form-card" style={{
+              <div className="contact-form-card" style={{
                 background: '#fff',
                 borderRadius: 40,
                 minHeight: 866,
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                flexDirection: 'column',
+                overflow: 'hidden',
+                padding: 24,
+                boxSizing: 'border-box',
               }}>
-                <p className="interactive-text contact-form-placeholder" style={{ fontFamily: SF, fontSize: 60, color: '#DCDCDC', fontWeight: 400, margin: 0 }}>
-                  Flossly Form here
-                </p>
+                <iframe
+                  title="Contact form"
+                  src="https://app.flossly.ai/lead-form/a7cbcd6c5f7d73e961dd4bc874f0e9d6b6caa85ec48886221b5dec0c626d7f9a"
+                  width="100%"
+                  style={{ border: 'none', borderRadius: 12, display: 'block', flex: 1, minHeight: 0, width: '100%' }}
+                />
               </div>
             </ScrollReveal>
           </div>

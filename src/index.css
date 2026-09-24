@@ -632,13 +632,12 @@ body {
 }
 
 .resources-card-image {
-  transform: translateY(-50%);
   transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .resources-card:hover .resources-card-image,
 .resources-card:focus-within .resources-card-image {
-  transform: translateY(-50%) scale(1.03);
+  transform: scale(1.03);
   filter: saturate(1.03) contrast(1.02);
 }
 

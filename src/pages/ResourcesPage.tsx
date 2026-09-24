@@ -1,147 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
 import { ScrollReveal } from '../components/ScrollReveal';
-import resource1 from '../assets/resource/resource1.png';
-import resource2 from '../assets/resource/resource2.png';
-import resource3 from '../assets/resource/resource3.png';
+import { RESOURCES, ResourceCard, DownloadModal, type Resource } from '../components/ResourceCards';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#925E02';
 const CREAM = '#FCF6EF';
 const CARD_BG = '#F4EEE5';
 
-const RESOURCES = [
-  {
-    img: resource1,
-    category: 'CQC REGISTRATION PROCESS',
-    title: '12 Week Pre-Launch Planner',
-    desc: 'Download your free resource and fill your diary before you open, not after',
-    date: 'Last updated: 24 Aug 2026',
-  },
-  {
-    img: resource2,
-    category: 'DENTAL CLINICS',
-    title: 'The 100 Squat Build Templates',
-    desc: 'Owning a practice used to be the “final chapter” of a career.',
-    date: 'Last updated: 24 Aug 2026',
-  },
-  {
-    img: resource3,
-    category: 'CQC REGISTRATION PROCESS',
-    title: 'Lease Review Worksheet',
-    desc: 'The seven clauses that decide whether you can ever sell',
-    date: 'Last updated: 24 Aug 2026',
-  },
-];
-
-const DownloadIcon = () => (
-  <img src="/resource-download-icon.svg" alt="" style={{ width: 14, height: 14, flexShrink: 0 }} />
-);
-
-const ResourceCard = ({
-  img,
-  category,
-  title,
-  desc,
-  date,
-}: {
-  img: string;
-  category: string;
-  title: string;
-  desc: string;
-  date: string;
-}) => (
-  <div
-    className="interactive-lift resources-card"
-    style={{
-      borderRadius: 20,
-      overflow: 'hidden',
-      background: '#fff',
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%',
-    }}
-  >
-    <div
-      className="resources-card-media"
-      style={{
-        width: '100%',
-        height: 237,
-        overflow: 'hidden',
-        borderRadius: '20px 20px 0 0',
-        flexShrink: 0,
-        position: 'relative',
-      }}
-    >
-      <img
-        className="resources-card-image"
-        src={img}
-        alt={title}
-        style={{
-          width: '100%',
-          height: 'auto',
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          display: 'block',
-        }}
-      />
-    </div>
-
-    <div className="resources-card-body interactive-text-parent" style={{ padding: '20px 20px 24px', flex: 1, display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div
-        className="resources-card-badge"
-        style={{
-          display: 'inline-flex',
-          alignSelf: 'flex-start',
-          background: 'rgba(224,194,83,0.54)',
-          borderRadius: 30,
-          padding: '4px 8px',
-        }}
-      >
-        <span className="interactive-text" style={{ fontFamily: SF, fontSize: 12, color: '#131313', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-          {category}
-        </span>
-      </div>
-
-      <h3 className="interactive-text resources-card-title" style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, color: '#131313', lineHeight: 1.3, margin: 0 }}>
-        {title}
-      </h3>
-
-      <p className="interactive-text resources-card-desc" style={{ fontFamily: SF, fontSize: 16, color: '#131313', lineHeight: 1.55, flex: 1, margin: 0 }}>
-        {desc}
-      </p>
-
-      <div className="resources-card-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 12, marginTop: 4 }}>
-        <button
-          className="interactive-button resources-card-button"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            background: '#131313',
-            border: 'none',
-            borderRadius: 30,
-            padding: '4px 12px',
-            cursor: 'pointer',
-          }}
-        >
-          <span className="interactive-text" style={{ fontFamily: SF, fontSize: 12, fontWeight: 590, color: '#fff', textTransform: 'uppercase' }}>
-            Download
-          </span>
-          <DownloadIcon />
-        </button>
-        <span className="interactive-text resources-card-date" style={{ fontFamily: SF, fontSize: 10, color: '#737373' }}>
-          {date}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-export const ResourcesPage: React.FC = () => (
+export const ResourcesPage: React.FC = () => {
+  const [active, setActive] = useState<Resource | null>(null);
+  return (
   <div className="resources-page" style={{ background: CREAM }}>
     <section className="resources-hero" style={{ background: CREAM, overflow: 'hidden' }}>
       <Header variant="light" />
@@ -173,7 +44,7 @@ export const ResourcesPage: React.FC = () => (
         <div className="resources-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 24 }}>
           {RESOURCES.map((r, i) => (
             <ScrollReveal key={`${r.title}-${i}`} variant="scale" delay={([100, 200, 300, 400][i % 4]) as 100 | 200 | 300 | 400}>
-              <ResourceCard {...r} />
+              <ResourceCard {...r} onDownload={() => setActive(r)} />
             </ScrollReveal>
           ))}
         </div>
@@ -181,5 +52,7 @@ export const ResourcesPage: React.FC = () => (
     </section>
 
     <Footer />
+    {active && <DownloadModal resource={active} onClose={() => setActive(null)} />}
   </div>
-);
+  );
+};

@@ -3,6 +3,9 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
 import { ScrollReveal } from '../components/ScrollReveal';
+import resource1 from '../assets/resource/resource1.png';
+import resource2 from '../assets/resource/resource2.png';
+import resource3 from '../assets/resource/resource3.png';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#925E02';
@@ -11,29 +14,27 @@ const CARD_BG = '#F4EEE5';
 
 const RESOURCES = [
   {
-    img: '/resource-1.png',
+    img: resource1,
     category: 'CQC REGISTRATION PROCESS',
-    title: 'Guidance for Dentists for the New CQC Registration Process',
-    desc: 'The Care Quality Commission (CQC) is the independent health regulator for England.',
+    title: '12 Week Pre-Launch Planner',
+    desc: 'Download your free resource and fill your diary before you open, not after',
     date: 'Last updated: 24 Aug 2026',
   },
   {
-    img: '/resource-2.png',
+    img: resource2,
     category: 'DENTAL CLINICS',
-    title: 'The 2026 Roadmap to Your Dream Dental Squat',
-    desc: 'Owning a practice used to be the "final chapter" of a career.',
+    title: 'The 100 Squat Build Templates',
+    desc: 'Owning a practice used to be the “final chapter” of a career.',
     date: 'Last updated: 24 Aug 2026',
   },
   {
-    img: '/resource-3.png',
+    img: resource3,
     category: 'CQC REGISTRATION PROCESS',
-    title: 'The Squat Practice Budget Calculator',
-    desc: 'The exact cost breakdown for opening a private squat dental practice based on 3 real builds.',
+    title: 'Lease Review Worksheet',
+    desc: 'The seven clauses that decide whether you can ever sell',
     date: 'Last updated: 24 Aug 2026',
   },
 ];
-
-const ALL_RESOURCES = [...RESOURCES, ...RESOURCES, ...RESOURCES];
 
 const DownloadIcon = () => (
   <img src="/resource-download-icon.svg" alt="" style={{ width: 14, height: 14, flexShrink: 0 }} />
@@ -67,7 +68,7 @@ const ResourceCard = ({
       className="resources-card-media"
       style={{
         width: '100%',
-        height: 290,
+        height: 237,
         overflow: 'hidden',
         borderRadius: '20px 20px 0 0',
         flexShrink: 0,
@@ -170,7 +171,7 @@ export const ResourcesPage: React.FC = () => (
     <section className="resources-grid-section" style={{ background: CARD_BG, padding: '80px 0 120px' }}>
       <div className="resources-grid-shell" style={{ maxWidth: 1440, margin: '0 auto', padding: '0 80px' }}>
         <div className="resources-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 24 }}>
-          {ALL_RESOURCES.map((r, i) => (
+          {RESOURCES.map((r, i) => (
             <ScrollReveal key={`${r.title}-${i}`} variant="scale" delay={([100, 200, 300, 400][i % 4]) as 100 | 200 | 300 | 400}>
               <ResourceCard {...r} />
             </ScrollReveal>

@@ -1,6 +1,9 @@
 import React from 'react';
 import { SectionPill } from './SectionPill';
 import { ScrollReveal } from './ScrollReveal';
+import resource1 from '../assets/resource/resource1.png';
+import resource2 from '../assets/resource/resource2.png';
+import resource3 from '../assets/resource/resource3.png';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
@@ -10,24 +13,24 @@ const DownloadIcon = () => (
 
 const RESOURCES = [
   {
-    img: '/resource-1.png',
+    img: resource1,
     category: 'CQC REGISTRATION PROCESS',
-    title: 'Guidance for Dentists for the New CQC Registration Process',
-    desc: 'The Care Quality Commission (CQC) is the independent health regulator for England.',
+    title: '12 Week Pre-Launch Planner',
+    desc: 'Download your free resource and fill your diary before you open, not after',
     date: 'Last updated: 24 Aug 2026',
   },
   {
-    img: '/resource-2.png',
+    img: resource2,
     category: 'DENTAL CLINICS',
-    title: 'The 2026 Roadmap to Your Dream Dental Squat',
-    desc: 'Owning a practice used to be the "final chapter" of a career.',
+    title: 'The 100 Squat Build Templates',
+    desc: 'Owning a practice used to be the “final chapter” of a career.',
     date: 'Last updated: 24 Aug 2026',
   },
   {
-    img: '/resource-3.png',
+    img: resource3,
     category: 'CQC REGISTRATION PROCESS',
-    title: 'The Squat Practice Budget Calculator',
-    desc: 'The exact cost breakdown for opening a private squat dental practice based on 3 real builds.',
+    title: 'Lease Review Worksheet',
+    desc: 'The seven clauses that decide whether you can ever sell',
     date: 'Last updated: 24 Aug 2026',
   },
 ];
@@ -60,7 +63,7 @@ const ResourceCard = ({
       className="resources-card-media"
       style={{
         width: '100%',
-        height: 290,
+        height: 237,
         overflow: 'hidden',
         borderRadius: '20px 20px 0 0',
         flexShrink: 0,

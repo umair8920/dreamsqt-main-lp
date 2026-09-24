@@ -2268,7 +2268,8 @@ body {
     gap: 8px !important;
   }
 
-  .portal-problem-arrow {
+  .portal-problem-arrow,
+  .portal-cta-art {
     display: none;
   }
 

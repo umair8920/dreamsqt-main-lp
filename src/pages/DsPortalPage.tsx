@@ -10,7 +10,6 @@ import {
   Search,
   Sparkles,
   Target,
-  CheckCircle2,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -23,10 +22,14 @@ import icon2 from '../assets/dsportal/icon2.svg'
 import icon3 from '../assets/dsportal/icon3.svg'
 import icon4 from '../assets/dsportal/icon4.svg'
 import builtimage1 from '../assets/dsportal/builtimage1.png'
+import simplepricing from '../assets/dsportal/simplepricing.png'
+import practice1 from '../assets/dsportal/practice1.png'
+import startbuilding from '../assets/dsportal/startbuilding.png'
 import founder1 from '../assets/homeicons/founder 1.png'
 import founder2 from '../assets/homeicons/founder 2.png'
 import founder3 from '../assets/homeicons/founder 3.png'
 import founder4 from '../assets/homeicons/founder 4.png'
+
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#925E02';
@@ -37,12 +40,13 @@ const CHIP = '#F4EEE5';
 
 /* ── shared local pieces ─────────────────────────────────────────── */
 
-const CtaButton: React.FC<{ href?: string; onClick?: () => void; children: React.ReactNode; light?: boolean; className?: string }> = ({
+const CtaButton: React.FC<{ href?: string; onClick?: () => void; children: React.ReactNode; light?: boolean; className?: string; style?: React.CSSProperties }> = ({
   href,
   onClick,
   children,
   light = false,
   className = '',
+  style: styleOverride,
 }) => {
   const style: React.CSSProperties = {
     display: 'inline-flex',
@@ -60,6 +64,7 @@ const CtaButton: React.FC<{ href?: string; onClick?: () => void; children: React
     cursor: 'pointer',
     letterSpacing: '0.02em',
     whiteSpace: 'nowrap',
+    ...styleOverride,
   };
   return href ? (
     <a href={href} className={`interactive-button ${className}`} style={style}>
@@ -96,9 +101,9 @@ const InfoCard: React.FC<{ icon: string; title: string; desc: string }> = ({ ico
 );
 
 const RiskCard: React.FC<{ stat: string; desc: string }> = ({ stat, desc }) => (
-  <div className="interactive-lift" style={{ background: CHIP, border: `1px solid ${GOLD}33`, borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-    <p style={{ fontFamily: SF, fontSize: 42, fontWeight: 700, color: GOLD, margin: 0, lineHeight: 1 }}>{stat}</p>
-    <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.55, margin: 0 }}>{desc}</p>
+  <div className="interactive-lift" style={{ background: GOLD, border: '1px solid #925E02', borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 12, height: 214, width:330, overflow: 'hidden' }}>
+    <p style={{ fontFamily: SF, fontSize: 32, fontWeight: 700, color: '#FFFFFF', margin: 0, lineHeight: 1 }}>{stat}</p>
+    <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FFFFFF', lineHeight: 1.55, margin: 0 }}>{desc}</p>
   </div>
 );
 
@@ -122,17 +127,6 @@ const StepItem: React.FC<{ Icon: React.FC<{ size?: number; color?: string }>; in
     </p>
   </div>
 );
-
-const BENEFITS = [
-  'Full portal access',
-  'AI Location Finder',
-  '5-module course',
-  'Build Journey',
-  'Cost Calculator',
-  '100+ resources',
-  'Vetted supplier directory',
-  'Private community',
-];
 
 const FEATURE_ROW = [
   { Icon: MapPin, label: 'AI Location Finder' },
@@ -411,50 +405,16 @@ export const DsPortalPage: React.FC = () => (
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <div style={{ marginBottom: 20 }}><SectionPill innerBg={CREAM}>SIMPLE PRICING</SectionPill></div>
-            <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 44, fontWeight: 700, color: DARK, lineHeight: 1.15, margin: 0 }}>
-              Everything included. One simple price.
+            <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: DARK, lineHeight: 1.15, margin: 0 }}>
+              Everything included. 
+              <br />
+              <span style={{ color: GOLD }}>One simple price.</span>
             </h2>
           </div>
         </ScrollReveal>
 
         <ScrollReveal variant="scale">
-          <div className="interactive-lift portal-pricing-card" style={{ display: 'flex', gap: 50, alignItems: 'stretch', background: '#fff', borderRadius: 28, padding: 40, border: `1px solid ${GOLD}33` }}>
-            <div className="portal-pricing-art" style={{ flex: '0 0 460px', borderRadius: 20, overflow: 'hidden', background: CHIP }}>
-              <img src="/calc-dashboard.png" alt="Dream Squat portal dashboard" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-            </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 600, color: GOLD, letterSpacing: '0.08em', margin: '0 0 8px' }}>PRICE</p>
-              <p style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: DARK, lineHeight: 1, margin: 0 }}>
-                £19.99 <span style={{ fontSize: 20, fontWeight: 400, color: '#6b6b6b' }}>/ month</span>
-              </p>
-              <p style={{ fontFamily: SF, fontSize: 15, color: DARK, margin: '12px 0 24px' }}>
-                Everything inside Dream Squat is included from day one.
-              </p>
-
-              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 700, color: DARK, margin: '0 0 14px' }}>Benefits</p>
-              <div className="portal-pricing-benefits" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px 20px', marginBottom: 24 }}>
-                {BENEFITS.map((b) => (
-                  <div key={b} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <CheckCircle2 size={18} color={GOLD} style={{ flexShrink: 0 }} />
-                    <span style={{ fontFamily: SF, fontSize: 14, color: DARK }}>{b}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ height: 1, background: 'rgba(0,0,0,0.1)', margin: '0 0 20px' }} />
-
-              <p style={{ fontFamily: SF, fontSize: 13, color: '#6b6b6b', lineHeight: 1.5, margin: '0 0 8px' }}>
-                No hidden fees. No complicated packages. No premium tier hiding the good stuff.
-              </p>
-              <p style={{ fontFamily: SF, fontSize: 14, fontWeight: 600, color: DARK, margin: '0 0 24px' }}>
-                Cancel anytime. No contract. Instant access.
-              </p>
-
-              <div>
-                <CtaButton href="#pricing">Start for £19.99/month →</CtaButton>
-              </div>
-            </div>
-          </div>
+          <img src={simplepricing} alt="Dream Squat pricing" style={{ display: 'block', width: '100%', height: 'auto' }} />
         </ScrollReveal>
       </div>
     </section>
@@ -465,14 +425,16 @@ export const DsPortalPage: React.FC = () => (
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <div style={{ marginBottom: 20 }}><SectionPill innerBg={CREAM}>LOOK AT THE BIGGER PICTURE</SectionPill></div>
-            <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 40, fontWeight: 700, color: DARK, lineHeight: 1.2, maxWidth: 760, margin: '0 auto' }}>
-              £19.99 is small compared to the cost of getting it wrong.
+            <h2 className="section-text-reveal portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: DARK, lineHeight: 1.2, maxWidth: 760, margin: '0 auto' }}>
+              <span style={{ color: GOLD }}>£19.99</span> is small 
+              <br /> compared to the cost of 
+              <br /> getting it wrong.
             </h2>
           </div>
         </ScrollReveal>
 
         <ScrollReveal variant="scale">
-          <div className="portal-risk-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 40 }}>
+          <div className="portal-risk-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 330px)', justifyContent: 'center', gap: 30, marginBottom: 40 }}>
             <RiskCard stat="£20,000+" desc="One bad lease clause could cost you thousands." />
             <RiskCard stat="4 MONTHS" desc="A missed CQC deadline could delay your opening while you're still paying rent." />
             <RiskCard stat="10+ YEARS" desc="The wrong location could shape the next decade of your career." />
@@ -480,56 +442,55 @@ export const DsPortalPage: React.FC = () => (
         </ScrollReveal>
 
         <ScrollReveal>
-          <p style={{ fontFamily: SF, fontSize: 20, fontWeight: 400, fontStyle: 'italic', color: DARK, textAlign: 'center', maxWidth: 680, margin: '0 auto 60px', lineHeight: 1.5 }}>
+          <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 700, fontStyle: 'bold', color: DARK, textAlign: 'center', maxWidth: 680, margin: '0 auto 60px', lineHeight: 1.5 }}>
             Dream Squat isn't another monthly expense.{' '}
-            <span style={{ color: GOLD, fontWeight: 700, fontStyle: 'normal' }}>It's a smarter way to protect the biggest business decision of your career.</span>
+            <br />
+            <span style={{ color: DARK, fontSize: 16, fontWeight: 400, fontStyle: 'normal' }}>It's a smarter way to protect the biggest business decision of your career.</span>
           </p>
         </ScrollReveal>
 
         {/* Mid-page CTA card */}
         <ScrollReveal variant="scale">
-          <div className="interactive-lift portal-cta-card" style={{ background: '#7B4E00', borderRadius: 28, padding: '48px 56px' }}>
+          <div className="interactive-lift portal-cta-card" style={{ position: 'relative', overflow: 'hidden', background: '#7B4E00', borderRadius: 28, padding: '48px calc(40% + 40px) 48px 56px' }}>
+            <img className="portal-cta-art" src={practice1} alt="" aria-hidden="true" style={{ position: 'absolute', top: 10, right: 10, bottom: 10, width: '40%', height: 'calc(100% - 20px)', borderRadius: 20, objectFit: 'cover', objectPosition: 'center', pointerEvents: 'none' }} />
             <div style={{ marginBottom: 20 }}><SectionPill innerBg="#7B4E00"><span style={{ color: CREAM }}>YOUR PRACTICE STARTS HERE</span></SectionPill></div>
-            <h2 style={{ fontFamily: SF, fontSize: 36, fontWeight: 700, color: CREAM, lineHeight: 1.2, margin: '0 0 20px', maxWidth: 640 }}>
+            <h2 style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#FFFFFF', lineHeight: 1.2, margin: '0 0 20px', maxWidth: 640 }}>
               Your practice is closer than you think.
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 }}>
-              <p style={{ fontFamily: SF, fontSize: 16, color: '#FFF0D1', margin: 0 }}>→ The location is out there.</p>
-              <p style={{ fontFamily: SF, fontSize: 16, color: '#FFF0D1', margin: 0 }}>→ The patients are waiting.</p>
-              <p style={{ fontFamily: SF, fontSize: 16, color: '#FFF0D1', margin: 0 }}>→ And the practice you've imagined is entirely possible.</p>
+              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400,  color: '#FCF6EF', margin: 0 }}>→ The location is out there.</p>
+              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FCF6EF', margin: 0 }}>→ The patients are waiting.</p>
+              <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FCF6EF', margin: 0 }}>→ And the practice you've imagined is entirely possible.</p>
             </div>
-            <p style={{ fontFamily: SF, fontSize: 16, color: '#FFF0D1', lineHeight: 1.6, margin: '0 0 8px', maxWidth: 620 }}>
+            <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FCF6EF', lineHeight: 1.6, margin: '0 0 8px', maxWidth: 620 }}>
               What you need now is a plan, the right tools and guidance from people who've already walked the path.
             </p>
-            <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 700, color: CREAM, margin: '0 0 28px' }}>Dream Squat gives you all three.</p>
-            <CtaButton href="#pricing" light>JOIN FOR £19.99/MONTH →</CtaButton>
+            <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 400, color: '#FFFFFF', margin: '0 0 28px' }}>Dream Squat gives you all three.</p>
+            <CtaButton href="#pricing" style={{ background: DARK, color: '#FBFBFB' }}>JOIN FOR £19.99/MONTH →</CtaButton>
           </div>
         </ScrollReveal>
       </div>
     </section>
 
     {/* Showcase */}
-    <section className="portal-section" style={{ background: DARK, padding: '80px 80px' }}>
+    <section className="portal-section" style={{ background: DARK, padding: '80px 80px', overflowX: 'clip' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <h2 className="portal-h2" style={{ fontFamily: SF, fontSize: 44, fontWeight: 700, color: '#fff', lineHeight: 1.15, margin: '0 0 12px' }}>
-              Stop searching. Start building.
+            <h2 className="portal-h2" style={{ fontFamily: SF, fontSize: 60, fontWeight: 700, color: '#fff', lineHeight: 1.15, margin: '0 0 12px' }}>
+              Stop searching.
+              <br /> 
+              <span style={{ color: GOLD }}>Start building.</span>
             </h2>
-            <p style={{ fontFamily: SF, fontSize: 18, color: 'rgba(255,255,255,0.75)', margin: 0 }}>
-              The clearer path to opening the practice you've always wanted.
+            <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FFFFFF', margin: 0 }}>
+              The clearer path to opening the practice you've 
+              <br /> always wanted.
             </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal variant="scale">
-          <div className="portal-showcase-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-            {['/calc-dashboard.png', '/everything-img.png', '/practices-clinic.png'].map((src) => (
-              <div key={src} className="interactive-lift" style={{ height: 320, borderRadius: 20, overflow: 'hidden', background: '#232323' }}>
-                <img src={src} alt="Dream Squat portal preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            ))}
-          </div>
+          <img src={startbuilding} alt="Dream Squat portal preview" style={{ display: 'block', width: '100vw', maxWidth: 'none', height: 'auto', marginLeft: 'calc(50% - 50vw)' }} />
         </ScrollReveal>
       </div>
     </section>

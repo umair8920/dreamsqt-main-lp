@@ -13,7 +13,7 @@ export const EverythingSection: React.FC = () => (
           <SectionPill innerBg="#fff">THE PROBLEM</SectionPill>
           <h2 className="home-everything-title" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginTop: 24, marginBottom: 24 }}>
             Everything I used to build three practices, in one place, for{' '}
-            <span style={{ color: '#C58F28' }}>£19.99 a month.</span>
+            <span style={{ color: '#925E02' }}>£19.99 a month.</span>
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <p style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, color: '#444', lineHeight: 1.65 }}>

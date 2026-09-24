@@ -555,9 +555,9 @@ export const DsPortalPage: React.FC = () => (
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: 0 }}>
-                  <span style={{ fontWeight: 700 }}>Dream Squat</span>
+                  <span style={{ fontWeight: 700 }}>Dream Squat {''}</span>
                    was created by 
-                   <span style={{ fontWeight: 700 }}>Saba Arif</span>, a dental clinic owner who has 
+                   <span style={{ fontWeight: 700 }}>{''} Saba Arif</span>, a dental clinic owner who has 
                    <span style={{ fontWeight: 700 }}>opened three squat practices from scratch.</span>
                 </p>
                 <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: DARK, lineHeight: 1.65, margin: 0 }}>

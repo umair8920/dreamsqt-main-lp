@@ -264,12 +264,12 @@ export const DsPortalPage: React.FC = () => (
         <div style={{ position: 'relative' }}>
           <ScrollReveal variant="scale">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 64 }}>
-              <div style={{ position: 'relative', height: 460, width: 'fit-content' }}>
+              <div style={{ position: 'relative', width: '100%', maxWidth: 691, aspectRatio: '1092 / 727', containerType: 'inline-size' }}>
                 <div className="interactive-lift" style={{ height: '100%', borderRadius: 24, overflow: 'hidden' }}>
-                  <img src={builtimage1} alt="Dream Squat build journey dashboard" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'contain' }} />
+                  <img src={builtimage1} alt="Dream Squat build journey dashboard" style={{ height: '100%', width: '100%', display: 'block', objectFit: 'contain' }} />
                   <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '50%', background: 'linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, #131313 84.16%)', pointerEvents: 'none' }} />
                 </div>
-                <img src={icon4} alt="" aria-hidden="true" style={{ position: 'absolute', left: -45, bottom: '100%', transform: 'translateY(30px)', display: 'block', zIndex: 2 }} />
+                <img src={icon4} alt="" aria-hidden="true" style={{ position: 'absolute', left: '-6.5cqw', bottom: '100%', width: '9.26cqw', height: 'auto', transform: 'translateY(4.34cqw)', display: 'block', zIndex: 2 }} />
               </div>
             </div>
           </ScrollReveal>

@@ -2195,6 +2195,14 @@ body {
     margin-right: 0;
   }
 
+  /* stacked layout: let the image run through the side padding to both screen edges */
+  .portal-hero-inner > .portal-hero-art {
+    width: calc(100% + 80px) !important;
+    max-width: none !important;
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
   .portal-h1 {
     font-size: clamp(32px, 5.6vw, 48px) !important;
   }
@@ -2250,6 +2258,12 @@ body {
 
   .portal-hero-art {
     height: auto !important;
+  }
+
+  .portal-hero-inner > .portal-hero-art {
+    width: calc(100% + 40px) !important;
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   .portal-h1 {

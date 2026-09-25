@@ -322,7 +322,7 @@ const PortalExplorer: React.FC = () => {
                   transition: 'background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               >
-                <img src={t.icon} alt="" aria-hidden="true" style={{ width: 18, height: 18, display: 'block', filter: isActive ? 'none' : 'brightness(0)' }} />
+                <img src={t.icon} alt="" aria-hidden="true" style={{ width: 18, height: 18, display: 'block', filter: isActive ? 'brightness(0) invert(1)' : 'brightness(0)', transition: 'filter 0.25s ease' }} />
                 {t.label}
               </button>
             );

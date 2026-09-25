@@ -1684,7 +1684,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 80px;
+  padding: 60px 80px 60px calc(max(0px, (100vw - 1440px) / 2) + 80px);
 }
 
 @media (max-width: 1280px) {
@@ -1707,7 +1707,7 @@ body {
   }
 
   .event-room-copy {
-    padding: 60px 48px;
+    padding: 60px 48px 60px 80px;
   }
 }
 

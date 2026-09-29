@@ -147,7 +147,7 @@ export const BookedPage: React.FC = () => (
       <div className="booked-g3">
         {LEAKS.map((l, i) => (
           <ScrollReveal key={l.title} delay={STAGGER[i]} style={{ height: '100%' }}>
-            <div className="interactive-lift" style={{ display: 'flex', flexDirection: 'column', gap: 14, padding: '32px 28px', borderTop: `2px solid ${GOLD}`, background: BG, height: '100%' }}>
+            <div className="interactive-lift" style={{ display: 'flex', flexDirection: 'column', gap: 14, padding: '32px 28px', borderTop: `2px solid ${GOLD}`, background: BG, height: '100%', overflow: 'hidden' }}>
               <div style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 24, lineHeight: 1.15, color: CREAM }}>{l.title}</div>
               <p style={{ margin: 0, fontFamily: SANS, fontWeight: 300, fontSize: 15, lineHeight: 1.65, color: MUTED, textWrap: 'pretty' }}>{l.text}</p>
             </div>

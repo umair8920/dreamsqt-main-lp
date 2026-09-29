@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import heroBg from '../assets/hero-1.png';
 import heroVideo from '../assets/saba-motivation-video.mp4';
 
+const HERO_GUTTER = 'max(clamp(24px, 5.5vw, 80px), calc((100% - 1440px) / 2 + clamp(24px, 5.5vw, 80px)))';
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
 interface HeroSectionProps {
@@ -32,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
     <div style={{ position: 'absolute', inset: 0, background: '#271900CC' }} />
 
     {/* Content */}
-    <div className="home-hero-content" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 48, textAlign: 'left', padding: '120px var(--hero-gutter) 60px', '--hero-gutter': 'max(clamp(24px, 5.5vw, 80px), calc((100% - 1440px) / 2 + clamp(24px, 5.5vw, 80px)))' as string, background: 'rgba(0,0,0,0.20)' }}>
+    <div className="home-hero-content" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 48, textAlign: 'left', padding: `120px ${HERO_GUTTER} 60px`, background: 'rgba(0,0,0,0.20)' }}>
       <div className="home-hero-text" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 auto', minWidth: 0 }}>
       {/* Pill */}
       <div className="page-load-reveal page-load-reveal--delay-1" style={{ marginBottom: 22 }}>

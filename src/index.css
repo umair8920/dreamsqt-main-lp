@@ -335,7 +335,7 @@ body {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-.marquee-track { animation: marquee 28s linear infinite; }
+.marquee-track { animation: marquee 80s linear infinite; }
 
 .summit-session-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2080,7 +2080,7 @@ body {
   }
 
   .home-ecosystem-section {
-    padding: 0 20px 48px !important;
+    padding: 48px 20px !important;
   }
 
   .home-ecosystem-card {
@@ -2352,4 +2352,46 @@ body {
   .portal-pricing-card {
     padding: 24px !important;
   }
+}
+
+@media (max-width: 1024px) {
+  .home-hero-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .home-hero-video {
+    width: min(100%, 360px) !important;
+    margin-right: 0 !important;
+    align-self: center;
+  }
+}
+
+/* Announcement bar: text scrolls left-to-right and re-enters from the left */
+.announcement-bar-track {
+  display: flex;
+  width: max-content;
+  animation: announcement-scroll-right 30s linear infinite;
+}
+.announcement-bar-item {
+  flex-shrink: 0;
+  padding-right: 80px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.announcement-bar-marquee:hover .announcement-bar-track {
+  animation-play-state: paused;
+}
+@keyframes announcement-scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar-track { animation: none; }
+}
+@media (max-width: 640px) {
+  .announcement-bar-arrow { display: none; }
+  .announcement-bar-inner { gap: 12px !important; }
+  .announcement-bar-cta { padding: 7px 12px !important; font-size: 12px !important; }
 }

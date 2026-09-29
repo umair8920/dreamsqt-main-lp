@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { AnnouncementBar } from './components/AnnouncementBar';
 import { TopBar } from './components/TopBar';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -53,16 +54,19 @@ export default function App() {
   useScrollReveal();
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/ds-portal" element={<DsPortalPage />} />
-      <Route path="/cost-calculator" element={<CostCalculatorPage />} />
-      <Route path="/ds-club" element={<DsClub />} />
-      <Route path="/event" element={<EventPage />} />
-      <Route path="/resources" element={<ResourcesPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/blog/:slug" element={<BlogDetailPage />} />
-      <Route path="/blog" element={<BlogPage />} />
-    </Routes>
+    <>
+      <AnnouncementBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<DsPortalPage />} />
+        <Route path="/cost-calculator" element={<CostCalculatorPage />} />
+        <Route path="/ds-network" element={<DsClub />} />
+        <Route path="/event" element={<EventPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+      </Routes>
+    </>
   );
 }

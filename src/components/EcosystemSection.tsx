@@ -45,7 +45,7 @@ const PRODUCTS = [
 ];
 
 export const EcosystemSection: React.FC = () => (
-  <section className="home-ecosystem-section" style={{ background: '#FCF6EF', padding: '0 80px 80px' }}>
+  <section className="home-ecosystem-section" style={{ background: '#FCF6EF', padding: '80px 80px' }}>
     <ScrollReveal variant="scale">
       <div className="home-ecosystem-card" style={{ maxWidth: 1280, margin: '0 auto', background: '#7B4E00', borderRadius: 28, padding: '56px 60px' }}>
         {/* Header */}

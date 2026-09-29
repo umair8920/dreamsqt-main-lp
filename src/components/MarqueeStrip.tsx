@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
-const ITEM = '★ Dream Squat Conference 2026';
+const ITEM = '★  Dream Squat London, April 2027. Venue announcing soon. ★  Dream Squat London, April 2027. Venue announcing soon.';
 const ITEMS = Array(12).fill(ITEM).join('   ');
 
 export const MarqueeStrip: React.FC = () => (

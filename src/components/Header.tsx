@@ -6,9 +6,9 @@ const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-seri
 const GOLD = '#925E02';
 
 const NAV_LINKS: { label: string; to: string }[] = [
-  { label: 'DS Portal', to: '/ds-portal' },
+  { label: 'DS Network', to: '/ds-network' },
+  { label: 'Our Services', to: '/services' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
-  { label: 'DS Club', to: '/ds-club' },
   { label: 'Event', to: '/event' },
   { label: 'Free Resources', to: '/resources' },
   { label: 'Blogs', to: '/blog' },

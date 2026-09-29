@@ -281,7 +281,7 @@ export const EventPage: React.FC = () => {
           {/* Horizontal scroll */}
           <ScrollReveal variant="scale">
             <div ref={videoRef} className="summit-video-track hide-scrollbar" style={{ display: 'flex', gap: 20, overflowX: 'auto', scrollBehavior: 'smooth', paddingBottom: 8 }}>
-              {['BlZFR9VAlXo', 'BqqZflyb4rc', 'mMxENzPapm8', 'lishNutZ__I', 'BlZFR9VAlXo', 'BlZFR9VAlXo', 'BlZFR9VAlXo'].map((id, i) => (
+              {['BlZFR9VAlXo', 'BqqZflyb4rc', 'mMxENzPapm8', 'lishNutZ__I', 'yiQGsR3jn7k', 'pV6UV9m-ccs', 'k3yaChJcG5w'].map((id, i) => (
                 <VideoCard key={i} videoId={id} />
               ))}
             </div>

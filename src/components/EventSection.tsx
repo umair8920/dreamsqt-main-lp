@@ -31,7 +31,7 @@ export const EventSection: React.FC<EventSectionProps> = ({ onJoinClick }) => (
       }}
     />
     {/* Overlay */}
-    <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,5,0,0.35)' }} />
+    <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,5,0,0.65)' }} />
 
     {/* Centered card */}
     <div className="home-event-wrap" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 80px' }}>

@@ -20,6 +20,7 @@ import { DsPortalPage } from './pages/DsPortalPage';
 import { DsClub } from './pages/DsClub';
 import { EventPage } from './pages/Event';
 import { ResourcesPage } from './pages/ResourcesPage';
+import { BookedPage } from './pages/BookedPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
@@ -62,6 +63,7 @@ export default function App() {
         <Route path="/cost-calculator" element={<CostCalculatorPage />} />
         <Route path="/ds-network" element={<DsClub />} />
         <Route path="/event" element={<EventPage />} />
+        <Route path="/booked" element={<BookedPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />

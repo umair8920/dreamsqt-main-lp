@@ -10,6 +10,7 @@ const NAV_LINKS: { label: string; to: string }[] = [
   { label: 'Our Services', to: '/services' },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'Event', to: '/event' },
+  { label: 'Booked', to: '/booked' },
   { label: 'Free Resources', to: '/resources' },
   { label: 'Blogs', to: '/blog' },
   { label: 'Contact Us', to: '/contact' },
@@ -124,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
             className="header-nav page-load-reveal page-load-reveal--delay-3"
             style={{
               flex: 1,
-              maxWidth: 734,
+              maxWidth: 820,
               height: 41,
               display: 'flex',
               alignItems: 'center',

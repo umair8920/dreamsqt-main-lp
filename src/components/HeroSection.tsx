@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
     <div style={{ position: 'absolute', inset: 0, background: '#271900CC' }} />
 
     {/* Content */}
-    <div className="home-hero-content" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 48, textAlign: 'left', padding: '120px 80px 60px 120px', background: 'rgba(0,0,0,0.20)' }}>
+    <div className="home-hero-content" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 48, textAlign: 'left', padding: '120px var(--hero-gutter) 60px', '--hero-gutter': 'max(clamp(24px, 5.5vw, 80px), calc((100% - 1440px) / 2 + clamp(24px, 5.5vw, 80px)))' as string, background: 'rgba(0,0,0,0.20)' }}>
       <div className="home-hero-text" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 auto', minWidth: 0 }}>
       {/* Pill */}
       <div className="page-load-reveal page-load-reveal--delay-1" style={{ marginBottom: 22 }}>
@@ -93,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
       </div>
 
       {/* Video */}
-      <div className="home-hero-video page-load-reveal page-load-reveal--delay-3" style={{ flex: '0 0 auto', marginRight: 'clamp(0px, 3.5vw, 50px)', width: 'clamp(300px, 28.34vw, 408px)', aspectRatio: '408 / 580', borderRadius: 40, position: 'relative', overflow: 'hidden', background: '#000', boxShadow: '0 20px 60px rgba(0,0,0,0.45)' }}>
+      <div className="home-hero-video page-load-reveal page-load-reveal--delay-3" style={{ flex: '0 0 auto', width: 'clamp(300px, 28.34vw, 408px)', aspectRatio: '408 / 580', borderRadius: 40, position: 'relative', overflow: 'hidden', background: '#000', boxShadow: '0 20px 60px rgba(0,0,0,0.45)' }}>
         <video
           ref={videoRef}
           src={heroVideo}

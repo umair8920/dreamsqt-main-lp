@@ -1841,11 +1841,6 @@ body {
 }
 
 @media (max-width: 1280px) {
-  .home-hero-content {
-    padding-left: 48px !important;
-    padding-right: 48px !important;
-  }
-
   .home-event-wrap {
     padding: 56px 48px !important;
   }

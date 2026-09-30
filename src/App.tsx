@@ -59,7 +59,7 @@ export default function App() {
       <AnnouncementBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<DsPortalPage />} />
+        <Route path="/portal" element={<DsPortalPage />} />
         <Route path="/cost-calculator" element={<CostCalculatorPage />} />
         <Route path="/ds-network" element={<DsClub />} />
         <Route path="/event" element={<EventPage />} />

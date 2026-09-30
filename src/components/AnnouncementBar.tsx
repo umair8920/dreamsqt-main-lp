@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const GOLD = '#E8A317';
-const EVENTBRITE_URL = 'https://www.eventbrite.co.uk/';
+const EVENTBRITE_URL = 'https://bit.ly/4ihIO88';
 
-const MESSAGE = 'BOOKED. on 14 November. London, £97, 5 hours CPD, "only 30 seats"';
+const MESSAGE = 'BOOKED. on 14 November. London, £249, 5 hours CPD, "only 30 seats"';
 
 export const AnnouncementBar: React.FC = () => {
   const [visible, setVisible] = useState(true);

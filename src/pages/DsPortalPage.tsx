@@ -3,6 +3,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SectionPill } from '../components/SectionPill';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { LOGIN_URL } from '../constants';
 import hero1 from '../assets/dsportal/hero.png'
 import longArrow from '../assets/dsportal/long-arrow.svg'
 import icon1 from '../assets/dsportal/icon1.svg'
@@ -55,7 +56,7 @@ const CtaButton: React.FC<{ href?: string; onClick?: () => void; children: React
     ...styleOverride,
   };
   return href ? (
-    <a href={href} className={`interactive-button ${className}`} style={style}>
+    <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className={`interactive-button ${className}`} style={style}>
       {children}
     </a>
   ) : (
@@ -121,7 +122,7 @@ export const DsPortalPage: React.FC = () => (
                 You've got the clinical skills. You've got the ambition. What you've been missing is a clear roadmap to turn your vision into a successful dental practice.
               </p>
               <div className="page-load-reveal page-load-reveal--delay-3">
-                <CtaButton href="#pricing">JOIN FOR £19.99/MONTH →</CtaButton>
+                <CtaButton href={LOGIN_URL}>JOIN FOR £19.99/MONTH →</CtaButton>
               </div>
             </ScrollReveal>
           </div>
@@ -375,7 +376,7 @@ export const DsPortalPage: React.FC = () => (
               What you need now is a plan, the right tools and guidance from people who've already walked the path.
             </p>
             <p style={{ fontFamily: SF, fontSize: 24, fontWeight: 400, color: '#FFFFFF', margin: '0 0 28px' }}>Dream Squat gives you all three.</p>
-            <CtaButton href="#pricing" style={{ background: DARK, color: '#FBFBFB' }}>JOIN FOR £19.99/MONTH →</CtaButton>
+            <CtaButton href={LOGIN_URL} style={{ background: DARK, color: '#FBFBFB' }}>JOIN FOR £19.99/MONTH →</CtaButton>
           </div>
         </ScrollReveal>
       </div>

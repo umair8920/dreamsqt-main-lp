@@ -1,15 +1,12 @@
 import React, { useRef, useState } from 'react';
 import heroBg from '../assets/hero-1.png';
+import { LOGIN_URL } from '../constants';
 import heroVideo from '../assets/saba-motivation-video.mp4';
 
 const HERO_GUTTER = 'max(clamp(24px, 5.5vw, 80px), calc((100% - 1440px) / 2 + clamp(24px, 5.5vw, 80px)))';
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 
-interface HeroSectionProps {
-  onJoinClick?: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
+export const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
@@ -84,13 +81,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
       </p>
 
       {/* CTA */}
-      <button
-        onClick={onJoinClick}
+      <a
+        href={LOGIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="home-hero-cta interactive-button page-load-reveal page-load-reveal--delay-4"
-        style={{ fontFamily: SF, fontSize: 14, fontWeight: 600, color: '#fff', background: '#925E02', border: 'none', borderRadius: 8, padding: '14px 36px', cursor: 'pointer', letterSpacing: '0.04em' }}
+        style={{ display: 'inline-block', textDecoration: 'none', fontFamily: SF, fontSize: 14, fontWeight: 600, color: '#fff', background: '#925E02', border: 'none', borderRadius: 8, padding: '14px 36px', cursor: 'pointer', letterSpacing: '0.04em' }}
       >
         JOIN FOR £19.99/MONTH →
-      </button>
+      </a>
       </div>
 
       {/* Video */}

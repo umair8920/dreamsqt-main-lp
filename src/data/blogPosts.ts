@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     desc: 'Seven commercial lease clauses that quietly destroy the value of a dental practice, from someone who has negotiated three squat leases and sold one practice.',
     date: 'Last updated: 24 Aug 2026',
     ctaLabel: "See what's inside the Club",
-    ctaTo: '#',
+    ctaTo: '/ds-network',
     body: [
       'Your lease is the most valuable document in your practice and most dentists spend less time on it than they spend choosing a chair.',
       'I understand why. It is fifty pages of language designed to be unreadable, your solicitor says it is "fairly standard", and you are excited about the unit. So you sign.',
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     desc: 'How long CQC registration really takes for a new dental practice, what causes delays, and the timing mistake that costs squat practices three months of trading.',
     date: 'Last updated: 24 Aug 2026',
     ctaLabel: "See what's inside the Club",
-    ctaTo: '#',
+    ctaTo: '/ds-network',
     body: [
       'Here is the thing about CQC registration that nobody tells you until it is too late: you cannot treat a single patient without it, and it takes longer than your fit-out.',
       'That sentence has ended more squat business plans than any other single fact in this industry.',
@@ -200,7 +200,7 @@ export const blogPosts: BlogPost[] = [
     desc: 'Most squat practices open with an empty diary and spend six months recovering. Here is the pre-launch marketing sequence that means month one is booking, not begging.',
     date: 'Last updated: 24 Aug 2026',
     ctaLabel: "See what's inside the Club",
-    ctaTo: '#',
+    ctaTo: '/ds-network',
     body: [
       'The most expensive mistake in a squat build is not the equipment you over-specified or the rent you agreed to. It is the six weeks after opening when the practice is beautiful, the team is on payroll, and the phone is not ringing.',
       'Every fixed cost you have is now running at full speed against a diary that is mostly white space. That is the period that kills practices, and almost all of it is avoidable.',
@@ -244,7 +244,7 @@ export const blogPosts: BlogPost[] = [
     desc: 'Three expensive mistakes from three squat dental practice builds, with the numbers attached. The case studies nobody publishes.',
     date: 'Last updated: 24 Aug 2026',
     ctaLabel: 'Join the Club',
-    ctaTo: '#',
+    ctaTo: '/ds-network',
     body: [
       'Every case study in dentistry is a highlight reel. Revenue up, patients delighted, founder smiling in a hard hat.',
       'I have written those too. This is the other one.',

@@ -80,9 +80,9 @@ export const BlogPage: React.FC = () => (
         <p className="page-load-reveal page-load-reveal--delay-3 blog-hero-copy" style={{ fontFamily: SF, fontSize: 24, color: '#fff', textAlign: 'center', lineHeight: 1.45, margin: 0, maxWidth: 643 }}>
           Practical advice, real numbers and hard-earned lessons to help you plan, build and launch your dental practice with confidence.
         </p>
-        <button className="page-load-reveal page-load-reveal--delay-4 interactive-button blog-hero-button" style={{ background: '#F4EEE5', border: 'none', borderRadius: 8, padding: '12px 30px', fontFamily: SF, fontSize: 14, fontWeight: 590, color: '#131313', cursor: 'pointer' }}>
-          Book my seat →
-        </button>
+        <Link to="/contact" className="page-load-reveal page-load-reveal--delay-4 interactive-button blog-hero-button" style={{ display: 'inline-block', textDecoration: 'none', background: '#F4EEE5', border: 'none', borderRadius: 8, padding: '12px 30px', fontFamily: SF, fontSize: 14, fontWeight: 590, color: '#131313', cursor: 'pointer' }}>
+          Register your interest →
+        </Link>
       </div>
     </section>
 

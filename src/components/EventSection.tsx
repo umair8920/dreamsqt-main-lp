@@ -1,15 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ScrollReveal } from './ScrollReveal';
 
 const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 const VIDEO_ID = 't1jVSQKzgHw';
 
-interface EventSectionProps {
-  onJoinClick?: () => void;
-}
-
-export const EventSection: React.FC<EventSectionProps> = ({ onJoinClick }) => (
-  <section className="home-event-hero" style={{ position: 'relative', width: '100%', height: 869, overflow: 'hidden', background: '#000' }}>
+export const EventSection: React.FC = () => (
+  <section className="home-event-hero" style={{ position: 'relative', width: '100%', height: 1000, overflow: 'hidden', background: '#000' }}>
     {/* Background video (muted, looping, non-interactive, cropped to cover) */}
     <iframe
       src={`https://www.youtube.com/embed/${VIDEO_ID}?start=23&autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1`}
@@ -64,32 +61,36 @@ export const EventSection: React.FC<EventSectionProps> = ({ onJoinClick }) => (
         }}>
           {/* Date pill */}
           <div style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(255,255,255,0.45)', borderRadius: 20, padding: '6px 18px', marginBottom: 28 }}>
-            <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '0.07em' }}>25 SEPTEMBER 2026</span>
+            <span style={{ fontFamily: SF, fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '0.07em' }}>APRIL 2027</span>
           </div>
 
           {/* Heading */}
-          <h2 className="home-event-title" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: 24, maxWidth: 700, margin: '0 auto 24px' }}>
-            One day in Manchester with everyone you need to open a practice, in the same room.
+          <h2 className="home-event-title" style={{ fontFamily: SF, fontSize: 50, fontWeight: 700, color: '#fff', lineHeight: '100%', letterSpacing: 0, textAlign: 'center', marginBottom: 24, maxWidth: 700, margin: '0 auto 24px' }}>
+            Dream Squat London is coming.
+            <span style={{ fontFamily: SF, fontWeight: 700, fontSize: 50, lineHeight: '100%', letterSpacing: 0, textAlign: 'center' }}>Everything you need to open your practice, all in one room.</span>
           </h2>
+
+          
+
+          {/* Body */}
+          <p className="home-event-body" style={{ fontFamily: SF, fontSize: 18, fontWeight: 400, color: '#FFFFFF', lineHeight: '100%', letterSpacing: 0, textAlign: 'center', maxWidth: 540, margin: '0 auto 36px' }}>
+            Meet the lenders, suppliers, compliance experts, marketers, and dentists who can help turn your dream practice into reality. Bring your questions, meet the people you need, and leave with a clearer plan for what comes next.
+          </p>
 
           {/* Location */}
           <p style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 16 }}>
-            The Midland, Manchester.
+            Venue announcing soon.
           </p>
-
-          {/* Body */}
-          <p className="home-event-body" style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, color: '#FFFFFF', lineHeight: 1.6, maxWidth: 540, margin: '0 auto 36px' }}>
-            Lenders, suppliers, compliance, marketing, and dentists who are twelve months ahead of you. Come with a question, leave with a plan and the contacts to execute it. Your ticket includes three months in the Dream Squat Club.
-          </p>
+          
 
           {/* CTA */}
-          <button
-            onClick={onJoinClick}
+          <Link
+            to="/contact"
             className="interactive-button"
-            style={{ fontFamily: SF, fontSize: 14, fontWeight: 600, color: '#fff', background: '#925E02', border: 'none', borderRadius: 8, padding: '14px 36px', cursor: 'pointer', letterSpacing: '0.04em' }}
+            style={{ display: 'inline-block', textDecoration: 'none', fontFamily: SF, fontSize: 14, fontWeight: 600, color: '#fff', background: '#925E02', border: 'none', borderRadius: 8, padding: '14px 36px', cursor: 'pointer', letterSpacing: '0.04em' }}
           >
-            Book a ticket →
-          </button>
+            Register your interest →
+          </Link>
           </div>
         </div>
       </ScrollReveal>

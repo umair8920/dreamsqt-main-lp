@@ -125,7 +125,6 @@ export const CostCalculatorPage: React.FC = () => (
 
         <ScrollReveal>
           <div className="cost-block-outro" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <img src="/icon-notdo.svg" alt="" className="interactive-lift cost-block-icon" />
             <h2 className="section-text-reveal cost-h2" style={{ fontFamily: SF, fontSize: 56, fontWeight: 700, color: '#131313', lineHeight: 1.1, marginBottom: 28, maxWidth: 830 }}>
               <span className="page-load-reveal page-load-reveal--delay-1">What it will</span>{' '}
               <span className="page-load-reveal page-load-reveal--delay-2" style={{ color: GOLD }}>not do</span>

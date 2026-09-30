@@ -34,13 +34,13 @@ export const AnnouncementBar: React.FC = () => {
       <div
         className="announcement-bar-inner"
         style={{
-          maxWidth: 1440,
+          width: '100%',
           margin: '0 auto',
-          height: 48,
-          padding: '0 clamp(16px, 3vw, 40px)',
+          height: 'clamp(48px, 3.4vw, 80px)',
+          padding: '0 clamp(16px, 3vw, 80px)',
           display: 'flex',
           alignItems: 'center',
-          gap: 24,
+          gap: 'clamp(12px, 1.7vw, 40px)',
           boxSizing: 'border-box',
         }}
       >
@@ -62,6 +62,10 @@ export const AnnouncementBar: React.FC = () => {
             {item}
             {item}
             {item}
+            {item}
+            {item}
+            {item}
+            {item}
           </div>
         </div>
 
@@ -74,9 +78,9 @@ export const AnnouncementBar: React.FC = () => {
             flexShrink: 0,
             background: '#fff',
             color: '#131313',
-            fontSize: 13,
+            fontSize: 'clamp(13px, 0.95vw, 22px)',
             fontWeight: 500,
-            padding: '8px 20px',
+            padding: '0.6em 1.5em',
             borderRadius: 6,
             textDecoration: 'none',
             whiteSpace: 'nowrap',

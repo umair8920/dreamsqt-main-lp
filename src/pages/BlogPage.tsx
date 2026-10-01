@@ -37,14 +37,6 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
   >
     <div className="blog-card-media" style={{ height: 320, overflow: 'hidden', borderRadius: '20px 20px 0 0', flexShrink: 0, position: 'relative' }}>
       <img className="blog-card-image" src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
-      {post.badge && (
-        <img
-          src="/blog-card-badge.svg"
-          alt=""
-          className="blog-card-badge"
-          style={{ position: 'absolute', right: 20, bottom: -37, width: 74, height: 74, zIndex: 2 }}
-        />
-      )}
     </div>
     <div className="interactive-text-parent blog-card-body" style={{ padding: '20px 20px 24px', flex: 1, display: 'flex', flexDirection: 'column', gap: 10 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>

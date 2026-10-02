@@ -14,10 +14,11 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: 'DS Network', to: '/ds-network', children: [{ label: 'DS Portal', to: '/portal' }] },
- // { label: 'Our Services', children: [
-   // { label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' },
-   // { label: 'Project Management & Build', to: '/services/squat-practice-project-management' },
- // ] },
+ /* { label: 'Our Services', children: [
+    { label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' },
+    { label: 'Project Management & Build', to: '/services/squat-practice-project-management' },
+    { label: 'Marketing & Lead Management', to: '/services/dental-marketing-lead-management' },
+  ] }, */
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'Event', to: '/event', children: [{ label: 'Booked', to: '/booked' }] },
   { label: 'Free Resources', to: '/resources' },

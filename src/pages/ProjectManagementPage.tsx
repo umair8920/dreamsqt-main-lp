@@ -32,8 +32,8 @@ import stepBuild from '../assets/ourservicesicons/pm-step-build.svg';
 import stepEquipment from '../assets/ourservicesicons/pm-step-equipment.svg';
 import stepHandover from '../assets/ourservicesicons/pm-step-handover.svg';
 import pmCheck from '../assets/ourservicesicons/pm-check.svg';
-import carouselNext from '../assets/ourservicesicons/carousel-next.svg';
-import carouselPrev from '../assets/ourservicesicons/carousel-prev.svg';
+import carouselNext from '../assets/ourservicesicons/carousel-next-dark.svg';
+import carouselPrev from '../assets/ourservicesicons/carousel-prev-dark.svg';
 
 // Order follows the Figma frame (left to right); the surgery card has no photo in the design.
 const BUILD_CARDS = [
@@ -335,8 +335,16 @@ export const ProjectManagementPage: React.FC = () => {
               </div>
             </ScrollReveal>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Reels */}
+      <section style={{ background: CREAM }}>
+        <div className="cs-section cs-dark">
+          <div className="event-container">
             <ScrollReveal>
-              <div className="cs-reel-controls">
+              <div className="cs-reel-controls" style={{ marginTop: 0 }}>
                 <button type="button" aria-label="Previous video" onClick={() => scrollReels(-1)} disabled={reelEdge.start} className="interactive-button cs-reel-arrow">
                   <img src={carouselPrev} alt="" width={40} height={40} />
                 </button>

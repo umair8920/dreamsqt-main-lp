@@ -18,6 +18,7 @@ const NAV_LINKS: NavLink[] = [
     { label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' },
     { label: 'Project Management & Build', to: '/services/squat-practice-project-management' },
     { label: 'Marketing & Lead Management', to: '/services/dental-marketing-lead-management' },
+    { label: 'Recruitment', to: '/services/dental-recruitment' },
   ] }, */
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'Event', to: '/event', children: [{ label: 'Booked', to: '/booked' }] },

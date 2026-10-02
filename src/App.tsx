@@ -25,6 +25,7 @@ import { ContactPage } from './pages/ContactPage';
 import { ComplianceSetUpPage } from './pages/ComplianceSetUpPage';
 import { ProjectManagementPage } from './pages/ProjectManagementPage';
 import { MarketingLeadManagementPage } from './pages/MarketingLeadManagementPage';
+import { RecruitmentPage } from './pages/RecruitmentPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/services/squat-practice-compliance" element={<ComplianceSetUpPage />} />
         <Route path="/services/squat-practice-project-management" element={<ProjectManagementPage />} />
         <Route path="/services/dental-marketing-lead-management" element={<MarketingLeadManagementPage />} />
+        <Route path="/services/dental-recruitment" element={<RecruitmentPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />

@@ -111,7 +111,7 @@ const FAQS = [
 ];
 
 const HERO_VIDEO_ID = 'dO55E7nvzi8';
-const INTRO_VIDEO_ID = '12arq8alwX0';
+const INTRO_VIDEO_ID = 'x5PRUz5Seo4';
 const REEL_IDS = ['rU60QTdrIeE', 'xabMX6nK5ck', 'w_ofCd5RGIo', '12arq8alwX0'];
 
 // Muted autoplay (browsers only allow muted) that plays while the video is

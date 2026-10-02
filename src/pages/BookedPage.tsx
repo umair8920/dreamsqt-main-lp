@@ -2,6 +2,11 @@ import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollReveal } from '../components/ScrollReveal';
+import frontHouseImg from '../assets/bookedicons/fronthouse1.jpeg';
+import speaker1 from '../assets/bookedicons/booked-gemma-seddon.jpeg';
+import speaker2 from '../assets/bookedicons/booked-samantha-knowles.jpeg';
+import speaker3 from '../assets/bookedicons/booked-saba-arif.jpeg';
+
 
 const SERIF = "'Playfair Display',Georgia,'Times New Roman',serif";
 const SANS = "Montserrat,'Helvetica Neue',Arial,sans-serif";
@@ -11,6 +16,7 @@ const PANEL = '#171511';
 const CREAM = '#F2EDE2';
 const MUTED = '#A8A399';
 const LINE = 'rgba(185,149,82,0.25)';
+const HERO_VIDEO_ID = 'XqYujwxsdbI';
 const TICKET_URL = 'https://bit.ly/4ihIO88';
 
 const LEAKS = [
@@ -22,9 +28,9 @@ const LEAKS = [
 const JOURNEY = ['First Impression', 'Conversation', 'Diary', 'Follow-Up', 'System'];
 
 const SPEAKERS = [
-  { session: 'Session One', name: 'Gemma Seddon', topic: 'First Impressions That Last', photo: '/booked-gemma-seddon.jpeg', text: 'The patient experience that converts: the first call, the tone, the welcome and the small touches patients remember.' },
-  { session: 'Session Two', name: 'Samantha Knowles', topic: 'The Commercial Power of Front of House', photo: '/booked-samantha-knowles.jpeg', text: 'Why every enquiry is a commercial moment, and how to build a diary that works for the patient, the clinician and the business.' },
-  { session: 'Session Three', name: 'Saba Arif', topic: 'From Lead to BOOKED.', photo: '/booked-saba-arif.jpeg', text: 'Speed-to-lead, follow-up systems, CRM and automation. The systems that make conversion consistent, not lucky.' },
+  { session: 'Session One', name: 'Gemma Seddon', topic: 'First Impressions That Last', photo: speaker1, text: 'The patient experience that converts: the first call, the tone, the welcome and the small touches patients remember.' },
+  { session: 'Session Two', name: 'Samantha Knowles', topic: 'The Commercial Power of Front of House', photo: speaker2, text: 'Why every enquiry is a commercial moment, and how to build a diary that works for the patient, the clinician and the business.' },
+  { session: 'Session Three', name: 'Saba Arif', topic: 'From Lead to BOOKED.', photo: speaker3, text: 'Speed-to-lead, follow-up systems, CRM and automation. The systems that make conversion consistent, not lucky.' },
 ];
 
 const AGENDA: { time: string; title: string; text?: string }[] = [
@@ -58,8 +64,8 @@ const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <div style={{ fontFamily: SANS, fontWeight: 600, fontSize: 12, letterSpacing: '0.32em', textTransform: 'uppercase', color: GOLD }}>{children}</div>
 );
 
-const H2 = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="booked-h2" style={{ margin: 0, fontFamily: SERIF, fontWeight: 700, fontSize: 48, lineHeight: 1.1, color: CREAM, textWrap: 'balance' }}>{children}</h2>
+const H2 = ({ children, balance = true }: { children: React.ReactNode; balance?: boolean }) => (
+  <h2 className="booked-h2" style={{ margin: 0, fontFamily: SERIF, fontWeight: 700, fontSize: 48, lineHeight: 1.1, color: CREAM, textWrap: balance ? 'balance' : undefined }}>{children}</h2>
 );
 
 const Lead = ({ children }: { children: React.ReactNode }) => (
@@ -82,11 +88,11 @@ const Section = ({ children, bg = BG, id, narrow }: { children: React.ReactNode;
   </section>
 );
 
-const Intro = ({ eyebrow, title, text, center }: { eyebrow: string; title: string; text?: string; center?: boolean }) => (
+const Intro = ({ eyebrow, title, text, center, wide }: { eyebrow: string; title: string; text?: string; center?: boolean; wide?: boolean }) => (
   <ScrollReveal>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: center ? undefined : 760, alignItems: center ? 'center' : undefined, textAlign: center ? 'center' : undefined }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: center || wide ? undefined : 760, alignItems: center ? 'center' : undefined, textAlign: center ? 'center' : undefined }}>
       <Eyebrow>{eyebrow}</Eyebrow>
-      <H2>{title}</H2>
+      <H2 balance={!wide}>{title}</H2>
       {text && <Lead>{text}</Lead>}
     </div>
   </ScrollReveal>
@@ -102,6 +108,21 @@ export const BookedPage: React.FC = () => (
       .booked-g3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
       .booked-g2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
       .booked-hero-title { font-size: 148px; }
+      .booked-hero-video { position: absolute; inset: 0; overflow: hidden; container-type: size; pointer-events: none; background: #131313; }
+      .booked-hero-video iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.25); width: max(100cqw, 56.25cqh); height: max(100cqh, 177.78cqw); border: 0; opacity: 0; animation: booked-video-in 1.2s ease 3s forwards; }
+      @keyframes booked-video-in { to { opacity: 1; } }
+      .booked-hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, #131313 10.58%, rgba(39, 25, 0, 0.71) 52.88%, #131313 100%); pointer-events: none; }
+      .booked-leaks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+      .booked-leaks-cards { display: flex; flex-direction: column; gap: 24px; }
+      .booked-leaks-cards > * { display: flex; flex-direction: column; }
+      .booked-leaks-cards > * > * { flex: 1; }
+      .booked-leaks-img { position: relative; height: 100%; min-height: 320px; overflow: hidden; background: ${BG}; }
+      .booked-leaks-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+      .booked-leaks-shade { position: absolute; inset: 0; background: linear-gradient(180.09deg, rgba(121, 77, 0, 0) 38.64%, #000000 89.9%); pointer-events: none; }
+      @media (max-width: 960px) {
+        .booked-leaks { grid-template-columns: minmax(0, 1fr); }
+        .booked-leaks-img { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+      }
       .booked-journey { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; }
       .booked-cta { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 28px; background: ${GOLD}; color: ${BG}; border: 1px solid ${GOLD}; font-family: ${SANS}; font-weight: 700; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background .3s, border-color .3s; }
       .booked-cta:hover { background: ${CREAM}; border-color: ${CREAM}; color: ${BG}; }
@@ -121,7 +142,15 @@ export const BookedPage: React.FC = () => (
 
     {/* Hero */}
     <section style={{ position: 'relative', padding: '220px 0 96px', overflow: 'hidden', background: BG }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(185,149,82,0.16), transparent 70%)', pointerEvents: 'none' }} />
+      <div className="booked-hero-video" aria-hidden="true">
+        <iframe
+          src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?start=2&autoplay=1&mute=1&loop=1&playlist=${HERO_VIDEO_ID}&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&fs=0`}
+          title="BOOKED. background video"
+          allow="autoplay; encrypted-media"
+          tabIndex={-1}
+        />
+      </div>
+      <div className="booked-hero-shade" />
       <Header variant="dark" />
       <div className="booked-wrap" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28, textAlign: 'center' }}>
         <div className="page-load-reveal page-load-reveal--delay-1"><Eyebrow>One Day · London · Saturday 14 November</Eyebrow></div>
@@ -143,16 +172,24 @@ export const BookedPage: React.FC = () => (
 
     {/* Where the money leaks */}
     <Section bg={PANEL}>
-      <Intro eyebrow="Why front of house" title="Thousands of pounds of treatment quietly disappear between the enquiry and the chair." text="Practices spend on Meta ads, Google and websites, then lose the patient in the twenty minutes after they get in touch. Not because the team is lazy. Because nobody gave them the skills or the system." />
-      <div className="booked-g3">
-        {LEAKS.map((l, i) => (
-          <ScrollReveal key={l.title} delay={STAGGER[i]} style={{ height: '100%' }}>
-            <div className="interactive-lift" style={{ display: 'flex', flexDirection: 'column', gap: 14, padding: '32px 28px', borderTop: `2px solid ${GOLD}`, background: BG, height: '100%', overflow: 'hidden' }}>
-              <div style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 24, lineHeight: 1.15, color: CREAM }}>{l.title}</div>
-              <p style={{ margin: 0, fontFamily: SANS, fontWeight: 300, fontSize: 15, lineHeight: 1.65, color: MUTED, textWrap: 'pretty' }}>{l.text}</p>
-            </div>
-          </ScrollReveal>
-        ))}
+      <Intro wide eyebrow="Why front of house" title="Thousands of pounds of treatment quietly disappear between the enquiry and the chair." text="Practices spend on Meta ads, Google and websites, then lose the patient in the twenty minutes after they get in touch. Not because the team is lazy. Because nobody gave them the skills or the system." />
+      <div className="booked-leaks">
+        <ScrollReveal variant="scale" delay={200} style={{ height: '100%' }}>
+          <div className="booked-leaks-img">
+            <img src={frontHouseImg} alt="Dental front of house team welcoming a patient" loading="lazy" />
+            <div className="booked-leaks-shade" />
+          </div>
+        </ScrollReveal>
+        <div className="booked-leaks-cards">
+          {LEAKS.map((l, i) => (
+            <ScrollReveal key={l.title} delay={STAGGER[i]} style={{ flex: 1 }}>
+              <div className="interactive-lift" style={{ display: 'flex', flexDirection: 'column', gap: 14, padding: '32px 28px', borderTop: `2px solid ${GOLD}`, background: BG, height: '100%', boxSizing: 'border-box', overflow: 'hidden' }}>
+                <div style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 24, lineHeight: 1.15, color: CREAM }}>{l.title}</div>
+                <p style={{ margin: 0, fontFamily: SANS, fontWeight: 300, fontSize: 15, lineHeight: 1.65, color: MUTED, textWrap: 'pretty' }}>{l.text}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </Section>
 

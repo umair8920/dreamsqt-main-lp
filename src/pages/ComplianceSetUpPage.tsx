@@ -20,13 +20,13 @@ import faqClosedGlyph from '../assets/ourservicesicons/faq-closed-glyph.svg';
 import carouselNext from '../assets/ourservicesicons/carousel-next.svg';
 import carouselPrev from '../assets/ourservicesicons/carousel-prev.svg';
 
-const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
-const QUICKSAND = 'Quicksand,"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
-const GOLD = '#925E02';
-const CREAM = '#FCF6EF';
-const SAND = '#F4EEE5';
-const PEACH = '#FFF0D1';
-const INK = '#131313';
+export const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
+export const QUICKSAND = 'Quicksand,"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
+export const GOLD = '#925E02';
+export const CREAM = '#FCF6EF';
+export const SAND = '#F4EEE5';
+export const PEACH = '#FFF0D1';
+export const INK = '#131313';
 
 const PREPARE_CARDS = [
   { icon: cardApplication, text: 'CQC application and supporting evidence' },
@@ -111,12 +111,12 @@ const FAQS = [
 ];
 
 const HERO_VIDEO_ID = 'dO55E7nvzi8';
-const INTRO_VIDEO_ID = 'x5PRUz5Seo4';
-const REEL_IDS = ['rU60QTdrIeE', 'xabMX6nK5ck', 'w_ofCd5RGIo', '12arq8alwX0'];
+export const INTRO_VIDEO_ID = 'x5PRUz5Seo4';
+export const REEL_IDS = ['rU60QTdrIeE', 'xabMX6nK5ck', 'w_ofCd5RGIo', '12arq8alwX0'];
 
 // Muted autoplay (browsers only allow muted) that plays while the video is
 // mostly in view and pauses when it scrolls out, so players never all run at once.
-const AutoPlayFrame: React.FC<{ id: string; title: string }> = ({ id, title }) => {
+export const AutoPlayFrame: React.FC<{ id: string; title: string }> = ({ id, title }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLIFrameElement>(null);
   const visible = useRef(false);
@@ -161,13 +161,13 @@ const AutoPlayFrame: React.FC<{ id: string; title: string }> = ({ id, title }) =
   );
 };
 
-const ReelCard: React.FC<{ id: string; index: number }> = ({ id, index }) => (
+export const ReelCard: React.FC<{ id: string; index: number }> = ({ id, index }) => (
   <div className="interactive-lift cs-reel">
     <AutoPlayFrame id={id} title={`Compliance video ${index + 1}`} />
   </div>
 );
 
-const Pill: React.FC<{ children: React.ReactNode; light?: boolean }> = ({ children, light }) => (
+export const Pill: React.FC<{ children: React.ReactNode; light?: boolean }> = ({ children, light }) => (
   <div
     style={{
       display: 'inline-flex',
@@ -188,7 +188,7 @@ const Pill: React.FC<{ children: React.ReactNode; light?: boolean }> = ({ childr
   </div>
 );
 
-const CtaButton: React.FC<{ to: string; background: string; children: React.ReactNode; className?: string }> = ({ to, background, children, className = '' }) => (
+export const CtaButton: React.FC<{ to: string; background: string; children: React.ReactNode; className?: string }> = ({ to, background, children, className = '' }) => (
   <Link
     to={to}
     className={`interactive-button ${className}`}
@@ -218,7 +218,7 @@ const PackageFeature: React.FC<{ text: string }> = ({ text }) => (
   </li>
 );
 
-const FaqToggle: React.FC<{ open: boolean }> = ({ open }) => (
+export const FaqToggle: React.FC<{ open: boolean }> = ({ open }) => (
   <span aria-hidden="true" style={{ position: 'relative', width: 24, height: 24, flexShrink: 0, display: 'inline-block' }}>
     <img src={open ? faqOpenCircle : faqClosedCircle} alt="" width={24} height={24} style={{ position: 'absolute', inset: 0 }} />
     <img

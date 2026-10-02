@@ -14,7 +14,7 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: 'DS Network', to: '/ds-network', children: [{ label: 'DS Portal', to: '/portal' }] },
-  { label: 'Our Services', children: [{ label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' }] },
+ // { label: 'Our Services', children: [{ label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' }] },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'Event', to: '/event', children: [{ label: 'Booked', to: '/booked' }] },
   { label: 'Free Resources', to: '/resources' },

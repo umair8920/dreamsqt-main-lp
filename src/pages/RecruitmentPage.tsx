@@ -66,8 +66,8 @@ const DIARY_STEPS = [
 ];
 
 // TODO: swap for the real store URLs once provided.
-const APP_STORE_URL = '#';
-const GOOGLE_PLAY_URL = '#';
+const APP_STORE_URL = 'https://apps.apple.com/pk/app/twoth-match/id6756213665';
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.medical.dental.twoth.match';
 
 const StoreBadge: React.FC<{ href: string; small: string; big: string; children: React.ReactNode }> = ({ href, small, big, children }) => (
   <a

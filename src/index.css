@@ -2514,6 +2514,8 @@ body {
 /* Hero background video: sized as a "cover" box against its own container */
 .cs-hero-video { position: absolute; inset: 0; overflow: hidden; pointer-events: none; container-type: size; }
 .cs-hero-video iframe { position: absolute; top: 50%; left: 50%; width: max(100cqw, 177.78cqh); height: max(100cqh, 56.25cqw); transform: translate(-50%, -50%); border: 0; }
+.pm-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.pm-intro-video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* Project Management & Build page */
 .pm-build-controls { display: flex; justify-content: flex-end; gap: 12px; margin: 40px 0 20px; }

@@ -4,7 +4,6 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollReveal } from '../components/ScrollReveal';
 import {
-  AutoPlayFrame,
   CtaButton,
   FaqToggle,
   Pill,
@@ -12,16 +11,17 @@ import {
   CREAM,
   GOLD,
   INK,
-  INTRO_VIDEO_ID,
   PEACH,
-  QUICKSAND,
-  REEL_IDS,
   SAND,
   SF,
 } from './ComplianceSetUpPage';
 import hvacImg from '../assets/ourservicesicons/pm-hvac.png';
 import deconImg from '../assets/ourservicesicons/pm-decon.png';
 import plumbingImg from '../assets/ourservicesicons/pm-plumbing.png';
+import surgeryImg from '../assets/ourservicesicons/pm-surgery.png';
+import planningImg from '../assets/ourservicesicons/pm-planning.png';
+import heroVideo from '../assets/pm-hero.mp4';
+import introVideo from '../assets/pm-intro.mp4';
 import xrayImg from '../assets/ourservicesicons/pm-xrayImg.png';
 import savingsBg from '../assets/ourservicesicons/pm-savings-bg.png';
 import managerImg from '../assets/ourservicesicons/pm-manager.jpg';
@@ -34,6 +34,43 @@ import stepHandover from '../assets/ourservicesicons/pm-step-handover.svg';
 import pmCheck from '../assets/ourservicesicons/pm-check.svg';
 import carouselNext from '../assets/ourservicesicons/carousel-next-dark.svg';
 import carouselPrev from '../assets/ourservicesicons/carousel-prev-dark.svg';
+
+const AutoVideo: React.FC<{ src: string; className?: string }> = ({ src, className }) => (
+  <video className={className} src={src} autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
+);
+
+// Autoplays muted (browser rule); the button lets the visitor turn sound on.
+const SoundVideo: React.FC<{ src: string; className?: string }> = ({ src, className }) => {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted && v.paused) v.play().catch(() => {});
+  };
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <video ref={ref} className={className} src={src} autoPlay muted loop playsInline preload="auto" />
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={muted ? 'Unmute video' : 'Mute video'}
+        aria-pressed={!muted}
+        className="interactive-button"
+        style={{ position: 'absolute', right: 16, bottom: 16, width: 44, height: 44, borderRadius: '50%', border: 'none', background: 'rgba(19,19,19,0.7)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#fff" />
+          {muted ? <path d="M23 9l-6 6M17 9l6 6" /> : <path d="M15.5 8.5a5 5 0 010 7M19 5a10 10 0 010 14" />}
+        </svg>
+      </button>
+    </div>
+  );
+};
+
+const REEL_IDS = ['lishNutZ__I', 'LcQQga0tezA', 'ZHHUHwqD3mA', 'M3pLSvX1nBs'];
 
 // Order follows the Figma frame (left to right); the surgery card has no photo in the design.
 const BUILD_CARDS = [
@@ -48,7 +85,7 @@ const BUILD_CARDS = [
     body: 'Clean-to-dirty zoning, instrument workflow, airflow and cabinetry laid out to HTM 01-05 guidance, ready for validation and audit.',
   },
   {
-    img: deconImg,
+    img: surgeryImg,
     title: 'Surgery set-up to CQC standards.',
     body: 'Surgery layouts planned around chair orientation, natural light, clinical hand-wash sinks, storage and chaperone space.',
   },
@@ -63,7 +100,7 @@ const BUILD_CARDS = [
     body: 'Room shielding and X-ray and OPG positioning coordinated with your Radiation Protection Adviser.',
   },
   {
-    img: plumbingImg,
+    img: planningImg,
     title: 'Planning, building control and fire safety.',
     body: 'Change of use, building regulations, fire safety and disabled access managed alongside the build, so nothing holds up registration.',
   },
@@ -137,8 +174,9 @@ export const ProjectManagementPage: React.FC = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="cs-hero" style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden', background: GOLD }}>
+      <section className="cs-hero" style={{ position: 'relative', width: '100%', height: 1100, overflow: 'hidden', background: GOLD }}>
         <TopBar />
+        <AutoVideo src={heroVideo} className="pm-hero-video" />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #131313 10.6%, rgba(39,25,0,0.71) 52.9%, #131313 100%)' }} />
         <Header variant="dark" />
 
@@ -167,7 +205,7 @@ export const ProjectManagementPage: React.FC = () => {
               className="interactive-lift cs-intro-video"
               style={{ overflow: 'hidden', background: '#d9d9d9', borderRadius: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              <AutoPlayFrame id={INTRO_VIDEO_ID} title="Project management and build video" />
+              <SoundVideo src={introVideo} className="pm-intro-video" />
             </div>
           </ScrollReveal>
           <ScrollReveal variant="right" className="cs-intro-copy-wrap">
@@ -227,7 +265,7 @@ export const ProjectManagementPage: React.FC = () => {
                   ) : (
                     <div className="pm-card-img" style={{ background: '#fff' }} />
                   )}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: '0 0 10px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: '0 10px 10px' }}>
                     <h3 style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em', color: INK, lineHeight: 1.2, margin: 0 }}>{c.title}</h3>
                     <p style={{ fontFamily: SF, fontSize: 16, letterSpacing: '-0.02em', color: INK, lineHeight: 1.3, margin: 0 }}>{c.body}</p>
                   </div>
@@ -319,13 +357,13 @@ export const ProjectManagementPage: React.FC = () => {
                         className="interactive-text-parent"
                         style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, minHeight: 60, padding: '18px 20px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', boxSizing: 'border-box' }}
                       >
-                        <span className="interactive-text" style={{ fontFamily: QUICKSAND, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
+                        <span className="interactive-text" style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
                         <FaqToggle open={open} />
                       </button>
                       {f.a && (
                         <div style={{ display: 'grid', gridTemplateRows: open ? '1fr' : '0fr', transition: 'grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                           <div style={{ overflow: 'hidden' }}>
-                            <p style={{ fontFamily: QUICKSAND, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
+                            <p style={{ fontFamily: SF, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
                           </div>
                         </div>
                       )}

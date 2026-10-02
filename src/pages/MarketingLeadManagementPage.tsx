@@ -12,9 +12,6 @@ import {
   CREAM,
   GOLD,
   INK,
-  INTRO_VIDEO_ID,
-  QUICKSAND,
-  REEL_IDS,
   SAND,
   SF,
 } from './ComplianceSetUpPage';
@@ -28,6 +25,10 @@ import stepApprovals from '../assets/ourservicesicons/pm-step-approvals.svg';
 import stepBuild from '../assets/ourservicesicons/pm-step-build.svg';
 import stepEquipment from '../assets/ourservicesicons/pm-step-equipment.svg';
 import stepHandover from '../assets/ourservicesicons/pm-step-handover.svg';
+
+const HERO_VIDEO_ID = 'qAZ8MGXT2r0';
+const INTRO_VIDEO_ID = 'KCINTcgIY5E';
+const REEL_IDS = ['Y3AR7tUL7fk', 'tRmmzW5GOC4', 'M_p3BtDl2u4', 'uSKsBSZLj1g'];
 
 const DIARY_STEPS = [
   { icon: stepSite, title: 'Launch campaigns', body: 'Opening campaigns across social media and Google, set up and managed to build your patient list before and after you open.' },
@@ -86,6 +87,14 @@ export const MarketingLeadManagementPage: React.FC = () => {
       {/* Hero */}
       <section className="cs-hero" style={{ position: 'relative', width: '100%', height: 850, overflow: 'hidden', background: GOLD }}>
         <TopBar />
+        <div className="cs-hero-video" aria-hidden="true">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${HERO_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${HERO_VIDEO_ID}&controls=0&disablekb=1&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3`}
+            title="Marketing and lead management background video"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            tabIndex={-1}
+          />
+        </div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #131313 10.6%, rgba(39,25,0,0.71) 52.9%, #131313 100%)' }} />
         <Header variant="dark" />
 
@@ -200,13 +209,13 @@ export const MarketingLeadManagementPage: React.FC = () => {
                         className="interactive-text-parent"
                         style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, minHeight: 60, padding: '18px 20px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', boxSizing: 'border-box' }}
                       >
-                        <span className="interactive-text" style={{ fontFamily: QUICKSAND, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
+                        <span className="interactive-text" style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
                         <FaqToggle open={open} />
                       </button>
                       {f.a && (
                         <div style={{ display: 'grid', gridTemplateRows: open ? '1fr' : '0fr', transition: 'grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                           <div style={{ overflow: 'hidden' }}>
-                            <p style={{ fontFamily: QUICKSAND, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
+                            <p style={{ fontFamily: SF, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
                           </div>
                         </div>
                       )}

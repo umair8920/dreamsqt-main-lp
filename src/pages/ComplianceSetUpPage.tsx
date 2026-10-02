@@ -21,7 +21,6 @@ import carouselNext from '../assets/ourservicesicons/carousel-next.svg';
 import carouselPrev from '../assets/ourservicesicons/carousel-prev.svg';
 
 export const SF = '"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
-export const QUICKSAND = 'Quicksand,"SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,sans-serif';
 export const GOLD = '#925E02';
 export const CREAM = '#FCF6EF';
 export const SAND = '#F4EEE5';
@@ -81,6 +80,7 @@ const MANAGED_FEATURES = [
 
 const PACKAGES = [
   { price: '£750', name: 'CQC Registration', features: REGISTRATION_FEATURES, featured: false, intro: '' },
+  { price: '£299 / month', name: 'Smart Managed Service', features: MANAGED_FEATURES, featured: false, intro: '' },
   {
     price: '£2999',
     name: 'Squat Launch Pack',
@@ -88,7 +88,7 @@ const PACKAGES = [
     featured: true,
     intro: 'Everything in CQC Registration, plus full policies and procedures pack,',
   },
-  { price: '£299 / month', name: 'Smart Managed Service', features: MANAGED_FEATURES, featured: false, intro: '' },
+  
 ];
 
 const WHY_CARDS = [
@@ -467,6 +467,12 @@ export const ComplianceSetUpPage: React.FC = () => {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal>
+            <p style={{ fontFamily: SF, fontSize: 16, fontWeight: 400, fontStyle: 'italic', lineHeight: '100%', letterSpacing: 0, textAlign: 'center', color: INK, margin: '40px 0 0' }}>
+              Split your payment into 3 instalments using Klarna.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -511,13 +517,13 @@ export const ComplianceSetUpPage: React.FC = () => {
                       className="interactive-text-parent"
                       style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, minHeight: 60, padding: '18px 20px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', boxSizing: 'border-box' }}
                     >
-                      <span className="interactive-text" style={{ fontFamily: QUICKSAND, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
+                      <span className="interactive-text" style={{ fontFamily: SF, fontSize: 18, fontWeight: 700, color: '#000', lineHeight: 1.3 }}>{f.q}</span>
                       <FaqToggle open={open} />
                     </button>
                     {f.a && (
                       <div style={{ display: 'grid', gridTemplateRows: open ? '1fr' : '0fr', transition: 'grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                         <div style={{ overflow: 'hidden' }}>
-                          <p style={{ fontFamily: QUICKSAND, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
+                          <p style={{ fontFamily: SF, fontSize: 14, color: '#000', lineHeight: 1.3, margin: 0, padding: '0 20px 18px', maxWidth: 740 }}>{f.a}</p>
                         </div>
                       </div>
                     )}

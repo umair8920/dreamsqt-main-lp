@@ -8,12 +8,13 @@ const GOLD = '#925E02';
 
 interface NavLink {
   label: string;
-  to: string;
+  to?: string;
   children?: { label: string; to: string }[];
 }
 
 const NAV_LINKS: NavLink[] = [
   { label: 'DS Network', to: '/ds-network', children: [{ label: 'DS Portal', to: '/portal' }] },
+  { label: 'Our Services', children: [{ label: 'Compliance Set-Up', to: '/services/squat-practice-compliance' }] },
   { label: 'Cost Calculator', to: '/cost-calculator' },
   { label: 'Event', to: '/event', children: [{ label: 'Booked', to: '/booked' }] },
   { label: 'Free Resources', to: '/resources' },
@@ -114,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
       return (
         <Link
           key={link.label}
-          to={link.to}
+          to={link.to!}
           className="interactive-text-parent header-nav-link"
           onClick={closeMenus}
           style={linkStyle}
@@ -136,17 +137,31 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
           if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenDropdown((cur) => (cur === link.label ? null : cur));
         }}
       >
-        <Link
-          to={link.to}
-          className="interactive-text-parent header-nav-link"
-          aria-haspopup="true"
-          aria-expanded={dropdownOpen}
-          onClick={closeMenus}
-          style={{ ...linkStyle, gap: 6 }}
-        >
-          <span className="interactive-text">{link.label}</span>
-          <Chevron open={dropdownOpen} />
-        </Link>
+        {link.to ? (
+          <Link
+            to={link.to}
+            className="interactive-text-parent header-nav-link"
+            aria-haspopup="true"
+            aria-expanded={dropdownOpen}
+            onClick={closeMenus}
+            style={{ ...linkStyle, gap: 6 }}
+          >
+            <span className="interactive-text">{link.label}</span>
+            <Chevron open={dropdownOpen} />
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="interactive-text-parent header-nav-link"
+            aria-haspopup="true"
+            aria-expanded={dropdownOpen}
+            onClick={() => setOpenDropdown((cur) => (cur === link.label ? null : link.label))}
+            style={{ ...linkStyle, gap: 6, background: 'none', border: 'none', cursor: 'pointer' }}
+          >
+            <span className="interactive-text">{link.label}</span>
+            <Chevron open={dropdownOpen} />
+          </button>
+        )}
         <div
           className="header-dropdown"
           style={{
@@ -201,14 +216,18 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
 
   const mobileItems = NAV_LINKS.map((link) => (
     <React.Fragment key={link.label}>
-      <Link
-        to={link.to}
-        className="interactive-text-parent header-nav-link"
-        onClick={closeMenus}
-        style={{ ...linkStyle, justifyContent: 'flex-start' }}
-      >
-        <span className="interactive-text">{link.label}</span>
-      </Link>
+      {link.to ? (
+        <Link
+          to={link.to}
+          className="interactive-text-parent header-nav-link"
+          onClick={closeMenus}
+          style={{ ...linkStyle, justifyContent: 'flex-start' }}
+        >
+          <span className="interactive-text">{link.label}</span>
+        </Link>
+      ) : (
+        <div style={{ ...linkStyle, justifyContent: 'flex-start' }}>{link.label}</div>
+      )}
       {link.children?.map((child) => (
         <Link
           key={child.label}
@@ -292,7 +311,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'dark', hideNav = fals
               className="header-nav page-load-reveal page-load-reveal--delay-3"
               style={{
                 flex: 1,
-                maxWidth: 820,
+                maxWidth: 900,
                 height: 41,
                 display: 'flex',
                 alignItems: 'center',

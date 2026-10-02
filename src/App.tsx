@@ -22,6 +22,7 @@ import { EventPage } from './pages/Event';
 import { ResourcesPage } from './pages/ResourcesPage';
 import { BookedPage } from './pages/BookedPage';
 import { ContactPage } from './pages/ContactPage';
+import { ComplianceSetUpPage } from './pages/ComplianceSetUpPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/event" element={<EventPage />} />
         <Route path="/booked" element={<BookedPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/services/squat-practice-compliance" element={<ComplianceSetUpPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
